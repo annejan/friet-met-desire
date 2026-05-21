@@ -13,6 +13,31 @@ bassline rhythm, melodic contours, chord progressions). The output SIDs are
 *remixes* that take those patterns and re-arrange them for the C64's 3-voice
 SID chip in a happy-hardcore style.
 
+### IBM-cleanroom-style pipeline
+
+To keep the remix legally and creatively clean, the build follows a
+three-stage cleanroom separation. Each stage reads only the output of the
+previous one — never the original MIDIs:
+
+```
+midi/*.mid  ──>  extract_patterns.py  ──>  docs/song_spec.yaml
+                                                  │
+                                                  ▼
+                                            compose.py  ──>  docs/composition.yaml
+                                                                       │
+                                                                       ▼
+                                                                 synth.py  ──>  out/friet_clean.sid
+```
+
+| Phase | Tool                        | Reads          | Writes              |
+|-------|-----------------------------|----------------|---------------------|
+| 1     | `src/extract_patterns.py`   | the MIDI       | `docs/song_spec.yaml` (BPM, key, 1-bar rhythm grids, contour, chord roots) |
+| 2     | `src/compose.py`            | the spec only  | `docs/composition.yaml` (sectioned event list, happy-hardcore arrangement) |
+| 3     | `src/synth.py`              | composition only | `out/friet_clean.sid` (PSID v2) |
+
+The legacy `midi2sid.py` and `midi2sid_hh.py` are direct conversions (no
+cleanroom separation) — kept around for comparison.
+
 ## Layout
 
 ```
@@ -45,17 +70,21 @@ friet/
 
 ```sh
 source .venv/bin/activate
-python src/analyze_midi.py                          # writes stems/ + prints report
-python src/midi2sid.py                              # -> out/friet_from_desire.sid
-python src/midi2sid_hh.py                           # -> out/friet_from_desire_hh.sid
+
+# Cleanroom pipeline — read MIDI once, produce a fresh remix:
+make extract compose synth          # -> out/friet_clean.sid
+make preview-clean                   # -> out/friet_clean.mp3
+
+# Legacy direct conversions (for comparison):
+make hh                              # -> out/friet_from_desire_hh.sid
+make port                            # -> out/friet_from_desire.sid
+make preview                         # render all .mp3 previews
+
+# Research:
+make analyze                         # dump per-track stems + a textual report
 ```
 
-Listen with VICE's `vsid out/friet_from_desire_hh.sid` (it's the SID we like
-best), or render a WAV preview:
-
-```sh
-vsid -sounddev wav -soundarg out/preview.wav -limitcycles 60000000 out/friet_from_desire_hh.sid
-```
+Listen interactively: `vsid out/friet_clean.sid`.
 
 ## Tools required
 

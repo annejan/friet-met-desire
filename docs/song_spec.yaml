@@ -1,0 +1,180 @@
+# Abstract song specification (Phase 1 of cleanroom remix pipeline).
+# The composer and synthesiser MUST read ONLY this file, never the MIDI.
+
+source_midi: Gala_Freed_From_Desire.mid
+bpm: 120.0
+time_signature: 4/4
+length_bars: 102
+length_seconds: 204.3
+key:
+  root: D
+  mode: minor
+elements:
+  bass:
+    first_bar: 30
+    last_bar: 102
+    span: C2..F3
+    avg_pitch: 42.9
+    note_count: 428
+    rhythm_1bar_16ths: X..X..X.X..X..X.
+    contour_first32:
+    - 0
+    - 0
+    - 7
+    - 0
+    - 0
+    - -4
+    - 0
+    - 0
+    - -5
+    - 0
+    - 0
+    - 2
+    - 0
+    - 0
+    - 7
+    - 0
+    - 0
+    - -2
+    - 0
+    - 0
+    - -7
+    - 0
+    - 0
+    - 2
+    - 0
+    - 0
+    - 7
+    - 0
+    - 0
+    - -4
+    - 0
+  chord:
+    first_bar: 2
+    last_bar: 102
+    span: D4..D6
+    avg_pitch: 74
+    note_count: 345
+    rhythm_1bar_16ths: X...X..X..X...X.
+    contour_first32:
+    - 12
+    - 12
+    - -24
+    - 12
+    - 12
+    - -24
+    - 12
+    - 12
+    - -24
+    - 24
+    - -12
+    - -12
+    - 12
+    - 12
+    - -24
+    - 24
+    - -12
+    - -12
+    - 24
+    - -12
+    - -12
+    - 12
+    - 12
+    - -24
+    - 12
+    - 12
+    - -24
+    - 24
+    - -12
+    - -12
+    - 12
+    chord_progression:
+    - D
+  melody:
+    first_bar: 5
+    last_bar: 93
+    span: A4..F5
+    avg_pitch: 74.1
+    note_count: 422
+    rhythm_1bar_16ths: X..X..X.X..X..X.
+    contour_first32:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1
+    - -3
+    - 0
+    - -2
+    - 0
+    - 0
+    - 0
+    - -2
+    - 6
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1
+    - -3
+    - 0
+    - -2
+    - 0
+    - 0
+    - 0
+    - -2
+    - 6
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1
+  hook:
+    first_bar: 46
+    last_bar: 61
+    span: D3..F3
+    avg_pitch: 50.8
+    note_count: 128
+    rhythm_1bar_16ths: X.XX..X.X.XX..X.
+    contour_first32:
+    - 0
+    - 0
+    - 3
+    - -3
+    - 0
+    - 0
+    - 3
+    - -3
+    - 0
+    - 0
+    - 3
+    - -3
+    - 0
+    - 0
+    - 3
+    - -3
+    - 0
+    - 0
+    - 3
+    - -3
+    - 0
+    - 0
+    - 3
+    - -3
+    - 0
+    - 0
+    - 3
+    - -3
+    - 0
+    - 0
+    - 3
+  drums:
+    crash: X...............
+    kick: X...X...XX..X..X
+    clap: '....X.......X...'
+    ride: X.X.X.X.X.X.X.X.
+    open_hat: ..X...X...X...X.
+    hat: X...X...X...X...
+    snare: XXXXXXXXXXXXXXXX
+    shaker: X...X...X...XXX.
+    tambourine: XXXXXXXXXXXXXXXX
