@@ -97,6 +97,15 @@ preview-hh-new: $(HH_NEW_MP3)
 $(HH_NEW_MP3): $(HH_NEW_SID)
 	$(TOOLS_DIR)/render-preview.sh $< $@ $(PREVIEW_SECONDS)
 
+# Stand-alone C64 .prg that plays the SID and shows lyrics in sync.
+# Build with KickAssembler (kickass/KickAss.jar). Run with `x64sc out/friet_player.prg`.
+PLAYER_PRG := $(OUT_DIR)/friet_player.prg
+.PHONY: player
+player: $(PLAYER_PRG)
+$(PLAYER_PRG): $(SRC_DIR)/build_player.py $(SRC_DIR)/player/friet_player.asm \
+               $(CLEAN_SID) docs/melody_lyrics.yaml
+	$(PYTHON) $(SRC_DIR)/build_player.py
+
 # --- previews ----
 preview: preview-clean preview-melody
 

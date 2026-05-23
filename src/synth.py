@@ -95,6 +95,59 @@ def encode_voice_3byte(spans, total_frames):
     buf += bytes([0, 0, 0])  # loop sentinel
     return buf
 
+def events_to_spans_ctrl(events, default_ctrl):
+    """Like events_to_spans but each span carries a per-event ctrl byte
+    (waveform without gate). Rest gaps inherit the previous span's ctrl
+    so a gate-off doesn't change the waveform."""
+    if not events:
+        return []
+    out = []
+    last_end = 0
+    last_ctrl = default_ctrl
+    for ev in events:
+        s = ev['frame']
+        e = s + ev.get('dur_frames', 5)
+        n = ev['note']
+        ctrl = ev.get('ctrl', default_ctrl)
+        if s > last_end:
+            out.append((last_end, s, 0, last_ctrl))  # rest
+        out.append((s, e, n, ctrl))
+        last_end = e
+        last_ctrl = ctrl
+    return out
+
+def encode_voice_4byte(spans_with_ctrl, total_frames, default_ctrl):
+    """Encode (start, end, note, ctrl) spans as 4-byte events:
+    dur_hi, dur_lo, note, ctrl. ctrl is the waveform byte without gate
+    (the player ORs gate=$01 for notes, writes the bare ctrl for rests)."""
+    buf = bytearray()
+    last_end = 0
+    last_ctrl = default_ctrl
+    for s, e, n, c in spans_with_ctrl:
+        if s > last_end:
+            dur = s - last_end
+            while dur > 0xFFFF:
+                buf += bytes([0xFF, 0xFF, 0, last_ctrl & 0xFE])
+                dur -= 0xFFFF
+            buf += bytes([(dur >> 8) & 0xFF, dur & 0xFF, 0, last_ctrl & 0xFE])
+        dur = e - s
+        if dur < 1: dur = 1
+        while dur > 0xFFFF:
+            buf += bytes([0xFF, 0xFF, n & 0x7F, c & 0xFE])
+            dur -= 0xFFFF
+        buf += bytes([(dur >> 8) & 0xFF, dur & 0xFF, n & 0x7F, c & 0xFE])
+        last_end = e
+        last_ctrl = c
+    if total_frames > last_end:
+        dur = total_frames - last_end
+        while dur > 0xFFFF:
+            buf += bytes([0xFF, 0xFF, 0, last_ctrl & 0xFE])
+            dur -= 0xFFFF
+        if dur > 0:
+            buf += bytes([(dur >> 8) & 0xFF, dur & 0xFF, 0, last_ctrl & 0xFE])
+    buf += bytes([0, 0, 0, 0])  # loop sentinel
+    return buf
+
 def build_drum_timeline(drum_events, total_frames):
     """List of {frame, kind} -> RLE-compressed (dur, note, ctrl, ad, sr) events."""
     REST = (0, 0x80, 0x00, 0x09)
@@ -144,7 +197,8 @@ def main():
     bass_spans = events_to_spans(comp['voices']['bass'])
     lead_spans = events_to_spans(comp['voices']['lead'])
 
-    v1_data = encode_voice_3byte(bass_spans, total_frames)
+    bass_spans_ctrl = events_to_spans_ctrl(comp['voices']['bass'], default_ctrl=WF_PULSE)
+    v1_data = encode_voice_4byte(bass_spans_ctrl, total_frames, default_ctrl=WF_PULSE)
     v2_data = encode_voice_3byte(lead_spans, total_frames)
     v3_data = encode_v3(build_drum_timeline(comp['voices']['drums'], total_frames))
 
@@ -182,6 +236,7 @@ ZP_V2_LAST = $0A         ; last lead note played (0 = rest); drives legato
 ZP_V2BASE_LO = $0B       ; V2 base freq lo (vibrato adds to this)
 ZP_V2BASE_HI = $0C       ; V2 base freq hi
 ZP_VIB_IDX   = $0D       ; vibrato LFO phase
+ZP_V0_CTRL   = $0E       ; ctrl byte read from V1 event stream
 
 *=$1000
     jmp init_routine
@@ -315,6 +370,7 @@ d0lo:
     dec ZP_CNT0
     rts
 
+; --- V1 4-byte event: dur_hi, dur_lo, note, ctrl (waveform, no gate) ---
 fetch0:
     ldy #0
     lda (ZP_V0),y
@@ -323,7 +379,7 @@ fetch0:
     lda (ZP_V0),y
     sta ZP_CNT0
     iny
-    lda (ZP_V0),y
+    lda (ZP_V0),y         ; A = note
     pha
     lda ZP_CNT0
     ora ZP_CNT0+1
@@ -335,8 +391,10 @@ fetch0:
     sta ZP_V0+1
     rts
 f0go:
-    pla
-    pha
+    iny
+    lda (ZP_V0),y         ; A = ctrl (waveform without gate)
+    sta ZP_V0_CTRL        ; stash for use after note/rest branch
+    pla                   ; A = note
     cmp #0
     beq f0rest
     sec
@@ -346,19 +404,18 @@ f0go:
     sta SID+0
     lda freq_hi,x
     sta SID+1
-    lda #${WF_PULSE:02X}
+    lda ZP_V0_CTRL        ; waveform alone -> gate off
     sta SID+4
-    lda #${WF_PULSE|1:02X}
+    ora #$01              ; OR gate -> attack
     sta SID+4
     jmp f0adv
 f0rest:
-    lda #${WF_PULSE:02X}
+    lda ZP_V0_CTRL        ; rest: waveform without gate (release)
     sta SID+4
 f0adv:
-    pla
     clc
     lda ZP_V0
-    adc #3
+    adc #4
     sta ZP_V0
     bcc f0done
     inc ZP_V0+1

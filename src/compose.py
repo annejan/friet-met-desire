@@ -231,6 +231,21 @@ def main():
                     role = 'root' if int(n[2]) == 50 else 'third'  # 50 = D3 in src
                     unit.append((rel_b, n[1], role))
 
+                # Bass timbre per output section — gives "different
+                # instruments for different parts". Waveform constants must
+                # match synth.py's WF_TRI / WF_PULSE / WF_SAW.
+                SECTION_BASS_CTRL = {
+                    'intro':           0x10,  # triangle — soft pedal
+                    'verse1':          0x10,
+                    'prechorus1':      0x10,
+                    'chorus1':         0x40,  # pulse — punchy
+                    'postchorus_nana': 0x40,
+                    'breathe1':        0x40,
+                    'chorus2':         0x40,
+                    'breathe2':        0x40,
+                    'chorus3':         0x20,  # sawtooth — climactic final reprise
+                }
+
                 # D-minor chord cycle (Dm - F - Bb - C). Notes are in bass
                 # register, kept inside ~9 semitones so the bass line doesn't
                 # jump around too much.
@@ -261,11 +276,12 @@ def main():
                             src_b = src_loop + s_off
                             chord = chord_at(src_b)
                             pitch = CHORDS[chord][role]
-                            for out_b, _label in remap(src_b):
+                            for out_b, label in remap(src_b):
                                 bass_events.append({
                                     'frame': int(round(out_b * fbeat_groove)),
                                     'note':  pitch,
                                     'dur_frames': max(3, int(round(max(0.1, d_off) * fbeat_groove))),
+                                    'ctrl':  SECTION_BASS_CTRL.get(label, 0x40),
                                 })
                         src_loop += period_beats
 

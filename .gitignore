@@ -7,3 +7,8 @@ __pycache__/
 /tmp/
 .claude/
 tmp_midi/
+# Generated binary blobs imported by KickAssembler — rebuilt by build_player.py
+src/player/sid_body.bin
+src/player/lyric_table.bin
+src/player/banner_top.bin
+src/player/banner_bottom.bin
