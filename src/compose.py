@@ -162,8 +162,10 @@ def main():
         ( 54.5,  88.0, 'prechorus1'),
         ( 88.0, 117.5, 'chorus1'),
         (117.5, 149.5, 'postchorus_nana'),
-        ( 88.0, 117.5, 'chorus2'),   # reprise of chorus 1
-        ( 88.0, 117.5, 'chorus3'),   # reprise of chorus 1
+        (149.5, 153.5, 'breathe1'),   # 4-beat instrumental gap (drums + hook bass)
+        ( 88.0, 117.5, 'chorus2'),    # reprise of chorus 1
+        (149.5, 153.5, 'breathe2'),   # 4-beat gap
+        ( 88.0, 117.5, 'chorus3'),    # reprise of chorus 1
     ]
     out_offsets = []
     cur = 0.0
@@ -222,8 +224,12 @@ def main():
                 unit = [(n[0] - first_b, n[1], int(n[2]) - 12)
                         for n in t11 if (n[0] - first_b) < period_beats]
                 if unit:
+                    # Cover the union of all source ranges used by any segment
+                    # (not just the last segment) so the bass keeps going
+                    # through post-chorus and the breathing gaps too.
+                    max_src_end = max(src_e for _, src_e, _ in SEGMENTS)
                     src_loop = 0.0
-                    while src_loop < SEGMENTS[-1][1] + period_beats:
+                    while src_loop < max_src_end + period_beats:
                         for s_off, d_off, p_off in unit:
                             src_b = src_loop + s_off
                             for out_b, _label in remap(src_b):

@@ -10,7 +10,7 @@
 - **Format:** PSID v2 / `out/friet_clean.sid`
 - **Chip:** MOS 6581/8580 (PAL, 985 248 Hz)
 - **Player:** 50 Hz IRQ, init at $1000, play at $1003
-- **Length:** **1:44** clean build (120 BPM), **1:11** HH build (175 BPM);
+- **Length:** **1:48** clean build (120 BPM), **1:14** HH build (175 BPM);
   loops on reaching the end. See "Structure" below.
 
 ## Companion demo
@@ -23,16 +23,23 @@ broodtrommel"* — see <https://github.com/annejan/outline26-claude-c64>.
 Compose-time segment map (`SEGMENTS` in `src/compose.py`) re-orders the
 source MIDI to fit a happy-hardcore arrangement:
 
-| #  | Segment         | Source-beat range | Beats |
-|----|-----------------|-------------------|-------|
-| 1  | Intro           | 0.0 → 21.5        | 21.5  |
-| 2  | Verse 1         | 21.5 → 54.5       | 33.0  |
-| 3  | Pre-chorus 1    | 54.5 → 88.0       | 33.5  |
-| 4  | Chorus 1        | 88.0 → 117.5      | 29.5  |
-| 5  | Post-chorus (Na-na) | 117.5 → 149.5 | 32.0  |
-| 6  | Chorus 2 reprise | 88.0 → 117.5     | 29.5  |
-| 7  | Chorus 3 reprise | 88.0 → 117.5     | 29.5  |
-|    | **Total**       |                   | **208.5** |
+| #  | Segment            | Source-beat range  | Beats |
+|----|--------------------|--------------------|-------|
+| 1  | Intro              | 0.0 → 21.5         | 21.5  |
+| 2  | Verse 1            | 21.5 → 54.5        | 33.0  |
+| 3  | Pre-chorus 1       | 54.5 → 88.0        | 33.5  |
+| 4  | Chorus 1           | 88.0 → 117.5       | 29.5  |
+| 5  | Post-chorus (Na-na)| 117.5 → 149.5      | 32.0  |
+| 6  | **Breathe 1**      | 149.5 → 153.5      |  4.0  |
+| 7  | Chorus 2 reprise   | 88.0 → 117.5       | 29.5  |
+| 8  | **Breathe 2**      | 149.5 → 153.5      |  4.0  |
+| 9  | Chorus 3 reprise   | 88.0 → 117.5       | 29.5  |
+|    | **Total**          |                    | **216.5** |
+
+Breathe segments are 4-beat instrumental gaps (drums + T11 hook bass keep
+going, no vocal) so each chorus reprise gets room to breathe before the
+next one hits. Total loop: **1:48** at 120 BPM clean build, **1:14** at
+175 BPM HH build.
 
 Each chorus reprise (#6 and #7) replays the same source range as Chorus 1,
 so the vocal + bass + drum events are bar-for-bar identical. A synthetic
