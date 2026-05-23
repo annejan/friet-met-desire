@@ -21,15 +21,21 @@ PAL_CLK = 985248.0
 PAL_HZ  = 50.0
 
 WF_TRI, WF_SAW, WF_PULSE, WF_NOISE = 0x10, 0x20, 0x40, 0x80
-V1_AD, V1_SR = 0x05, 0x82
-V2_AD, V2_SR = 0x07, 0xF8
+# Bass: instant attack, hold sustain so each stab has body, fast release
+V1_AD, V1_SR = 0x08, 0xC4
+# Lead (triangle = vocal-ish tone): gentle 24 ms attack so legato pitch
+# changes don't click, full sustain, medium release for breathy phrase tails.
+V2_AD, V2_SR = 0x12, 0xF6
 
 # Drum table: kind -> (freq_table_index, dur_frames, ad, sr)
+# Long decay times (AD high nibble) so the envelope actually rings out
+# instead of decaying to silence in 6 ms. Sustain=0 with release=0 means
+# the envelope decays naturally toward 0 at the decay rate during gate-on.
 DRUM_KIT = {
-    'kick':  (2,  5, 0x00, 0x09),
-    'snare': (36, 4, 0x00, 0x06),
-    'hat':   (78, 2, 0x00, 0x04),
-    'crash': (60, 18, 0x00, 0x0C),
+    'kick':  (2,  6, 0x09, 0x00),   # decay 720 ms — full "boom" body
+    'snare': (36, 5, 0x07, 0x00),   # decay 168 ms — sharp snap
+    'hat':   (78, 2, 0x02, 0x00),   # decay  24 ms — tick
+    'crash': (60, 20, 0x0A, 0x09),  # decay 1500 ms + release tail
 }
 
 NOTE_LO, NOTE_HI = 12, 119
@@ -167,6 +173,7 @@ ZP_CNT1 = $04
 ZP_CNT2 = $06
 ZP_FILT_CUR = $08
 ZP_FILT_TGT = $09
+ZP_V2_LAST = $0A         ; last lead note played (0 = rest); drives legato
 
 *=$1000
     jmp init_routine
@@ -188,23 +195,27 @@ init_clr:
     sta SID+12
     lda #${V2_SR:02X}
     sta SID+13
-    ; V1 pulse width — narrow for stabby bass
+    ; V1 pulse width — wider for fatter bass body
     lda #$00
     sta SID+2
-    lda #$04
+    lda #$08
     sta SID+3
-    ; Filter — V2 routed, resonance for hoover
+    ; V2 pulse width — 50% duty for a chirpy square-wave chiptune lead
+    lda #$00
+    sta SID+9           ; V2 PW LO
+    lda #$08
+    sta SID+10          ; V2 PW HI
+    ; Filter — completely OFF. The lead is a clean triangle ("singer" tone)
+    ; and the bass is pulse; neither benefits from the resonant LP that was
+    ; previously eating the vocal.
     lda #$00
     sta SID+21
-    lda #$E0
     sta SID+22
-    lda #$92
     sta SID+23
-    lda #$1F
-    sta SID+24
-    lda #$E0
+    lda #$0F
+    sta SID+24          ; volume max, no filter mode
+    lda #$00
     sta ZP_FILT_CUR
-    lda #$40
     sta ZP_FILT_TGT
     lda #<v0_data
     sta ZP_V0
@@ -225,6 +236,7 @@ init_clr:
     sta ZP_CNT1+1
     sta ZP_CNT2
     sta ZP_CNT2+1
+    sta ZP_V2_LAST
     cli
     rts
 
@@ -341,42 +353,57 @@ fetch1:
     lda (ZP_V1),y
     sta ZP_CNT1
     iny
-    lda (ZP_V1),y
-    pha
+    lda (ZP_V1),y         ; A = note (0 means rest)
+    pha                   ; preserve note across sentinel check
     lda ZP_CNT1
     ora ZP_CNT1+1
     bne f1go
-    pla
+    pla                   ; sentinel: discard note, loop pointer
     lda #<v1_data
     sta ZP_V1
     lda #>v1_data
     sta ZP_V1+1
     rts
 f1go:
-    pla
-    pha
+    pla                   ; A = note
     cmp #0
-    beq f1rest
+    beq f1rest_path
+
+    ; NOTE event — always set frequency
+    tax                   ; X = note (preserve raw note for compare/stash)
     sec
     sbc #NOTE_LO
-    tax
-    lda freq_lo,x
+    tay
+    lda freq_lo,y
     sta SID+7
-    lda freq_hi,x
+    lda freq_hi,y
     sta SID+8
-    lda #${WF_SAW:02X}
+
+    ; Legato decision:
+    ;   - same pitch as last  -> retrigger gate (articulate "stutter")
+    ;   - last was rest       -> retrigger gate (phrase entry)
+    ;   - else (pitch change) -> LEGATO: keep gate on, only freq changes
+    cpx ZP_V2_LAST
+    beq f1retrig
+    lda ZP_V2_LAST
+    beq f1retrig
+    jmp f1stash
+f1retrig:
+    lda #${WF_TRI:02X}
     sta SID+11
-    lda #${WF_SAW|1:02X}
+    lda #${WF_TRI|1:02X}
     sta SID+11
-    ; Reset filter cutoff to open — creates hoover sweep on each note
-    lda #$E0
-    sta ZP_FILT_CUR
+f1stash:
+    stx ZP_V2_LAST
     jmp f1adv
-f1rest:
-    lda #${WF_SAW:02X}
+
+f1rest_path:
+    ; Drop gate so the envelope releases between phrases.
+    lda #${WF_TRI:02X}
     sta SID+11
+    lda #0
+    sta ZP_V2_LAST
 f1adv:
-    pla
     clc
     lda ZP_V1
     adc #3

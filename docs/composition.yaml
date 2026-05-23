@@ -7,1965 +7,4101 @@ bpm: 175
 key:
   root: D
   mode: minor
-length_bars: 36
-length_frames: 2519
+length_bars: 92
+length_frames: 9250
 sections:
 - name: intro
   bars: 4
-  intensity: 0.4
+  intensity: 0.6
+- name: verse
+  bars: 16
+  intensity: 0.7
 - name: build
   bars: 4
-  intensity: 0.7
-- name: drop_a
-  bars: 8
+  intensity: 0.85
+- name: chorus_a
+  bars: 16
   intensity: 1.0
-- name: breakdown
-  bars: 4
+- name: verse2
+  bars: 16
+  intensity: 0.75
+- name: break
+  bars: 8
   intensity: 0.5
 - name: build2
   bars: 4
-  intensity: 0.7
-- name: drop_b
-  bars: 8
+  intensity: 0.85
+- name: chorus_b
+  bars: 16
   intensity: 1.0
 - name: outro
-  bars: 4
-  intensity: 0.6
+  bars: 8
+  intensity: 0.7
 voices:
   bass:
-  - frame: 274
+  - frame: 2875
     note: 38
-    dur_frames: 3
-  - frame: 287
+    dur_frames: 14
+  - frame: 2894
     note: 38
-    dur_frames: 3
-  - frame: 300
+    dur_frames: 11
+  - frame: 2912
+    note: 38
+    dur_frames: 12
+  - frame: 2925
+    note: 45
+    dur_frames: 12
+  - frame: 2944
+    note: 45
+    dur_frames: 12
+  - frame: 2962
+    note: 45
+    dur_frames: 8
+  - frame: 2975
+    note: 41
+    dur_frames: 13
+  - frame: 2994
+    note: 41
+    dur_frames: 13
+  - frame: 3012
+    note: 41
+    dur_frames: 6
+  - frame: 3025
+    note: 36
+    dur_frames: 12
+  - frame: 3044
+    note: 36
+    dur_frames: 11
+  - frame: 3062
+    note: 36
+    dur_frames: 8
+  - frame: 3075
+    note: 38
+    dur_frames: 14
+  - frame: 3094
+    note: 38
+    dur_frames: 12
+  - frame: 3112
+    note: 38
+    dur_frames: 6
+  - frame: 3125
+    note: 45
+    dur_frames: 14
+  - frame: 3144
+    note: 45
+    dur_frames: 11
+  - frame: 3162
+    note: 45
+    dur_frames: 8
+  - frame: 3175
+    note: 43
+    dur_frames: 14
+  - frame: 3194
+    note: 43
+    dur_frames: 13
+  - frame: 3212
+    note: 43
+    dur_frames: 6
+  - frame: 3225
+    note: 36
+    dur_frames: 12
+  - frame: 3244
+    note: 36
+    dur_frames: 11
+  - frame: 3262
+    note: 36
+    dur_frames: 7
+  - frame: 3275
+    note: 38
+    dur_frames: 13
+  - frame: 3294
+    note: 38
+    dur_frames: 12
+  - frame: 3312
+    note: 38
+    dur_frames: 6
+  - frame: 3325
+    note: 45
+    dur_frames: 11
+  - frame: 3344
+    note: 45
+    dur_frames: 11
+  - frame: 3362
+    note: 45
+    dur_frames: 7
+  - frame: 3375
+    note: 41
+    dur_frames: 13
+  - frame: 3394
+    note: 41
+    dur_frames: 11
+  - frame: 3412
+    note: 41
+    dur_frames: 6
+  - frame: 3425
+    note: 36
+    dur_frames: 11
+  - frame: 3444
+    note: 36
+    dur_frames: 9
+  - frame: 3462
+    note: 36
+    dur_frames: 7
+  - frame: 3475
+    note: 38
+    dur_frames: 13
+  - frame: 3494
+    note: 38
+    dur_frames: 10
+  - frame: 3512
+    note: 38
+    dur_frames: 6
+  - frame: 3525
+    note: 45
+    dur_frames: 11
+  - frame: 3544
+    note: 45
+    dur_frames: 10
+  - frame: 3562
+    note: 45
+    dur_frames: 7
+  - frame: 3575
+    note: 36
+    dur_frames: 12
+  - frame: 3675
+    note: 38
+    dur_frames: 13
+  - frame: 3688
     note: 50
-    dur_frames: 3
-  - frame: 309
+    dur_frames: 5
+  - frame: 3694
+    note: 38
+    dur_frames: 12
+  - frame: 3712
+    note: 53
+    dur_frames: 9
+  - frame: 3725
+    note: 38
+    dur_frames: 12
+  - frame: 3738
     note: 50
-    dur_frames: 3
-  - frame: 321
+    dur_frames: 4
+  - frame: 3744
     note: 38
-    dur_frames: 3
-  - frame: 334
+    dur_frames: 9
+  - frame: 3762
+    note: 53
+    dur_frames: 4
+  - frame: 3775
     note: 38
-    dur_frames: 3
-  - frame: 343
-    note: 46
-    dur_frames: 3
-  - frame: 356
-    note: 46
-    dur_frames: 3
-  - frame: 369
-    note: 58
-    dur_frames: 3
-  - frame: 377
-    note: 58
-    dur_frames: 3
-  - frame: 390
-    note: 46
-    dur_frames: 3
-  - frame: 403
-    note: 46
-    dur_frames: 3
-  - frame: 411
-    note: 43
-    dur_frames: 3
-  - frame: 424
-    note: 43
-    dur_frames: 3
-  - frame: 437
-    note: 55
-    dur_frames: 3
-  - frame: 446
-    note: 55
-    dur_frames: 3
-  - frame: 459
-    note: 43
-    dur_frames: 3
-  - frame: 471
-    note: 43
-    dur_frames: 3
-  - frame: 480
-    note: 48
-    dur_frames: 3
-  - frame: 493
-    note: 48
-    dur_frames: 3
-  - frame: 506
-    note: 60
-    dur_frames: 3
-  - frame: 514
-    note: 60
-    dur_frames: 3
-  - frame: 527
-    note: 48
-    dur_frames: 3
-  - frame: 540
-    note: 48
-    dur_frames: 3
-  - frame: 549
-    note: 38
-    dur_frames: 3
-  - frame: 561
-    note: 38
-    dur_frames: 3
-  - frame: 574
+    dur_frames: 14
+  - frame: 3788
     note: 50
-    dur_frames: 3
-  - frame: 583
+    dur_frames: 5
+  - frame: 3794
+    note: 38
+    dur_frames: 12
+  - frame: 3812
+    note: 53
+    dur_frames: 6
+  - frame: 3825
+    note: 38
+    dur_frames: 12
+  - frame: 3838
     note: 50
-    dur_frames: 3
-  - frame: 596
+    dur_frames: 5
+  - frame: 3844
     note: 38
-    dur_frames: 3
-  - frame: 609
+    dur_frames: 9
+  - frame: 3862
+    note: 53
+    dur_frames: 7
+  - frame: 3875
     note: 38
-    dur_frames: 3
-  - frame: 617
-    note: 46
-    dur_frames: 3
-  - frame: 630
-    note: 46
-    dur_frames: 3
-  - frame: 643
-    note: 58
-    dur_frames: 3
-  - frame: 651
-    note: 58
-    dur_frames: 3
-  - frame: 664
-    note: 46
-    dur_frames: 3
-  - frame: 677
-    note: 46
-    dur_frames: 3
-  - frame: 686
-    note: 43
-    dur_frames: 3
-  - frame: 699
-    note: 43
-    dur_frames: 3
-  - frame: 711
-    note: 55
-    dur_frames: 3
-  - frame: 720
-    note: 55
-    dur_frames: 3
-  - frame: 733
-    note: 43
-    dur_frames: 3
-  - frame: 746
-    note: 43
-    dur_frames: 3
-  - frame: 754
-    note: 48
-    dur_frames: 3
-  - frame: 767
-    note: 48
-    dur_frames: 3
-  - frame: 780
-    note: 60
-    dur_frames: 3
-  - frame: 789
-    note: 60
-    dur_frames: 3
-  - frame: 801
-    note: 48
-    dur_frames: 3
-  - frame: 814
-    note: 48
-    dur_frames: 3
-  - frame: 823
-    note: 38
-    dur_frames: 3
-  - frame: 836
-    note: 38
-    dur_frames: 3
-  - frame: 849
+    dur_frames: 12
+  - frame: 3888
     note: 50
-    dur_frames: 3
-  - frame: 857
+    dur_frames: 5
+  - frame: 3894
+    note: 38
+    dur_frames: 10
+  - frame: 3912
+    note: 53
+    dur_frames: 4
+  - frame: 3925
+    note: 38
+    dur_frames: 12
+  - frame: 3938
     note: 50
-    dur_frames: 3
-  - frame: 870
+    dur_frames: 4
+  - frame: 3944
     note: 38
-    dur_frames: 3
-  - frame: 883
+    dur_frames: 10
+  - frame: 3962
+    note: 53
+    dur_frames: 4
+  - frame: 3975
     note: 38
-    dur_frames: 3
-  - frame: 891
-    note: 46
-    dur_frames: 3
-  - frame: 904
-    note: 46
-    dur_frames: 3
-  - frame: 917
-    note: 58
-    dur_frames: 3
-  - frame: 926
-    note: 58
-    dur_frames: 3
-  - frame: 939
-    note: 46
-    dur_frames: 3
-  - frame: 951
-    note: 46
-    dur_frames: 3
-  - frame: 960
-    note: 43
-    dur_frames: 3
-  - frame: 973
-    note: 43
-    dur_frames: 3
-  - frame: 986
-    note: 55
-    dur_frames: 3
-  - frame: 994
-    note: 55
-    dur_frames: 3
-  - frame: 1007
-    note: 43
-    dur_frames: 3
-  - frame: 1020
-    note: 43
-    dur_frames: 3
-  - frame: 1029
-    note: 48
-    dur_frames: 3
-  - frame: 1041
-    note: 48
-    dur_frames: 3
-  - frame: 1054
-    note: 60
-    dur_frames: 3
-  - frame: 1063
-    note: 60
-    dur_frames: 3
-  - frame: 1076
-    note: 48
-    dur_frames: 3
-  - frame: 1089
-    note: 48
-    dur_frames: 3
-  - frame: 1371
-    note: 38
-    dur_frames: 3
-  - frame: 1384
-    note: 38
-    dur_frames: 3
-  - frame: 1397
+    dur_frames: 12
+  - frame: 3988
     note: 50
-    dur_frames: 3
-  - frame: 1406
+    dur_frames: 4
+  - frame: 3994
+    note: 38
+    dur_frames: 9
+  - frame: 4012
+    note: 53
+    dur_frames: 5
+  - frame: 4025
+    note: 38
+    dur_frames: 12
+  - frame: 4038
     note: 50
-    dur_frames: 3
-  - frame: 1419
+    dur_frames: 5
+  - frame: 4044
     note: 38
-    dur_frames: 3
-  - frame: 1431
+    dur_frames: 10
+  - frame: 4062
+    note: 53
+    dur_frames: 5
+  - frame: 4075
     note: 38
-    dur_frames: 3
-  - frame: 1440
-    note: 46
-    dur_frames: 3
-  - frame: 1453
-    note: 46
-    dur_frames: 3
-  - frame: 1466
-    note: 58
-    dur_frames: 3
-  - frame: 1474
-    note: 58
-    dur_frames: 3
-  - frame: 1487
-    note: 46
-    dur_frames: 3
-  - frame: 1500
-    note: 46
-    dur_frames: 3
-  - frame: 1509
-    note: 43
-    dur_frames: 3
-  - frame: 1521
-    note: 43
-    dur_frames: 3
-  - frame: 1534
-    note: 55
-    dur_frames: 3
-  - frame: 1543
-    note: 55
-    dur_frames: 3
-  - frame: 1556
-    note: 43
-    dur_frames: 3
-  - frame: 1569
-    note: 43
-    dur_frames: 3
-  - frame: 1577
-    note: 48
-    dur_frames: 3
-  - frame: 1590
-    note: 48
-    dur_frames: 3
-  - frame: 1603
-    note: 60
-    dur_frames: 3
-  - frame: 1611
-    note: 60
-    dur_frames: 3
-  - frame: 1624
-    note: 48
-    dur_frames: 3
-  - frame: 1637
-    note: 48
-    dur_frames: 3
-  - frame: 1646
-    note: 38
-    dur_frames: 3
-  - frame: 1659
-    note: 38
-    dur_frames: 3
-  - frame: 1671
+    dur_frames: 12
+  - frame: 4088
     note: 50
+    dur_frames: 5
+  - frame: 4094
+    note: 38
+    dur_frames: 10
+  - frame: 4112
+    note: 53
     dur_frames: 3
-  - frame: 1680
+  - frame: 4125
+    note: 38
+    dur_frames: 12
+  - frame: 4138
     note: 50
-    dur_frames: 3
-  - frame: 1693
+    dur_frames: 4
+  - frame: 4144
     note: 38
-    dur_frames: 3
-  - frame: 1706
+    dur_frames: 10
+  - frame: 4162
+    note: 53
+    dur_frames: 4
+  - frame: 4175
     note: 38
-    dur_frames: 3
-  - frame: 1714
-    note: 46
-    dur_frames: 3
-  - frame: 1727
-    note: 46
-    dur_frames: 3
-  - frame: 1740
-    note: 58
-    dur_frames: 3
-  - frame: 1749
-    note: 58
-    dur_frames: 3
-  - frame: 1761
-    note: 46
-    dur_frames: 3
-  - frame: 1774
-    note: 46
-    dur_frames: 3
-  - frame: 1783
-    note: 43
-    dur_frames: 3
-  - frame: 1796
-    note: 43
-    dur_frames: 3
-  - frame: 1809
-    note: 55
-    dur_frames: 3
-  - frame: 1817
-    note: 55
-    dur_frames: 3
-  - frame: 1830
-    note: 43
-    dur_frames: 3
-  - frame: 1843
-    note: 43
-    dur_frames: 3
-  - frame: 1851
-    note: 48
-    dur_frames: 3
-  - frame: 1864
-    note: 48
-    dur_frames: 3
-  - frame: 1877
-    note: 60
-    dur_frames: 3
-  - frame: 1886
-    note: 60
-    dur_frames: 3
-  - frame: 1899
-    note: 48
-    dur_frames: 3
-  - frame: 1911
-    note: 48
-    dur_frames: 3
-  - frame: 1920
-    note: 38
-    dur_frames: 3
-  - frame: 1933
-    note: 38
-    dur_frames: 3
-  - frame: 1946
+    dur_frames: 13
+  - frame: 4188
     note: 50
-    dur_frames: 3
-  - frame: 1954
+    dur_frames: 5
+  - frame: 4194
+    note: 38
+    dur_frames: 9
+  - frame: 4212
+    note: 53
+    dur_frames: 5
+  - frame: 4225
+    note: 38
+    dur_frames: 11
+  - frame: 4238
     note: 50
-    dur_frames: 3
-  - frame: 1967
+    dur_frames: 5
+  - frame: 4244
     note: 38
-    dur_frames: 3
-  - frame: 1980
+    dur_frames: 10
+  - frame: 4262
+    note: 53
+    dur_frames: 5
+  - frame: 4275
     note: 38
-    dur_frames: 3
-  - frame: 1989
-    note: 46
-    dur_frames: 3
-  - frame: 2001
-    note: 46
-    dur_frames: 3
-  - frame: 2014
-    note: 58
-    dur_frames: 3
-  - frame: 2023
-    note: 58
-    dur_frames: 3
-  - frame: 2036
-    note: 46
-    dur_frames: 3
-  - frame: 2049
-    note: 46
-    dur_frames: 3
-  - frame: 2057
-    note: 43
-    dur_frames: 3
-  - frame: 2070
-    note: 43
-    dur_frames: 3
-  - frame: 2083
-    note: 55
-    dur_frames: 3
-  - frame: 2091
-    note: 55
-    dur_frames: 3
-  - frame: 2104
-    note: 43
-    dur_frames: 3
-  - frame: 2117
-    note: 43
-    dur_frames: 3
-  - frame: 2126
-    note: 48
-    dur_frames: 3
-  - frame: 2139
-    note: 48
-    dur_frames: 3
-  - frame: 2151
-    note: 60
-    dur_frames: 3
-  - frame: 2160
-    note: 60
-    dur_frames: 3
-  - frame: 2173
-    note: 48
-    dur_frames: 3
-  - frame: 2186
-    note: 48
-    dur_frames: 3
-  - frame: 2194
-    note: 38
-    dur_frames: 3
-  - frame: 2207
-    note: 38
-    dur_frames: 3
-  - frame: 2220
+    dur_frames: 12
+  - frame: 4288
     note: 50
-    dur_frames: 3
-  - frame: 2229
+    dur_frames: 5
+  - frame: 4294
+    note: 38
+    dur_frames: 11
+  - frame: 4312
+    note: 53
+    dur_frames: 6
+  - frame: 4325
+    note: 38
+    dur_frames: 10
+  - frame: 4338
     note: 50
-    dur_frames: 3
-  - frame: 2241
+    dur_frames: 4
+  - frame: 4344
     note: 38
-    dur_frames: 3
-  - frame: 2254
+    dur_frames: 9
+  - frame: 4362
+    note: 53
+    dur_frames: 4
+  - frame: 4375
     note: 38
+    dur_frames: 11
+  - frame: 4388
+    note: 50
+    dur_frames: 4
+  - frame: 4394
+    note: 38
+    dur_frames: 9
+  - frame: 4412
+    note: 53
+    dur_frames: 4
+  - frame: 4425
+    note: 38
+    dur_frames: 11
+  - frame: 4438
+    note: 50
+    dur_frames: 5
+  - frame: 4444
+    note: 38
+    dur_frames: 8
+  - frame: 4488
+    note: 50
+    dur_frames: 5
+  - frame: 4494
+    note: 38
+    dur_frames: 12
+  - frame: 4512
+    note: 53
+    dur_frames: 9
+  - frame: 4525
+    note: 38
+    dur_frames: 12
+  - frame: 4538
+    note: 50
+    dur_frames: 4
+  - frame: 4544
+    note: 38
+    dur_frames: 9
+  - frame: 4562
+    note: 53
+    dur_frames: 4
+  - frame: 4575
+    note: 38
+    dur_frames: 14
+  - frame: 4588
+    note: 50
+    dur_frames: 5
+  - frame: 4594
+    note: 38
+    dur_frames: 12
+  - frame: 4612
+    note: 53
+    dur_frames: 6
+  - frame: 4625
+    note: 38
+    dur_frames: 12
+  - frame: 4638
+    note: 50
+    dur_frames: 5
+  - frame: 4644
+    note: 38
+    dur_frames: 9
+  - frame: 4662
+    note: 53
+    dur_frames: 7
+  - frame: 4675
+    note: 38
+    dur_frames: 12
+  - frame: 4688
+    note: 50
+    dur_frames: 5
+  - frame: 4694
+    note: 38
+    dur_frames: 10
+  - frame: 4712
+    note: 53
+    dur_frames: 4
+  - frame: 4725
+    note: 38
+    dur_frames: 12
+  - frame: 4738
+    note: 50
+    dur_frames: 4
+  - frame: 4744
+    note: 38
+    dur_frames: 10
+  - frame: 4762
+    note: 53
+    dur_frames: 4
+  - frame: 4775
+    note: 38
+    dur_frames: 12
+  - frame: 4788
+    note: 50
+    dur_frames: 4
+  - frame: 4794
+    note: 38
+    dur_frames: 9
+  - frame: 4812
+    note: 53
+    dur_frames: 5
+  - frame: 4825
+    note: 38
+    dur_frames: 12
+  - frame: 4838
+    note: 50
+    dur_frames: 5
+  - frame: 4844
+    note: 38
+    dur_frames: 10
+  - frame: 4862
+    note: 53
+    dur_frames: 5
+  - frame: 4875
+    note: 38
+    dur_frames: 12
+  - frame: 4888
+    note: 50
+    dur_frames: 5
+  - frame: 4894
+    note: 38
+    dur_frames: 10
+  - frame: 4912
+    note: 53
     dur_frames: 3
-  - frame: 2263
-    note: 46
+  - frame: 4925
+    note: 38
+    dur_frames: 12
+  - frame: 4938
+    note: 50
+    dur_frames: 4
+  - frame: 4944
+    note: 38
+    dur_frames: 10
+  - frame: 4962
+    note: 53
+    dur_frames: 4
+  - frame: 4975
+    note: 38
+    dur_frames: 13
+  - frame: 4988
+    note: 50
+    dur_frames: 5
+  - frame: 4994
+    note: 38
+    dur_frames: 9
+  - frame: 5012
+    note: 53
+    dur_frames: 5
+  - frame: 5025
+    note: 38
+    dur_frames: 11
+  - frame: 5038
+    note: 50
+    dur_frames: 5
+  - frame: 5044
+    note: 38
+    dur_frames: 10
+  - frame: 5062
+    note: 53
+    dur_frames: 5
+  - frame: 5075
+    note: 38
+    dur_frames: 12
+  - frame: 5088
+    note: 50
+    dur_frames: 5
+  - frame: 5094
+    note: 38
+    dur_frames: 11
+  - frame: 5112
+    note: 53
+    dur_frames: 6
+  - frame: 5125
+    note: 38
+    dur_frames: 10
+  - frame: 5138
+    note: 50
+    dur_frames: 4
+  - frame: 5144
+    note: 38
+    dur_frames: 9
+  - frame: 5162
+    note: 53
+    dur_frames: 4
+  - frame: 5175
+    note: 38
+    dur_frames: 11
+  - frame: 5188
+    note: 50
+    dur_frames: 4
+  - frame: 5194
+    note: 38
+    dur_frames: 9
+  - frame: 5212
+    note: 53
+    dur_frames: 4
+  - frame: 5225
+    note: 38
+    dur_frames: 11
+  - frame: 5238
+    note: 50
+    dur_frames: 5
+  - frame: 5244
+    note: 38
+    dur_frames: 8
+  - frame: 5288
+    note: 50
+    dur_frames: 5
+  - frame: 5294
+    note: 38
+    dur_frames: 12
+  - frame: 5312
+    note: 53
+    dur_frames: 9
+  - frame: 5325
+    note: 38
+    dur_frames: 12
+  - frame: 5338
+    note: 50
+    dur_frames: 4
+  - frame: 5344
+    note: 38
+    dur_frames: 9
+  - frame: 5362
+    note: 53
+    dur_frames: 4
+  - frame: 5375
+    note: 38
+    dur_frames: 14
+  - frame: 5388
+    note: 50
+    dur_frames: 5
+  - frame: 5394
+    note: 38
+    dur_frames: 12
+  - frame: 5412
+    note: 53
+    dur_frames: 6
+  - frame: 5425
+    note: 38
+    dur_frames: 12
+  - frame: 5438
+    note: 50
+    dur_frames: 5
+  - frame: 5444
+    note: 38
+    dur_frames: 9
+  - frame: 5462
+    note: 53
+    dur_frames: 7
+  - frame: 5475
+    note: 38
+    dur_frames: 12
+  - frame: 5488
+    note: 50
+    dur_frames: 5
+  - frame: 5494
+    note: 38
+    dur_frames: 10
+  - frame: 5512
+    note: 53
+    dur_frames: 4
+  - frame: 5525
+    note: 38
+    dur_frames: 12
+  - frame: 5538
+    note: 50
+    dur_frames: 4
+  - frame: 5544
+    note: 38
+    dur_frames: 10
+  - frame: 5562
+    note: 53
+    dur_frames: 4
+  - frame: 5575
+    note: 38
+    dur_frames: 12
+  - frame: 5588
+    note: 50
+    dur_frames: 4
+  - frame: 5594
+    note: 38
+    dur_frames: 9
+  - frame: 5612
+    note: 53
+    dur_frames: 5
+  - frame: 5625
+    note: 38
+    dur_frames: 12
+  - frame: 5638
+    note: 50
+    dur_frames: 5
+  - frame: 5644
+    note: 38
+    dur_frames: 10
+  - frame: 5662
+    note: 53
+    dur_frames: 5
+  - frame: 5675
+    note: 38
+    dur_frames: 12
+  - frame: 5688
+    note: 50
+    dur_frames: 5
+  - frame: 5694
+    note: 38
+    dur_frames: 10
+  - frame: 5712
+    note: 53
     dur_frames: 3
-  - frame: 2276
-    note: 46
-    dur_frames: 3
-  - frame: 2289
-    note: 58
-    dur_frames: 3
-  - frame: 2297
-    note: 58
-    dur_frames: 3
-  - frame: 2310
-    note: 46
-    dur_frames: 3
-  - frame: 2323
-    note: 46
-    dur_frames: 3
-  - frame: 2331
+  - frame: 5725
+    note: 38
+    dur_frames: 12
+  - frame: 5738
+    note: 50
+    dur_frames: 4
+  - frame: 5744
+    note: 38
+    dur_frames: 10
+  - frame: 5762
+    note: 53
+    dur_frames: 4
+  - frame: 5775
+    note: 38
+    dur_frames: 13
+  - frame: 5788
+    note: 50
+    dur_frames: 5
+  - frame: 5794
+    note: 38
+    dur_frames: 9
+  - frame: 5812
+    note: 53
+    dur_frames: 5
+  - frame: 5825
+    note: 38
+    dur_frames: 11
+  - frame: 5838
+    note: 50
+    dur_frames: 5
+  - frame: 5844
+    note: 38
+    dur_frames: 10
+  - frame: 5862
+    note: 53
+    dur_frames: 5
+  - frame: 5875
+    note: 38
+    dur_frames: 12
+  - frame: 5888
+    note: 50
+    dur_frames: 5
+  - frame: 5894
+    note: 38
+    dur_frames: 11
+  - frame: 5912
+    note: 53
+    dur_frames: 6
+  - frame: 5925
+    note: 38
+    dur_frames: 10
+  - frame: 5938
+    note: 50
+    dur_frames: 4
+  - frame: 5944
+    note: 38
+    dur_frames: 9
+  - frame: 5962
+    note: 53
+    dur_frames: 4
+  - frame: 5975
+    note: 38
+    dur_frames: 11
+  - frame: 5988
+    note: 50
+    dur_frames: 4
+  - frame: 5994
+    note: 38
+    dur_frames: 9
+  - frame: 6012
+    note: 53
+    dur_frames: 4
+  - frame: 6025
+    note: 38
+    dur_frames: 11
+  - frame: 6038
+    note: 50
+    dur_frames: 5
+  - frame: 6044
+    note: 38
+    dur_frames: 8
+  - frame: 6075
+    note: 38
+    dur_frames: 14
+  - frame: 6094
+    note: 38
+    dur_frames: 11
+  - frame: 6112
+    note: 38
+    dur_frames: 12
+  - frame: 6125
+    note: 45
+    dur_frames: 12
+  - frame: 6144
+    note: 45
+    dur_frames: 12
+  - frame: 6162
+    note: 45
+    dur_frames: 8
+  - frame: 6175
+    note: 41
+    dur_frames: 13
+  - frame: 6194
+    note: 41
+    dur_frames: 13
+  - frame: 6212
+    note: 41
+    dur_frames: 6
+  - frame: 6225
+    note: 36
+    dur_frames: 12
+  - frame: 6244
+    note: 36
+    dur_frames: 11
+  - frame: 6262
+    note: 36
+    dur_frames: 8
+  - frame: 6275
+    note: 38
+    dur_frames: 14
+  - frame: 6294
+    note: 38
+    dur_frames: 12
+  - frame: 6312
+    note: 38
+    dur_frames: 6
+  - frame: 6325
+    note: 45
+    dur_frames: 14
+  - frame: 6344
+    note: 45
+    dur_frames: 11
+  - frame: 6362
+    note: 45
+    dur_frames: 8
+  - frame: 6375
     note: 43
-    dur_frames: 3
-  - frame: 2344
+    dur_frames: 14
+  - frame: 6394
     note: 43
-    dur_frames: 3
-  - frame: 2357
-    note: 55
-    dur_frames: 3
-  - frame: 2366
-    note: 55
-    dur_frames: 3
-  - frame: 2379
+    dur_frames: 13
+  - frame: 6412
     note: 43
-    dur_frames: 3
-  - frame: 2391
+    dur_frames: 6
+  - frame: 6425
+    note: 36
+    dur_frames: 12
+  - frame: 6444
+    note: 36
+    dur_frames: 11
+  - frame: 6462
+    note: 36
+    dur_frames: 7
+  - frame: 6475
+    note: 38
+    dur_frames: 14
+  - frame: 6494
+    note: 38
+    dur_frames: 11
+  - frame: 6512
+    note: 38
+    dur_frames: 12
+  - frame: 6525
+    note: 45
+    dur_frames: 12
+  - frame: 6544
+    note: 45
+    dur_frames: 12
+  - frame: 6562
+    note: 45
+    dur_frames: 8
+  - frame: 6575
+    note: 41
+    dur_frames: 13
+  - frame: 6594
+    note: 41
+    dur_frames: 13
+  - frame: 6612
+    note: 41
+    dur_frames: 6
+  - frame: 6625
+    note: 36
+    dur_frames: 12
+  - frame: 6644
+    note: 36
+    dur_frames: 11
+  - frame: 6662
+    note: 36
+    dur_frames: 8
+  - frame: 6675
+    note: 38
+    dur_frames: 14
+  - frame: 6694
+    note: 38
+    dur_frames: 12
+  - frame: 6712
+    note: 38
+    dur_frames: 6
+  - frame: 6725
+    note: 45
+    dur_frames: 14
+  - frame: 6744
+    note: 45
+    dur_frames: 11
+  - frame: 6762
+    note: 45
+    dur_frames: 8
+  - frame: 6775
     note: 43
+    dur_frames: 14
+  - frame: 6794
+    note: 43
+    dur_frames: 13
+  - frame: 6812
+    note: 43
+    dur_frames: 6
+  - frame: 6825
+    note: 36
+    dur_frames: 12
+  - frame: 6844
+    note: 36
+    dur_frames: 11
+  - frame: 6862
+    note: 36
+    dur_frames: 7
+  - frame: 6875
+    note: 38
+    dur_frames: 14
+  - frame: 6894
+    note: 38
+    dur_frames: 11
+  - frame: 6912
+    note: 38
+    dur_frames: 12
+  - frame: 6925
+    note: 45
+    dur_frames: 12
+  - frame: 6944
+    note: 45
+    dur_frames: 12
+  - frame: 6962
+    note: 45
+    dur_frames: 8
+  - frame: 6975
+    note: 41
+    dur_frames: 13
+  - frame: 6994
+    note: 41
+    dur_frames: 13
+  - frame: 7012
+    note: 41
+    dur_frames: 6
+  - frame: 7025
+    note: 36
+    dur_frames: 12
+  - frame: 7044
+    note: 36
+    dur_frames: 11
+  - frame: 7062
+    note: 36
+    dur_frames: 8
+  - frame: 7075
+    note: 38
+    dur_frames: 14
+  - frame: 7094
+    note: 38
+    dur_frames: 12
+  - frame: 7112
+    note: 38
+    dur_frames: 6
+  - frame: 7125
+    note: 45
+    dur_frames: 14
+  - frame: 7144
+    note: 45
+    dur_frames: 11
+  - frame: 7162
+    note: 45
+    dur_frames: 8
+  - frame: 7175
+    note: 43
+    dur_frames: 14
+  - frame: 7194
+    note: 43
+    dur_frames: 13
+  - frame: 7212
+    note: 43
+    dur_frames: 6
+  - frame: 7225
+    note: 36
+    dur_frames: 12
+  - frame: 7244
+    note: 36
+    dur_frames: 11
+  - frame: 7262
+    note: 36
+    dur_frames: 7
+  - frame: 7275
+    note: 38
+    dur_frames: 13
+  - frame: 7294
+    note: 38
+    dur_frames: 12
+  - frame: 7312
+    note: 38
+    dur_frames: 6
+  - frame: 7325
+    note: 45
+    dur_frames: 11
+  - frame: 7344
+    note: 45
+    dur_frames: 11
+  - frame: 7362
+    note: 45
+    dur_frames: 7
+  - frame: 7375
+    note: 41
+    dur_frames: 13
+  - frame: 7394
+    note: 41
+    dur_frames: 11
+  - frame: 7412
+    note: 41
+    dur_frames: 6
+  - frame: 7425
+    note: 36
+    dur_frames: 11
+  - frame: 7444
+    note: 36
+    dur_frames: 9
+  - frame: 7462
+    note: 36
+    dur_frames: 7
+  - frame: 7475
+    note: 38
+    dur_frames: 13
+  - frame: 7494
+    note: 38
+    dur_frames: 10
+  - frame: 7512
+    note: 38
+    dur_frames: 6
+  - frame: 7525
+    note: 45
+    dur_frames: 11
+  - frame: 7544
+    note: 45
+    dur_frames: 10
+  - frame: 7562
+    note: 45
+    dur_frames: 7
+  - frame: 7575
+    note: 36
+    dur_frames: 12
+  - frame: 7675
+    note: 38
+    dur_frames: 13
+  - frame: 7694
+    note: 38
+    dur_frames: 11
+  - frame: 7712
+    note: 38
+    dur_frames: 12
+  - frame: 7725
+    note: 45
+    dur_frames: 12
+  - frame: 7744
+    note: 45
+    dur_frames: 12
+  - frame: 7762
+    note: 45
+    dur_frames: 8
+  - frame: 7775
+    note: 41
+    dur_frames: 13
+  - frame: 7794
+    note: 41
+    dur_frames: 13
+  - frame: 7812
+    note: 41
+    dur_frames: 6
+  - frame: 7825
+    note: 36
+    dur_frames: 12
+  - frame: 7844
+    note: 36
+    dur_frames: 11
+  - frame: 7862
+    note: 36
+    dur_frames: 8
+  - frame: 7875
+    note: 38
+    dur_frames: 14
+  - frame: 7894
+    note: 38
+    dur_frames: 12
+  - frame: 7912
+    note: 38
+    dur_frames: 6
+  - frame: 7925
+    note: 45
+    dur_frames: 14
+  - frame: 7944
+    note: 45
+    dur_frames: 11
+  - frame: 7962
+    note: 45
+    dur_frames: 8
+  - frame: 7975
+    note: 43
+    dur_frames: 14
+  - frame: 7994
+    note: 43
+    dur_frames: 13
+  - frame: 8012
+    note: 43
+    dur_frames: 6
+  - frame: 8025
+    note: 36
+    dur_frames: 12
+  - frame: 8044
+    note: 36
+    dur_frames: 11
+  - frame: 8062
+    note: 36
+    dur_frames: 7
+  - frame: 8075
+    note: 38
+    dur_frames: 13
+  - frame: 8094
+    note: 38
+    dur_frames: 12
+  - frame: 8112
+    note: 38
+    dur_frames: 6
+  - frame: 8125
+    note: 45
+    dur_frames: 11
+  - frame: 8144
+    note: 45
+    dur_frames: 11
+  - frame: 8162
+    note: 45
+    dur_frames: 7
+  - frame: 8175
+    note: 41
+    dur_frames: 13
+  - frame: 8194
+    note: 41
+    dur_frames: 11
+  - frame: 8212
+    note: 41
+    dur_frames: 6
+  - frame: 8225
+    note: 36
+    dur_frames: 11
+  - frame: 8244
+    note: 36
+    dur_frames: 9
+  - frame: 8262
+    note: 36
+    dur_frames: 7
+  - frame: 8275
+    note: 38
+    dur_frames: 13
+  - frame: 8294
+    note: 38
+    dur_frames: 10
+  - frame: 8312
+    note: 38
+    dur_frames: 6
+  - frame: 8325
+    note: 45
+    dur_frames: 11
+  - frame: 8344
+    note: 45
+    dur_frames: 10
+  - frame: 8362
+    note: 45
+    dur_frames: 7
+  - frame: 8375
+    note: 36
+    dur_frames: 12
+  - frame: 9288
+    note: 50
+    dur_frames: 5
+  - frame: 9294
+    note: 38
+    dur_frames: 12
+  - frame: 9312
+    note: 53
+    dur_frames: 9
+  - frame: 9325
+    note: 38
+    dur_frames: 12
+  - frame: 9338
+    note: 50
+    dur_frames: 4
+  - frame: 9344
+    note: 38
+    dur_frames: 9
+  - frame: 9362
+    note: 53
+    dur_frames: 4
+  - frame: 9375
+    note: 38
+    dur_frames: 14
+  - frame: 9388
+    note: 50
+    dur_frames: 5
+  - frame: 9394
+    note: 38
+    dur_frames: 12
+  - frame: 9412
+    note: 53
+    dur_frames: 6
+  - frame: 9425
+    note: 38
+    dur_frames: 12
+  - frame: 9438
+    note: 50
+    dur_frames: 5
+  - frame: 9444
+    note: 38
+    dur_frames: 9
+  - frame: 9462
+    note: 53
+    dur_frames: 7
+  - frame: 9475
+    note: 38
+    dur_frames: 12
+  - frame: 9488
+    note: 50
+    dur_frames: 5
+  - frame: 9494
+    note: 38
+    dur_frames: 10
+  - frame: 9512
+    note: 53
+    dur_frames: 4
+  - frame: 9525
+    note: 38
+    dur_frames: 12
+  - frame: 9538
+    note: 50
+    dur_frames: 4
+  - frame: 9544
+    note: 38
+    dur_frames: 10
+  - frame: 9562
+    note: 53
+    dur_frames: 4
+  - frame: 9575
+    note: 38
+    dur_frames: 12
+  - frame: 9588
+    note: 50
+    dur_frames: 4
+  - frame: 9594
+    note: 38
+    dur_frames: 9
+  - frame: 9612
+    note: 53
+    dur_frames: 5
+  - frame: 9625
+    note: 38
+    dur_frames: 12
+  - frame: 9638
+    note: 50
+    dur_frames: 5
+  - frame: 9644
+    note: 38
+    dur_frames: 10
+  - frame: 9662
+    note: 53
+    dur_frames: 5
+  - frame: 9675
+    note: 38
+    dur_frames: 12
+  - frame: 9688
+    note: 50
+    dur_frames: 5
+  - frame: 9694
+    note: 38
+    dur_frames: 10
+  - frame: 9712
+    note: 53
     dur_frames: 3
-  - frame: 2400
-    note: 48
-    dur_frames: 3
-  - frame: 2413
-    note: 48
-    dur_frames: 3
-  - frame: 2426
-    note: 60
-    dur_frames: 3
-  - frame: 2434
-    note: 60
-    dur_frames: 3
-  - frame: 2447
-    note: 48
-    dur_frames: 3
-  - frame: 2460
-    note: 48
-    dur_frames: 3
+  - frame: 9725
+    note: 38
+    dur_frames: 12
+  - frame: 9738
+    note: 50
+    dur_frames: 4
+  - frame: 9744
+    note: 38
+    dur_frames: 10
+  - frame: 9762
+    note: 53
+    dur_frames: 4
+  - frame: 9775
+    note: 38
+    dur_frames: 13
+  - frame: 9788
+    note: 50
+    dur_frames: 5
+  - frame: 9794
+    note: 38
+    dur_frames: 9
+  - frame: 9812
+    note: 53
+    dur_frames: 5
+  - frame: 9825
+    note: 38
+    dur_frames: 11
+  - frame: 9838
+    note: 50
+    dur_frames: 5
+  - frame: 9844
+    note: 38
+    dur_frames: 10
+  - frame: 9862
+    note: 53
+    dur_frames: 5
+  - frame: 9875
+    note: 38
+    dur_frames: 12
+  - frame: 9888
+    note: 50
+    dur_frames: 5
+  - frame: 9894
+    note: 38
+    dur_frames: 11
+  - frame: 9912
+    note: 53
+    dur_frames: 6
+  - frame: 9925
+    note: 38
+    dur_frames: 10
+  - frame: 9938
+    note: 50
+    dur_frames: 4
+  - frame: 9944
+    note: 38
+    dur_frames: 9
+  - frame: 9962
+    note: 53
+    dur_frames: 4
+  - frame: 9975
+    note: 38
+    dur_frames: 11
+  - frame: 9988
+    note: 50
+    dur_frames: 4
+  - frame: 9994
+    note: 38
+    dur_frames: 9
+  - frame: 10012
+    note: 53
+    dur_frames: 4
+  - frame: 10025
+    note: 38
+    dur_frames: 11
+  - frame: 10038
+    note: 50
+    dur_frames: 5
+  - frame: 10044
+    note: 38
+    dur_frames: 8
+  - frame: 10062
+    note: 53
+    dur_frames: 5
+  - frame: 10075
+    note: 38
+    dur_frames: 11
   lead:
-  - frame: 549
-    note: 79
-    dur_frames: 7
-  - frame: 557
-    note: 79
-    dur_frames: 7
-  - frame: 566
-    note: 79
-    dur_frames: 7
-  - frame: 574
-    note: 79
-    dur_frames: 7
-  - frame: 583
-    note: 79
-    dur_frames: 7
-  - frame: 591
+  - frame: 412
+    note: 76
+    dur_frames: 5
+  - frame: 425
+    note: 76
+    dur_frames: 5
+  - frame: 438
+    note: 76
+    dur_frames: 5
+  - frame: 450
+    note: 76
+    dur_frames: 5
+  - frame: 462
+    note: 76
+    dur_frames: 5
+  - frame: 475
     note: 77
+    dur_frames: 14
+  - frame: 494
+    note: 74
     dur_frames: 7
-  - frame: 600
+  - frame: 512
+    note: 74
+    dur_frames: 6
+  - frame: 525
+    note: 72
+    dur_frames: 7
+  - frame: 538
+    note: 72
+    dur_frames: 5
+  - frame: 550
+    note: 72
+    dur_frames: 5
+  - frame: 562
+    note: 72
+    dur_frames: 6
+  - frame: 569
+    note: 70
+    dur_frames: 13
+  - frame: 612
+    note: 76
+    dur_frames: 6
+  - frame: 625
+    note: 76
+    dur_frames: 6
+  - frame: 638
+    note: 76
+    dur_frames: 5
+  - frame: 650
+    note: 76
+    dur_frames: 5
+  - frame: 662
+    note: 76
+    dur_frames: 6
+  - frame: 675
     note: 77
-    dur_frames: 7
-  - frame: 609
-    note: 76
-    dur_frames: 7
-  - frame: 617
-    note: 76
-    dur_frames: 7
-  - frame: 626
-    note: 76
-    dur_frames: 7
-  - frame: 634
-    note: 76
-    dur_frames: 7
-  - frame: 643
+    dur_frames: 15
+  - frame: 688
     note: 74
     dur_frames: 7
-  - frame: 651
-    note: 76
-    dur_frames: 7
-  - frame: 660
-    note: 76
-    dur_frames: 7
-  - frame: 669
-    note: 76
-    dur_frames: 7
-  - frame: 677
-    note: 76
-    dur_frames: 7
-  - frame: 686
-    note: 76
-    dur_frames: 7
-  - frame: 694
-    note: 76
-    dur_frames: 7
-  - frame: 703
+  - frame: 712
     note: 74
+    dur_frames: 6
+  - frame: 725
+    note: 72
     dur_frames: 7
-  - frame: 711
+  - frame: 738
+    note: 72
+    dur_frames: 5
+  - frame: 750
+    note: 72
+    dur_frames: 5
+  - frame: 762
+    note: 72
+    dur_frames: 6
+  - frame: 769
+    note: 70
+    dur_frames: 13
+  - frame: 812
+    note: 76
+    dur_frames: 5
+  - frame: 825
+    note: 76
+    dur_frames: 5
+  - frame: 838
+    note: 76
+    dur_frames: 5
+  - frame: 850
+    note: 76
+    dur_frames: 5
+  - frame: 862
+    note: 76
+    dur_frames: 5
+  - frame: 875
+    note: 77
+    dur_frames: 14
+  - frame: 894
     note: 74
-    dur_frames: 7
-  - frame: 720
+    dur_frames: 6
+  - frame: 912
     note: 74
-    dur_frames: 7
-  - frame: 729
-    note: 74
-    dur_frames: 7
-  - frame: 737
-    note: 74
-    dur_frames: 7
-  - frame: 746
-    note: 74
-    dur_frames: 7
-  - frame: 754
-    note: 74
-    dur_frames: 7
-  - frame: 763
-    note: 76
-    dur_frames: 7
-  - frame: 771
-    note: 76
-    dur_frames: 7
-  - frame: 780
-    note: 76
-    dur_frames: 7
-  - frame: 789
-    note: 76
-    dur_frames: 7
-  - frame: 797
-    note: 76
-    dur_frames: 7
-  - frame: 806
-    note: 76
-    dur_frames: 7
-  - frame: 814
-    note: 76
-    dur_frames: 7
-  - frame: 823
-    note: 76
-    dur_frames: 7
-  - frame: 831
-    note: 76
-    dur_frames: 7
-  - frame: 840
-    note: 76
-    dur_frames: 7
-  - frame: 849
-    note: 76
-    dur_frames: 7
-  - frame: 857
-    note: 76
-    dur_frames: 7
-  - frame: 866
-    note: 76
-    dur_frames: 7
-  - frame: 874
-    note: 76
-    dur_frames: 7
-  - frame: 883
-    note: 76
-    dur_frames: 7
-  - frame: 891
-    note: 76
-    dur_frames: 7
-  - frame: 900
-    note: 76
-    dur_frames: 7
-  - frame: 909
-    note: 76
-    dur_frames: 7
-  - frame: 917
-    note: 76
-    dur_frames: 7
-  - frame: 926
-    note: 76
-    dur_frames: 7
-  - frame: 934
-    note: 76
-    dur_frames: 7
-  - frame: 943
-    note: 76
-    dur_frames: 7
-  - frame: 951
-    note: 76
-    dur_frames: 7
-  - frame: 960
-    note: 76
-    dur_frames: 7
+    dur_frames: 6
+  - frame: 925
+    note: 72
+    dur_frames: 8
+  - frame: 938
+    note: 72
+    dur_frames: 5
+  - frame: 950
+    note: 72
+    dur_frames: 5
+  - frame: 962
+    note: 72
+    dur_frames: 6
   - frame: 969
+    note: 70
+    dur_frames: 13
+  - frame: 1012
     note: 76
+    dur_frames: 5
+  - frame: 1025
+    note: 76
+    dur_frames: 5
+  - frame: 1038
+    note: 76
+    dur_frames: 5
+  - frame: 1050
+    note: 76
+    dur_frames: 5
+  - frame: 1062
+    note: 76
+    dur_frames: 6
+  - frame: 1075
+    note: 77
+    dur_frames: 14
+  - frame: 1088
+    note: 74
+    dur_frames: 6
+  - frame: 1112
+    note: 74
+    dur_frames: 6
+  - frame: 1125
+    note: 72
     dur_frames: 7
-  - frame: 977
-    note: 76
+  - frame: 1138
+    note: 72
+    dur_frames: 5
+  - frame: 1150
+    note: 72
+    dur_frames: 5
+  - frame: 1162
+    note: 72
+    dur_frames: 5
+  - frame: 1169
+    note: 70
+    dur_frames: 15
+  - frame: 1238
+    note: 69
+    dur_frames: 6
+  - frame: 1250
+    note: 72
+    dur_frames: 6
+  - frame: 1256
+    note: 74
+    dur_frames: 11
+  - frame: 1275
+    note: 74
+    dur_frames: 74
+  - frame: 1350
+    note: 74
+    dur_frames: 8
+  - frame: 1362
+    note: 74
+    dur_frames: 11
+  - frame: 1375
+    note: 72
+    dur_frames: 11
+  - frame: 1388
+    note: 74
+    dur_frames: 8
+  - frame: 1400
+    note: 74
+    dur_frames: 10
+  - frame: 1412
+    note: 72
     dur_frames: 7
-  - frame: 986
-    note: 76
+  - frame: 1419
+    note: 74
+    dur_frames: 17
+  - frame: 1438
+    note: 69
+    dur_frames: 11
+  - frame: 1450
+    note: 72
+    dur_frames: 6
+  - frame: 1456
+    note: 74
+    dur_frames: 14
+  - frame: 1475
+    note: 74
+    dur_frames: 69
+  - frame: 1575
+    note: 72
+    dur_frames: 10
+  - frame: 1588
+    note: 74
     dur_frames: 7
-  - frame: 994
-    note: 76
-    dur_frames: 7
-  - frame: 1003
-    note: 76
-    dur_frames: 7
-  - frame: 1011
-    note: 76
-    dur_frames: 7
-  - frame: 1020
-    note: 76
-    dur_frames: 7
-  - frame: 1029
-    note: 76
-    dur_frames: 7
-  - frame: 1037
-    note: 76
-    dur_frames: 7
-  - frame: 1046
-    note: 76
-    dur_frames: 7
-  - frame: 1054
-    note: 76
-    dur_frames: 7
-  - frame: 1063
-    note: 76
-    dur_frames: 7
-  - frame: 1071
-    note: 76
-    dur_frames: 7
-  - frame: 1080
-    note: 76
-    dur_frames: 7
-  - frame: 1089
-    note: 76
-    dur_frames: 7
-  - frame: 1646
-    note: 76
-    dur_frames: 7
-  - frame: 1654
-    note: 76
-    dur_frames: 7
-  - frame: 1663
-    note: 76
-    dur_frames: 7
-  - frame: 1671
-    note: 76
-    dur_frames: 7
-  - frame: 1680
-    note: 76
-    dur_frames: 7
-  - frame: 1689
-    note: 76
-    dur_frames: 7
-  - frame: 1697
-    note: 76
-    dur_frames: 7
-  - frame: 1706
-    note: 76
-    dur_frames: 7
-  - frame: 1714
-    note: 76
-    dur_frames: 7
-  - frame: 1723
-    note: 76
-    dur_frames: 7
-  - frame: 1731
-    note: 76
-    dur_frames: 7
-  - frame: 1740
-    note: 76
-    dur_frames: 7
-  - frame: 1749
-    note: 76
-    dur_frames: 7
-  - frame: 1757
-    note: 76
-    dur_frames: 7
-  - frame: 1766
-    note: 76
-    dur_frames: 7
-  - frame: 1774
-    note: 76
-    dur_frames: 7
-  - frame: 1783
-    note: 76
-    dur_frames: 7
-  - frame: 1791
-    note: 76
+  - frame: 1600
+    note: 74
+    dur_frames: 10
+  - frame: 1612
+    note: 72
+    dur_frames: 6
+  - frame: 1619
+    note: 74
+    dur_frames: 17
+  - frame: 1638
+    note: 69
+    dur_frames: 11
+  - frame: 1650
+    note: 72
+    dur_frames: 6
+  - frame: 1656
+    note: 74
+    dur_frames: 15
+  - frame: 1675
+    note: 74
+    dur_frames: 65
+  - frame: 1750
+    note: 74
+    dur_frames: 6
+  - frame: 1762
+    note: 74
+    dur_frames: 10
+  - frame: 1775
+    note: 72
+    dur_frames: 11
+  - frame: 1788
+    note: 74
     dur_frames: 7
   - frame: 1800
+    note: 74
+    dur_frames: 10
+  - frame: 1812
+    note: 72
+    dur_frames: 6
+  - frame: 1819
+    note: 74
+    dur_frames: 16
+  - frame: 1838
+    note: 69
+    dur_frames: 12
+  - frame: 1850
+    note: 72
+    dur_frames: 6
+  - frame: 1856
+    note: 74
+    dur_frames: 14
+  - frame: 1875
+    note: 74
+    dur_frames: 66
+  - frame: 1975
+    note: 72
+    dur_frames: 12
+  - frame: 1988
+    note: 74
+    dur_frames: 8
+  - frame: 2000
+    note: 74
+    dur_frames: 11
+  - frame: 2012
+    note: 72
+    dur_frames: 6
+  - frame: 2019
+    note: 74
+    dur_frames: 49
+  - frame: 2075
+    note: 77
+    dur_frames: 15
+  - frame: 2094
+    note: 74
+    dur_frames: 12
+  - frame: 2112
+    note: 74
+    dur_frames: 12
+  - frame: 2125
+    note: 72
+    dur_frames: 14
+  - frame: 2144
+    note: 72
+    dur_frames: 14
+  - frame: 2175
+    note: 77
+    dur_frames: 7
+  - frame: 2188
+    note: 77
+    dur_frames: 6
+  - frame: 2200
+    note: 77
+    dur_frames: 6
+  - frame: 2212
+    note: 77
+    dur_frames: 8
+  - frame: 2225
+    note: 76
+    dur_frames: 6
+  - frame: 2238
+    note: 76
+    dur_frames: 6
+  - frame: 2250
+    note: 76
+    dur_frames: 6
+  - frame: 2262
+    note: 76
+    dur_frames: 6
+  - frame: 2275
+    note: 77
+    dur_frames: 15
+  - frame: 2294
+    note: 74
+    dur_frames: 10
+  - frame: 2312
+    note: 74
+    dur_frames: 12
+  - frame: 2325
+    note: 72
+    dur_frames: 12
+  - frame: 2344
+    note: 72
+    dur_frames: 13
+  - frame: 2375
+    note: 77
+    dur_frames: 8
+  - frame: 2388
+    note: 77
+    dur_frames: 7
+  - frame: 2400
+    note: 77
+    dur_frames: 6
+  - frame: 2412
+    note: 77
+    dur_frames: 8
+  - frame: 2425
+    note: 76
+    dur_frames: 6
+  - frame: 2438
+    note: 76
+    dur_frames: 6
+  - frame: 2450
+    note: 76
+    dur_frames: 6
+  - frame: 2462
+    note: 76
+    dur_frames: 6
+  - frame: 2475
+    note: 77
+    dur_frames: 15
+  - frame: 2494
+    note: 74
+    dur_frames: 11
+  - frame: 2512
+    note: 74
+    dur_frames: 10
+  - frame: 2525
+    note: 72
+    dur_frames: 11
+  - frame: 2544
+    note: 72
+    dur_frames: 11
+  - frame: 2575
+    note: 77
+    dur_frames: 7
+  - frame: 2588
+    note: 77
+    dur_frames: 6
+  - frame: 2600
+    note: 77
+    dur_frames: 6
+  - frame: 2612
+    note: 77
+    dur_frames: 8
+  - frame: 2625
+    note: 76
+    dur_frames: 6
+  - frame: 2638
+    note: 76
+    dur_frames: 5
+  - frame: 2650
+    note: 76
+    dur_frames: 5
+  - frame: 2662
+    note: 76
+    dur_frames: 6
+  - frame: 2675
+    note: 77
+    dur_frames: 14
+  - frame: 2694
+    note: 74
+    dur_frames: 8
+  - frame: 2712
+    note: 74
+    dur_frames: 9
+  - frame: 2725
+    note: 72
+    dur_frames: 13
+  - frame: 2744
+    note: 72
+    dur_frames: 15
+  - frame: 2812
+    note: 76
+    dur_frames: 6
+  - frame: 2825
+    note: 76
+    dur_frames: 6
+  - frame: 2838
+    note: 76
+    dur_frames: 6
+  - frame: 2850
+    note: 76
+    dur_frames: 5
+  - frame: 2862
+    note: 76
+    dur_frames: 8
+  - frame: 2875
+    note: 77
+    dur_frames: 17
+  - frame: 2894
+    note: 74
+    dur_frames: 9
+  - frame: 2912
+    note: 74
+    dur_frames: 11
+  - frame: 2925
+    note: 72
+    dur_frames: 13
+  - frame: 2944
+    note: 72
+    dur_frames: 9
+  - frame: 2962
+    note: 72
+    dur_frames: 11
+  - frame: 2975
+    note: 70
+    dur_frames: 15
+  - frame: 2994
+    note: 70
+    dur_frames: 7
+  - frame: 3012
+    note: 76
+    dur_frames: 6
+  - frame: 3025
+    note: 76
+    dur_frames: 5
+  - frame: 3038
+    note: 76
+    dur_frames: 5
+  - frame: 3050
+    note: 76
+    dur_frames: 5
+  - frame: 3062
+    note: 76
+    dur_frames: 6
+  - frame: 3075
+    note: 77
+    dur_frames: 15
+  - frame: 3094
+    note: 74
+    dur_frames: 9
+  - frame: 3112
+    note: 74
+    dur_frames: 11
+  - frame: 3125
+    note: 72
+    dur_frames: 10
+  - frame: 3144
+    note: 72
+    dur_frames: 12
+  - frame: 3162
+    note: 72
+    dur_frames: 10
+  - frame: 3175
+    note: 70
+    dur_frames: 11
+  - frame: 3212
     note: 76
     dur_frames: 7
-  - frame: 1809
+  - frame: 3225
+    note: 76
+    dur_frames: 6
+  - frame: 3238
+    note: 76
+    dur_frames: 5
+  - frame: 3250
+    note: 76
+    dur_frames: 5
+  - frame: 3262
+    note: 76
+    dur_frames: 5
+  - frame: 3275
+    note: 77
+    dur_frames: 17
+  - frame: 3294
+    note: 74
+    dur_frames: 7
+  - frame: 3312
+    note: 74
+    dur_frames: 10
+  - frame: 3325
+    note: 72
+    dur_frames: 12
+  - frame: 3344
+    note: 72
+    dur_frames: 9
+  - frame: 3362
+    note: 72
+    dur_frames: 11
+  - frame: 3375
+    note: 70
+    dur_frames: 14
+  - frame: 3394
+    note: 70
+    dur_frames: 8
+  - frame: 3412
+    note: 76
+    dur_frames: 6
+  - frame: 3425
+    note: 76
+    dur_frames: 6
+  - frame: 3438
+    note: 76
+    dur_frames: 6
+  - frame: 3450
+    note: 76
+    dur_frames: 5
+  - frame: 3462
+    note: 76
+    dur_frames: 6
+  - frame: 3475
+    note: 77
+    dur_frames: 15
+  - frame: 3494
+    note: 74
+    dur_frames: 9
+  - frame: 3512
+    note: 74
+    dur_frames: 10
+  - frame: 3525
+    note: 72
+    dur_frames: 13
+  - frame: 3544
+    note: 72
+    dur_frames: 10
+  - frame: 3562
+    note: 72
+    dur_frames: 10
+  - frame: 3575
+    note: 70
+    dur_frames: 14
+  - frame: 5212
+    note: 76
+    dur_frames: 5
+  - frame: 5225
+    note: 76
+    dur_frames: 6
+  - frame: 5238
+    note: 76
+    dur_frames: 6
+  - frame: 5250
+    note: 76
+    dur_frames: 5
+  - frame: 5262
+    note: 76
+    dur_frames: 5
+  - frame: 5275
+    note: 77
+    dur_frames: 15
+  - frame: 5294
+    note: 74
+    dur_frames: 7
+  - frame: 5312
+    note: 74
+    dur_frames: 9
+  - frame: 5325
+    note: 72
+    dur_frames: 8
+  - frame: 5338
+    note: 72
+    dur_frames: 6
+  - frame: 5350
+    note: 72
+    dur_frames: 7
+  - frame: 5362
+    note: 72
+    dur_frames: 6
+  - frame: 5369
+    note: 70
+    dur_frames: 18
+  - frame: 5412
+    note: 76
+    dur_frames: 6
+  - frame: 5425
+    note: 76
+    dur_frames: 6
+  - frame: 5438
+    note: 76
+    dur_frames: 6
+  - frame: 5450
+    note: 76
+    dur_frames: 5
+  - frame: 5462
+    note: 76
+    dur_frames: 6
+  - frame: 5475
+    note: 77
+    dur_frames: 13
+  - frame: 5494
+    note: 74
+    dur_frames: 8
+  - frame: 5512
+    note: 74
+    dur_frames: 7
+  - frame: 5525
+    note: 72
+    dur_frames: 9
+  - frame: 5538
+    note: 72
+    dur_frames: 6
+  - frame: 5550
+    note: 72
+    dur_frames: 7
+  - frame: 5562
+    note: 72
+    dur_frames: 6
+  - frame: 5569
+    note: 70
+    dur_frames: 12
+  - frame: 5612
+    note: 76
+    dur_frames: 6
+  - frame: 5625
+    note: 76
+    dur_frames: 6
+  - frame: 5638
+    note: 76
+    dur_frames: 6
+  - frame: 5650
+    note: 76
+    dur_frames: 6
+  - frame: 5662
+    note: 76
+    dur_frames: 6
+  - frame: 5675
+    note: 77
+    dur_frames: 15
+  - frame: 5694
+    note: 74
+    dur_frames: 8
+  - frame: 5712
+    note: 74
+    dur_frames: 9
+  - frame: 5725
+    note: 72
+    dur_frames: 7
+  - frame: 5738
+    note: 72
+    dur_frames: 6
+  - frame: 5750
+    note: 72
+    dur_frames: 7
+  - frame: 5762
+    note: 72
+    dur_frames: 5
+  - frame: 5769
+    note: 70
+    dur_frames: 14
+  - frame: 5812
+    note: 76
+    dur_frames: 6
+  - frame: 5825
+    note: 76
+    dur_frames: 6
+  - frame: 5838
+    note: 76
+    dur_frames: 6
+  - frame: 5850
+    note: 76
+    dur_frames: 6
+  - frame: 5862
+    note: 76
+    dur_frames: 6
+  - frame: 5875
+    note: 77
+    dur_frames: 15
+  - frame: 5894
+    note: 74
+    dur_frames: 8
+  - frame: 5912
+    note: 74
+    dur_frames: 9
+  - frame: 5925
+    note: 72
+    dur_frames: 8
+  - frame: 5938
+    note: 72
+    dur_frames: 6
+  - frame: 5950
+    note: 72
+    dur_frames: 7
+  - frame: 5962
+    note: 72
+    dur_frames: 6
+  - frame: 5969
+    note: 70
+    dur_frames: 12
+  - frame: 6038
+    note: 69
+    dur_frames: 7
+  - frame: 6050
+    note: 72
+    dur_frames: 6
+  - frame: 6056
+    note: 74
+    dur_frames: 14
+  - frame: 6075
+    note: 74
+    dur_frames: 74
+  - frame: 6150
+    note: 74
+    dur_frames: 8
+  - frame: 6162
+    note: 74
+    dur_frames: 11
+  - frame: 6175
+    note: 72
+    dur_frames: 11
+  - frame: 6188
+    note: 74
+    dur_frames: 8
+  - frame: 6200
+    note: 74
+    dur_frames: 10
+  - frame: 6212
+    note: 72
+    dur_frames: 7
+  - frame: 6219
+    note: 74
+    dur_frames: 17
+  - frame: 6238
+    note: 69
+    dur_frames: 11
+  - frame: 6250
+    note: 72
+    dur_frames: 6
+  - frame: 6256
+    note: 74
+    dur_frames: 14
+  - frame: 6275
+    note: 74
+    dur_frames: 69
+  - frame: 6375
+    note: 72
+    dur_frames: 10
+  - frame: 6388
+    note: 74
+    dur_frames: 7
+  - frame: 6400
+    note: 74
+    dur_frames: 10
+  - frame: 6412
+    note: 72
+    dur_frames: 6
+  - frame: 6419
+    note: 74
+    dur_frames: 17
+  - frame: 6438
+    note: 69
+    dur_frames: 11
+  - frame: 6450
+    note: 72
+    dur_frames: 6
+  - frame: 6456
+    note: 74
+    dur_frames: 15
+  - frame: 6475
+    note: 74
+    dur_frames: 65
+  - frame: 6550
+    note: 74
+    dur_frames: 6
+  - frame: 6562
+    note: 74
+    dur_frames: 10
+  - frame: 6575
+    note: 72
+    dur_frames: 11
+  - frame: 6588
+    note: 74
+    dur_frames: 7
+  - frame: 6600
+    note: 74
+    dur_frames: 10
+  - frame: 6612
+    note: 72
+    dur_frames: 6
+  - frame: 6619
+    note: 74
+    dur_frames: 16
+  - frame: 6638
+    note: 69
+    dur_frames: 12
+  - frame: 6650
+    note: 72
+    dur_frames: 6
+  - frame: 6656
+    note: 74
+    dur_frames: 14
+  - frame: 6675
+    note: 74
+    dur_frames: 66
+  - frame: 6775
+    note: 72
+    dur_frames: 12
+  - frame: 6788
+    note: 74
+    dur_frames: 8
+  - frame: 6800
+    note: 74
+    dur_frames: 11
+  - frame: 6812
+    note: 72
+    dur_frames: 6
+  - frame: 6819
+    note: 74
+    dur_frames: 49
+  - frame: 6875
+    note: 77
+    dur_frames: 15
+  - frame: 6894
+    note: 74
+    dur_frames: 12
+  - frame: 6912
+    note: 74
+    dur_frames: 12
+  - frame: 6925
+    note: 72
+    dur_frames: 14
+  - frame: 6944
+    note: 72
+    dur_frames: 14
+  - frame: 6975
+    note: 77
+    dur_frames: 7
+  - frame: 6988
+    note: 77
+    dur_frames: 6
+  - frame: 7000
+    note: 77
+    dur_frames: 6
+  - frame: 7012
+    note: 77
+    dur_frames: 8
+  - frame: 7025
+    note: 76
+    dur_frames: 6
+  - frame: 7038
+    note: 76
+    dur_frames: 6
+  - frame: 7050
+    note: 76
+    dur_frames: 6
+  - frame: 7062
+    note: 76
+    dur_frames: 6
+  - frame: 7075
+    note: 77
+    dur_frames: 15
+  - frame: 7094
+    note: 74
+    dur_frames: 10
+  - frame: 7112
+    note: 74
+    dur_frames: 12
+  - frame: 7125
+    note: 72
+    dur_frames: 12
+  - frame: 7144
+    note: 72
+    dur_frames: 13
+  - frame: 7175
+    note: 77
+    dur_frames: 8
+  - frame: 7188
+    note: 77
+    dur_frames: 7
+  - frame: 7200
+    note: 77
+    dur_frames: 6
+  - frame: 7212
+    note: 77
+    dur_frames: 8
+  - frame: 7225
+    note: 76
+    dur_frames: 6
+  - frame: 7238
+    note: 76
+    dur_frames: 6
+  - frame: 7250
+    note: 76
+    dur_frames: 6
+  - frame: 7262
+    note: 76
+    dur_frames: 6
+  - frame: 7275
+    note: 77
+    dur_frames: 15
+  - frame: 7294
+    note: 74
+    dur_frames: 11
+  - frame: 7312
+    note: 74
+    dur_frames: 10
+  - frame: 7325
+    note: 72
+    dur_frames: 11
+  - frame: 7344
+    note: 72
+    dur_frames: 11
+  - frame: 7375
+    note: 77
+    dur_frames: 7
+  - frame: 7388
+    note: 77
+    dur_frames: 6
+  - frame: 7400
+    note: 77
+    dur_frames: 6
+  - frame: 7412
+    note: 77
+    dur_frames: 8
+  - frame: 7425
+    note: 76
+    dur_frames: 6
+  - frame: 7438
+    note: 76
+    dur_frames: 5
+  - frame: 7450
+    note: 76
+    dur_frames: 5
+  - frame: 7462
+    note: 76
+    dur_frames: 6
+  - frame: 7475
+    note: 77
+    dur_frames: 14
+  - frame: 7494
+    note: 74
+    dur_frames: 8
+  - frame: 7512
+    note: 74
+    dur_frames: 9
+  - frame: 7525
+    note: 72
+    dur_frames: 13
+  - frame: 7544
+    note: 72
+    dur_frames: 15
+  - frame: 7612
+    note: 76
+    dur_frames: 6
+  - frame: 7625
+    note: 76
+    dur_frames: 6
+  - frame: 7638
+    note: 76
+    dur_frames: 6
+  - frame: 7650
+    note: 76
+    dur_frames: 5
+  - frame: 7662
+    note: 76
+    dur_frames: 8
+  - frame: 7675
+    note: 77
+    dur_frames: 17
+  - frame: 7694
+    note: 74
+    dur_frames: 9
+  - frame: 7712
+    note: 74
+    dur_frames: 11
+  - frame: 7725
+    note: 72
+    dur_frames: 13
+  - frame: 7744
+    note: 72
+    dur_frames: 9
+  - frame: 7762
+    note: 72
+    dur_frames: 11
+  - frame: 7775
+    note: 70
+    dur_frames: 15
+  - frame: 7794
+    note: 70
+    dur_frames: 7
+  - frame: 7812
+    note: 76
+    dur_frames: 6
+  - frame: 7825
+    note: 76
+    dur_frames: 5
+  - frame: 7838
+    note: 76
+    dur_frames: 5
+  - frame: 7850
+    note: 76
+    dur_frames: 5
+  - frame: 7862
+    note: 76
+    dur_frames: 6
+  - frame: 7875
+    note: 77
+    dur_frames: 15
+  - frame: 7894
+    note: 74
+    dur_frames: 9
+  - frame: 7912
+    note: 74
+    dur_frames: 11
+  - frame: 7925
+    note: 72
+    dur_frames: 10
+  - frame: 7944
+    note: 72
+    dur_frames: 12
+  - frame: 7962
+    note: 72
+    dur_frames: 10
+  - frame: 7975
+    note: 70
+    dur_frames: 11
+  - frame: 8012
     note: 76
     dur_frames: 7
-  - frame: 1817
+  - frame: 8025
+    note: 76
+    dur_frames: 6
+  - frame: 8038
+    note: 76
+    dur_frames: 5
+  - frame: 8050
+    note: 76
+    dur_frames: 5
+  - frame: 8062
+    note: 76
+    dur_frames: 5
+  - frame: 8075
+    note: 77
+    dur_frames: 17
+  - frame: 8094
+    note: 74
+    dur_frames: 7
+  - frame: 8112
+    note: 74
+    dur_frames: 10
+  - frame: 8125
+    note: 72
+    dur_frames: 12
+  - frame: 8144
+    note: 72
+    dur_frames: 9
+  - frame: 8162
+    note: 72
+    dur_frames: 11
+  - frame: 8175
+    note: 70
+    dur_frames: 14
+  - frame: 8194
+    note: 70
+    dur_frames: 8
+  - frame: 8212
+    note: 76
+    dur_frames: 6
+  - frame: 8225
+    note: 76
+    dur_frames: 6
+  - frame: 8238
+    note: 76
+    dur_frames: 6
+  - frame: 8250
+    note: 76
+    dur_frames: 5
+  - frame: 8262
+    note: 76
+    dur_frames: 6
+  - frame: 8275
+    note: 77
+    dur_frames: 15
+  - frame: 8294
+    note: 74
+    dur_frames: 9
+  - frame: 8312
+    note: 74
+    dur_frames: 10
+  - frame: 8325
+    note: 72
+    dur_frames: 13
+  - frame: 8344
+    note: 72
+    dur_frames: 10
+  - frame: 8362
+    note: 72
+    dur_frames: 10
+  - frame: 8375
+    note: 70
+    dur_frames: 14
+  - frame: 8412
+    note: 76
+    dur_frames: 5
+  - frame: 8425
+    note: 76
+    dur_frames: 6
+  - frame: 8438
+    note: 76
+    dur_frames: 5
+  - frame: 8450
+    note: 76
+    dur_frames: 5
+  - frame: 8462
+    note: 76
+    dur_frames: 6
+  - frame: 8475
+    note: 77
+    dur_frames: 17
+  - frame: 8494
+    note: 74
+    dur_frames: 9
+  - frame: 8512
+    note: 74
+    dur_frames: 11
+  - frame: 8525
+    note: 72
+    dur_frames: 13
+  - frame: 8544
+    note: 72
+    dur_frames: 9
+  - frame: 8562
+    note: 72
+    dur_frames: 11
+  - frame: 8575
+    note: 70
+    dur_frames: 15
+  - frame: 8594
+    note: 70
+    dur_frames: 7
+  - frame: 8612
+    note: 76
+    dur_frames: 6
+  - frame: 8625
+    note: 76
+    dur_frames: 5
+  - frame: 8638
+    note: 76
+    dur_frames: 5
+  - frame: 8650
+    note: 76
+    dur_frames: 5
+  - frame: 8662
+    note: 76
+    dur_frames: 6
+  - frame: 8675
+    note: 77
+    dur_frames: 15
+  - frame: 8694
+    note: 74
+    dur_frames: 9
+  - frame: 8712
+    note: 74
+    dur_frames: 11
+  - frame: 8725
+    note: 72
+    dur_frames: 10
+  - frame: 8744
+    note: 72
+    dur_frames: 12
+  - frame: 8762
+    note: 72
+    dur_frames: 10
+  - frame: 8775
+    note: 70
+    dur_frames: 11
+  - frame: 8812
     note: 76
     dur_frames: 7
-  - frame: 1826
+  - frame: 8825
     note: 76
-    dur_frames: 7
-  - frame: 1834
+    dur_frames: 6
+  - frame: 8838
     note: 76
-    dur_frames: 7
-  - frame: 1843
+    dur_frames: 5
+  - frame: 8850
     note: 76
-    dur_frames: 7
-  - frame: 1851
+    dur_frames: 5
+  - frame: 8862
     note: 76
+    dur_frames: 5
+  - frame: 8875
+    note: 77
+    dur_frames: 17
+  - frame: 8894
+    note: 74
     dur_frames: 7
-  - frame: 1860
+  - frame: 8912
+    note: 74
+    dur_frames: 10
+  - frame: 8925
+    note: 72
+    dur_frames: 12
+  - frame: 8944
+    note: 72
+    dur_frames: 9
+  - frame: 8962
+    note: 72
+    dur_frames: 11
+  - frame: 8975
+    note: 70
+    dur_frames: 14
+  - frame: 8994
+    note: 70
+    dur_frames: 8
+  - frame: 9012
     note: 76
-    dur_frames: 7
-  - frame: 1869
+    dur_frames: 6
+  - frame: 9025
     note: 76
-    dur_frames: 7
-  - frame: 1877
+    dur_frames: 6
+  - frame: 9038
     note: 76
-    dur_frames: 7
-  - frame: 1886
+    dur_frames: 6
+  - frame: 9050
     note: 76
-    dur_frames: 7
-  - frame: 1894
+    dur_frames: 5
+  - frame: 9062
     note: 76
-    dur_frames: 7
-  - frame: 1903
-    note: 76
-    dur_frames: 7
-  - frame: 1911
-    note: 76
-    dur_frames: 7
-  - frame: 1920
-    note: 76
-    dur_frames: 7
-  - frame: 1929
-    note: 76
-    dur_frames: 7
-  - frame: 1937
-    note: 76
-    dur_frames: 7
-  - frame: 1946
-    note: 76
-    dur_frames: 7
-  - frame: 1954
-    note: 76
-    dur_frames: 7
-  - frame: 1963
-    note: 76
-    dur_frames: 7
-  - frame: 1971
-    note: 76
-    dur_frames: 7
-  - frame: 1980
-    note: 76
-    dur_frames: 7
-  - frame: 1989
-    note: 76
-    dur_frames: 7
-  - frame: 1997
-    note: 76
-    dur_frames: 7
-  - frame: 2006
-    note: 76
-    dur_frames: 7
-  - frame: 2014
-    note: 76
-    dur_frames: 7
-  - frame: 2023
-    note: 76
-    dur_frames: 7
-  - frame: 2031
-    note: 76
-    dur_frames: 7
-  - frame: 2040
-    note: 76
-    dur_frames: 7
-  - frame: 2049
-    note: 76
-    dur_frames: 7
-  - frame: 2057
-    note: 76
-    dur_frames: 7
-  - frame: 2066
-    note: 76
-    dur_frames: 7
-  - frame: 2074
-    note: 76
-    dur_frames: 7
-  - frame: 2083
-    note: 76
-    dur_frames: 7
-  - frame: 2091
-    note: 76
-    dur_frames: 7
-  - frame: 2100
-    note: 76
-    dur_frames: 7
-  - frame: 2109
-    note: 76
-    dur_frames: 7
-  - frame: 2117
-    note: 76
-    dur_frames: 7
-  - frame: 2126
-    note: 76
-    dur_frames: 7
-  - frame: 2134
-    note: 76
-    dur_frames: 7
-  - frame: 2143
-    note: 76
-    dur_frames: 7
-  - frame: 2151
-    note: 76
-    dur_frames: 7
-  - frame: 2160
-    note: 76
-    dur_frames: 7
-  - frame: 2169
-    note: 76
-    dur_frames: 7
-  - frame: 2177
-    note: 76
-    dur_frames: 7
-  - frame: 2186
-    note: 76
-    dur_frames: 7
+    dur_frames: 6
+  - frame: 9075
+    note: 77
+    dur_frames: 15
+  - frame: 9094
+    note: 74
+    dur_frames: 9
+  - frame: 9112
+    note: 74
+    dur_frames: 10
+  - frame: 9125
+    note: 72
+    dur_frames: 13
+  - frame: 9144
+    note: 72
+    dur_frames: 10
+  - frame: 9162
+    note: 72
+    dur_frames: 10
+  - frame: 9175
+    note: 70
+    dur_frames: 14
   drums:
   - kind: kick
     frame: 0
+  - kind: crash
+    frame: 0
   - kind: kick
-    frame: 17
-  - kind: kick
-    frame: 34
-  - kind: kick
-    frame: 39
-  - kind: kick
-    frame: 51
-  - kind: kick
-    frame: 64
-  - kind: kick
-    frame: 69
-  - kind: kick
-    frame: 86
-  - kind: kick
-    frame: 103
-  - kind: kick
-    frame: 107
-  - kind: kick
-    frame: 120
-  - kind: kick
-    frame: 133
-  - kind: kick
-    frame: 137
-  - kind: kick
-    frame: 154
-  - kind: kick
-    frame: 171
-  - kind: kick
-    frame: 176
-  - kind: kick
-    frame: 189
-  - kind: kick
-    frame: 201
-  - kind: kick
-    frame: 206
-  - kind: kick
-    frame: 223
-  - kind: kick
-    frame: 240
-  - kind: kick
-    frame: 244
-  - kind: kick
-    frame: 257
-  - kind: kick
-    frame: 270
-  - kind: kick
-    frame: 274
-  - kind: hat
-    frame: 274
-  - kind: hat
-    frame: 283
-  - kind: kick
-    frame: 291
+    frame: 25
   - kind: snare
-    frame: 291
-  - kind: hat
-    frame: 291
-  - kind: hat
+    frame: 25
+  - kind: kick
+    frame: 50
+  - kind: kick
+    frame: 56
+  - kind: kick
+    frame: 75
+  - kind: snare
+    frame: 75
+  - kind: kick
+    frame: 94
+  - kind: kick
+    frame: 100
+  - kind: kick
+    frame: 125
+  - kind: snare
+    frame: 125
+  - kind: kick
+    frame: 150
+  - kind: kick
+    frame: 156
+  - kind: kick
+    frame: 175
+  - kind: snare
+    frame: 175
+  - kind: kick
+    frame: 194
+  - kind: kick
+    frame: 200
+  - kind: kick
+    frame: 225
+  - kind: snare
+    frame: 225
+  - kind: kick
+    frame: 250
+  - kind: kick
+    frame: 256
+  - kind: kick
+    frame: 275
+  - kind: snare
+    frame: 275
+  - kind: kick
+    frame: 294
+  - kind: kick
     frame: 300
   - kind: kick
-    frame: 309
-  - kind: hat
-    frame: 309
-  - kind: kick
-    frame: 313
-  - kind: hat
-    frame: 317
-  - kind: kick
-    frame: 326
+    frame: 325
   - kind: snare
-    frame: 326
-  - kind: hat
-    frame: 326
-  - kind: hat
-    frame: 334
+    frame: 325
   - kind: kick
-    frame: 339
+    frame: 350
   - kind: kick
-    frame: 343
-  - kind: hat
-    frame: 343
-  - kind: hat
-    frame: 351
+    frame: 356
   - kind: kick
-    frame: 360
+    frame: 375
   - kind: snare
-    frame: 360
-  - kind: hat
-    frame: 360
-  - kind: hat
-    frame: 369
-  - kind: kick
-    frame: 377
-  - kind: hat
-    frame: 377
-  - kind: kick
-    frame: 381
-  - kind: hat
-    frame: 386
+    frame: 375
   - kind: kick
     frame: 394
+  - kind: kick
+    frame: 400
+  - kind: crash
+    frame: 400
+  - kind: kick
+    frame: 425
   - kind: snare
-    frame: 394
-  - kind: hat
-    frame: 394
-  - kind: hat
-    frame: 403
-  - kind: kick
-    frame: 407
-  - kind: kick
-    frame: 411
-  - kind: hat
-    frame: 411
-  - kind: hat
-    frame: 420
-  - kind: kick
-    frame: 429
-  - kind: snare
-    frame: 429
-  - kind: hat
-    frame: 429
-  - kind: hat
-    frame: 437
-  - kind: kick
-    frame: 446
-  - kind: hat
-    frame: 446
+    frame: 425
   - kind: kick
     frame: 450
-  - kind: hat
-    frame: 454
   - kind: kick
-    frame: 463
-  - kind: snare
-    frame: 463
-  - kind: hat
-    frame: 463
-  - kind: hat
-    frame: 471
+    frame: 456
   - kind: kick
-    frame: 476
+    frame: 475
+  - kind: snare
+    frame: 475
   - kind: kick
-    frame: 480
-  - kind: hat
-    frame: 480
-  - kind: hat
-    frame: 489
+    frame: 494
   - kind: kick
-    frame: 497
-  - kind: snare
-    frame: 497
-  - kind: hat
-    frame: 497
-  - kind: hat
-    frame: 506
+    frame: 500
   - kind: kick
-    frame: 514
-  - kind: hat
-    frame: 514
+    frame: 525
   - kind: snare
-    frame: 514
+    frame: 525
   - kind: kick
-    frame: 519
-  - kind: snare
-    frame: 519
-  - kind: hat
-    frame: 523
-  - kind: snare
-    frame: 523
-  - kind: snare
-    frame: 527
+    frame: 550
   - kind: kick
-    frame: 531
-  - kind: snare
-    frame: 531
-  - kind: hat
-    frame: 531
-  - kind: snare
-    frame: 531
-  - kind: snare
-    frame: 536
-  - kind: hat
-    frame: 540
-  - kind: snare
-    frame: 540
+    frame: 556
   - kind: kick
-    frame: 544
+    frame: 575
   - kind: snare
-    frame: 544
+    frame: 575
   - kind: kick
-    frame: 549
-  - kind: hat
-    frame: 549
-  - kind: crash
-    frame: 549
-  - kind: hat
-    frame: 557
-  - kind: kick
-    frame: 566
-  - kind: snare
-    frame: 566
-  - kind: hat
-    frame: 566
-  - kind: hat
-    frame: 574
-  - kind: kick
-    frame: 583
-  - kind: hat
-    frame: 583
-  - kind: kick
-    frame: 587
-  - kind: hat
-    frame: 591
+    frame: 594
   - kind: kick
     frame: 600
+  - kind: kick
+    frame: 625
   - kind: snare
-    frame: 600
-  - kind: hat
-    frame: 600
-  - kind: hat
-    frame: 609
+    frame: 625
   - kind: kick
-    frame: 613
-  - kind: kick
-    frame: 617
-  - kind: hat
-    frame: 617
-  - kind: hat
-    frame: 626
-  - kind: kick
-    frame: 634
-  - kind: snare
-    frame: 634
-  - kind: hat
-    frame: 634
-  - kind: hat
-    frame: 643
-  - kind: kick
-    frame: 651
-  - kind: hat
-    frame: 651
+    frame: 650
   - kind: kick
     frame: 656
-  - kind: hat
-    frame: 660
   - kind: kick
-    frame: 669
+    frame: 675
   - kind: snare
-    frame: 669
-  - kind: hat
-    frame: 669
-  - kind: hat
-    frame: 677
+    frame: 675
   - kind: kick
-    frame: 681
-  - kind: kick
-    frame: 686
-  - kind: hat
-    frame: 686
-  - kind: hat
     frame: 694
   - kind: kick
-    frame: 703
+    frame: 700
+  - kind: kick
+    frame: 725
   - kind: snare
-    frame: 703
-  - kind: hat
-    frame: 703
-  - kind: hat
-    frame: 711
-  - kind: kick
-    frame: 720
-  - kind: hat
-    frame: 720
-  - kind: kick
-    frame: 724
-  - kind: hat
-    frame: 729
-  - kind: kick
-    frame: 737
-  - kind: snare
-    frame: 737
-  - kind: hat
-    frame: 737
-  - kind: hat
-    frame: 746
+    frame: 725
   - kind: kick
     frame: 750
   - kind: kick
-    frame: 754
-  - kind: hat
-    frame: 754
-  - kind: hat
-    frame: 763
+    frame: 756
   - kind: kick
-    frame: 771
+    frame: 775
   - kind: snare
-    frame: 771
-  - kind: hat
-    frame: 771
-  - kind: hat
-    frame: 780
+    frame: 775
   - kind: kick
-    frame: 789
-  - kind: hat
-    frame: 789
+    frame: 794
   - kind: kick
-    frame: 793
-  - kind: hat
-    frame: 797
+    frame: 800
   - kind: kick
-    frame: 806
+    frame: 825
   - kind: snare
-    frame: 806
-  - kind: hat
-    frame: 806
-  - kind: hat
-    frame: 814
+    frame: 825
   - kind: kick
-    frame: 819
+    frame: 850
   - kind: kick
-    frame: 823
-  - kind: hat
-    frame: 823
-  - kind: hat
-    frame: 831
+    frame: 856
   - kind: kick
-    frame: 840
+    frame: 875
   - kind: snare
-    frame: 840
-  - kind: hat
-    frame: 840
-  - kind: hat
-    frame: 849
+    frame: 875
   - kind: kick
-    frame: 857
-  - kind: hat
-    frame: 857
+    frame: 894
   - kind: kick
-    frame: 861
-  - kind: hat
-    frame: 866
-  - kind: kick
-    frame: 874
-  - kind: snare
-    frame: 874
-  - kind: hat
-    frame: 874
-  - kind: hat
-    frame: 883
-  - kind: kick
-    frame: 887
-  - kind: kick
-    frame: 891
-  - kind: hat
-    frame: 891
-  - kind: hat
     frame: 900
   - kind: kick
-    frame: 909
+    frame: 925
   - kind: snare
-    frame: 909
-  - kind: hat
-    frame: 909
-  - kind: hat
-    frame: 917
+    frame: 925
   - kind: kick
-    frame: 926
-  - kind: hat
-    frame: 926
-  - kind: kick
-    frame: 930
-  - kind: hat
-    frame: 934
-  - kind: kick
-    frame: 943
-  - kind: snare
-    frame: 943
-  - kind: hat
-    frame: 943
-  - kind: hat
-    frame: 951
+    frame: 950
   - kind: kick
     frame: 956
   - kind: kick
-    frame: 960
-  - kind: hat
-    frame: 960
-  - kind: hat
-    frame: 969
-  - kind: kick
-    frame: 977
+    frame: 975
   - kind: snare
-    frame: 977
-  - kind: hat
-    frame: 977
-  - kind: hat
-    frame: 986
+    frame: 975
   - kind: kick
     frame: 994
-  - kind: hat
-    frame: 994
   - kind: kick
-    frame: 999
-  - kind: hat
-    frame: 1003
+    frame: 1000
   - kind: kick
-    frame: 1011
+    frame: 1025
   - kind: snare
-    frame: 1011
-  - kind: hat
-    frame: 1011
-  - kind: hat
-    frame: 1020
+    frame: 1025
   - kind: kick
-    frame: 1024
+    frame: 1050
   - kind: kick
-    frame: 1029
-  - kind: hat
-    frame: 1029
-  - kind: hat
-    frame: 1037
+    frame: 1056
   - kind: kick
-    frame: 1046
+    frame: 1075
   - kind: snare
-    frame: 1046
-  - kind: hat
-    frame: 1046
-  - kind: hat
-    frame: 1054
+    frame: 1075
   - kind: kick
-    frame: 1063
-  - kind: hat
-    frame: 1063
+    frame: 1094
   - kind: kick
-    frame: 1067
-  - kind: hat
-    frame: 1071
+    frame: 1100
   - kind: kick
-    frame: 1080
+    frame: 1125
   - kind: snare
-    frame: 1080
-  - kind: hat
-    frame: 1080
-  - kind: hat
-    frame: 1089
+    frame: 1125
   - kind: kick
-    frame: 1093
+    frame: 1150
   - kind: kick
-    frame: 1097
-  - kind: crash
-    frame: 1097
+    frame: 1156
   - kind: kick
-    frame: 1114
+    frame: 1175
   - kind: snare
-    frame: 1114
+    frame: 1175
   - kind: kick
-    frame: 1131
-  - kind: kick
-    frame: 1136
-  - kind: kick
-    frame: 1149
-  - kind: snare
-    frame: 1149
-  - kind: kick
-    frame: 1161
-  - kind: kick
-    frame: 1166
-  - kind: kick
-    frame: 1183
-  - kind: snare
-    frame: 1183
+    frame: 1194
   - kind: kick
     frame: 1200
   - kind: kick
-    frame: 1204
-  - kind: kick
-    frame: 1217
+    frame: 1225
   - kind: snare
-    frame: 1217
+    frame: 1225
   - kind: kick
-    frame: 1230
+    frame: 1250
   - kind: kick
-    frame: 1234
+    frame: 1256
   - kind: kick
-    frame: 1251
+    frame: 1275
   - kind: snare
-    frame: 1251
+    frame: 1275
   - kind: kick
-    frame: 1269
+    frame: 1294
   - kind: kick
-    frame: 1273
+    frame: 1300
   - kind: kick
-    frame: 1286
+    frame: 1325
   - kind: snare
-    frame: 1286
+    frame: 1325
   - kind: kick
-    frame: 1299
+    frame: 1350
   - kind: kick
-    frame: 1303
+    frame: 1356
   - kind: kick
-    frame: 1320
+    frame: 1375
   - kind: snare
-    frame: 1320
+    frame: 1375
   - kind: kick
-    frame: 1337
+    frame: 1394
   - kind: kick
-    frame: 1341
+    frame: 1400
   - kind: kick
-    frame: 1354
+    frame: 1425
   - kind: snare
-    frame: 1354
+    frame: 1425
   - kind: kick
-    frame: 1367
+    frame: 1450
   - kind: kick
-    frame: 1371
-  - kind: hat
-    frame: 1371
-  - kind: hat
-    frame: 1380
+    frame: 1456
   - kind: kick
-    frame: 1389
+    frame: 1475
   - kind: snare
-    frame: 1389
-  - kind: hat
-    frame: 1389
-  - kind: hat
-    frame: 1397
+    frame: 1475
   - kind: kick
-    frame: 1406
-  - kind: hat
-    frame: 1406
+    frame: 1494
   - kind: kick
-    frame: 1410
-  - kind: hat
-    frame: 1414
-  - kind: kick
-    frame: 1423
-  - kind: snare
-    frame: 1423
-  - kind: hat
-    frame: 1423
-  - kind: hat
-    frame: 1431
-  - kind: kick
-    frame: 1436
-  - kind: kick
-    frame: 1440
-  - kind: hat
-    frame: 1440
-  - kind: hat
-    frame: 1449
-  - kind: kick
-    frame: 1457
-  - kind: snare
-    frame: 1457
-  - kind: hat
-    frame: 1457
-  - kind: hat
-    frame: 1466
-  - kind: kick
-    frame: 1474
-  - kind: hat
-    frame: 1474
-  - kind: kick
-    frame: 1479
-  - kind: hat
-    frame: 1483
-  - kind: kick
-    frame: 1491
-  - kind: snare
-    frame: 1491
-  - kind: hat
-    frame: 1491
-  - kind: hat
     frame: 1500
   - kind: kick
-    frame: 1504
-  - kind: kick
-    frame: 1509
-  - kind: hat
-    frame: 1509
-  - kind: hat
-    frame: 1517
-  - kind: kick
-    frame: 1526
+    frame: 1525
   - kind: snare
-    frame: 1526
-  - kind: hat
-    frame: 1526
-  - kind: hat
-    frame: 1534
+    frame: 1525
   - kind: kick
-    frame: 1543
-  - kind: hat
-    frame: 1543
+    frame: 1550
   - kind: kick
-    frame: 1547
-  - kind: hat
-    frame: 1551
+    frame: 1556
   - kind: kick
-    frame: 1560
+    frame: 1575
   - kind: snare
-    frame: 1560
-  - kind: hat
-    frame: 1560
-  - kind: hat
-    frame: 1569
-  - kind: kick
-    frame: 1573
-  - kind: kick
-    frame: 1577
-  - kind: hat
-    frame: 1577
-  - kind: hat
-    frame: 1586
+    frame: 1575
   - kind: kick
     frame: 1594
+  - kind: kick
+    frame: 1600
+  - kind: kick
+    frame: 1625
   - kind: snare
-    frame: 1594
-  - kind: hat
-    frame: 1594
-  - kind: hat
-    frame: 1603
+    frame: 1625
   - kind: kick
-    frame: 1611
-  - kind: hat
-    frame: 1611
+    frame: 1650
+  - kind: kick
+    frame: 1656
+  - kind: kick
+    frame: 1675
   - kind: snare
-    frame: 1611
+    frame: 1675
   - kind: kick
-    frame: 1616
+    frame: 1694
+  - kind: kick
+    frame: 1700
+  - kind: kick
+    frame: 1725
   - kind: snare
-    frame: 1616
-  - kind: hat
-    frame: 1620
+    frame: 1725
+  - kind: kick
+    frame: 1750
+  - kind: kick
+    frame: 1756
+  - kind: kick
+    frame: 1775
   - kind: snare
-    frame: 1620
-  - kind: snare
-    frame: 1624
+    frame: 1775
   - kind: kick
-    frame: 1629
-  - kind: snare
-    frame: 1629
-  - kind: hat
-    frame: 1629
-  - kind: snare
-    frame: 1629
-  - kind: snare
-    frame: 1633
-  - kind: hat
-    frame: 1637
-  - kind: snare
-    frame: 1637
-  - kind: kick
-    frame: 1641
-  - kind: snare
-    frame: 1641
-  - kind: kick
-    frame: 1646
-  - kind: hat
-    frame: 1646
-  - kind: crash
-    frame: 1646
-  - kind: hat
-    frame: 1654
-  - kind: kick
-    frame: 1663
-  - kind: snare
-    frame: 1663
-  - kind: hat
-    frame: 1663
-  - kind: hat
-    frame: 1671
-  - kind: kick
-    frame: 1680
-  - kind: hat
-    frame: 1680
-  - kind: kick
-    frame: 1684
-  - kind: hat
-    frame: 1689
-  - kind: kick
-    frame: 1697
-  - kind: snare
-    frame: 1697
-  - kind: hat
-    frame: 1697
-  - kind: hat
-    frame: 1706
-  - kind: kick
-    frame: 1710
-  - kind: kick
-    frame: 1714
-  - kind: hat
-    frame: 1714
-  - kind: hat
-    frame: 1723
-  - kind: kick
-    frame: 1731
-  - kind: snare
-    frame: 1731
-  - kind: hat
-    frame: 1731
-  - kind: hat
-    frame: 1740
-  - kind: kick
-    frame: 1749
-  - kind: hat
-    frame: 1749
-  - kind: kick
-    frame: 1753
-  - kind: hat
-    frame: 1757
-  - kind: kick
-    frame: 1766
-  - kind: snare
-    frame: 1766
-  - kind: hat
-    frame: 1766
-  - kind: hat
-    frame: 1774
-  - kind: kick
-    frame: 1779
-  - kind: kick
-    frame: 1783
-  - kind: hat
-    frame: 1783
-  - kind: hat
-    frame: 1791
+    frame: 1794
   - kind: kick
     frame: 1800
+  - kind: kick
+    frame: 1825
   - kind: snare
-    frame: 1800
-  - kind: hat
-    frame: 1800
-  - kind: hat
-    frame: 1809
+    frame: 1825
   - kind: kick
-    frame: 1817
-  - kind: hat
-    frame: 1817
+    frame: 1850
   - kind: kick
-    frame: 1821
-  - kind: hat
-    frame: 1826
+    frame: 1856
   - kind: kick
-    frame: 1834
+    frame: 1875
   - kind: snare
-    frame: 1834
-  - kind: hat
-    frame: 1834
-  - kind: hat
-    frame: 1843
+    frame: 1875
   - kind: kick
-    frame: 1847
-  - kind: kick
-    frame: 1851
-  - kind: hat
-    frame: 1851
-  - kind: hat
-    frame: 1860
-  - kind: kick
-    frame: 1869
-  - kind: snare
-    frame: 1869
-  - kind: hat
-    frame: 1869
-  - kind: hat
-    frame: 1877
-  - kind: kick
-    frame: 1886
-  - kind: hat
-    frame: 1886
-  - kind: kick
-    frame: 1890
-  - kind: hat
     frame: 1894
   - kind: kick
-    frame: 1903
+    frame: 1900
+  - kind: kick
+    frame: 1925
   - kind: snare
-    frame: 1903
-  - kind: hat
-    frame: 1903
-  - kind: hat
-    frame: 1911
+    frame: 1925
   - kind: kick
-    frame: 1916
+    frame: 1950
   - kind: kick
-    frame: 1920
-  - kind: hat
-    frame: 1920
-  - kind: hat
-    frame: 1929
+    frame: 1956
   - kind: kick
-    frame: 1937
+    frame: 1975
   - kind: snare
-    frame: 1937
-  - kind: hat
-    frame: 1937
-  - kind: hat
-    frame: 1946
+    frame: 1975
   - kind: kick
-    frame: 1954
-  - kind: hat
-    frame: 1954
+    frame: 1994
   - kind: kick
-    frame: 1959
-  - kind: hat
-    frame: 1963
+    frame: 2000
   - kind: kick
-    frame: 1971
+    frame: 2025
   - kind: snare
-    frame: 1971
-  - kind: hat
-    frame: 1971
-  - kind: hat
-    frame: 1980
+    frame: 2025
   - kind: kick
-    frame: 1984
+    frame: 2050
   - kind: kick
-    frame: 1989
-  - kind: hat
-    frame: 1989
-  - kind: hat
-    frame: 1997
+    frame: 2056
   - kind: kick
-    frame: 2006
+    frame: 2075
   - kind: snare
-    frame: 2006
-  - kind: hat
-    frame: 2006
-  - kind: hat
-    frame: 2014
+    frame: 2075
   - kind: kick
-    frame: 2023
-  - kind: hat
-    frame: 2023
+    frame: 2094
   - kind: kick
-    frame: 2027
-  - kind: hat
-    frame: 2031
-  - kind: kick
-    frame: 2040
-  - kind: snare
-    frame: 2040
-  - kind: hat
-    frame: 2040
-  - kind: hat
-    frame: 2049
-  - kind: kick
-    frame: 2053
-  - kind: kick
-    frame: 2057
-  - kind: hat
-    frame: 2057
-  - kind: hat
-    frame: 2066
-  - kind: kick
-    frame: 2074
-  - kind: snare
-    frame: 2074
-  - kind: hat
-    frame: 2074
-  - kind: hat
-    frame: 2083
-  - kind: kick
-    frame: 2091
-  - kind: hat
-    frame: 2091
-  - kind: kick
-    frame: 2096
-  - kind: hat
     frame: 2100
   - kind: kick
-    frame: 2109
+    frame: 2125
   - kind: snare
-    frame: 2109
-  - kind: hat
-    frame: 2109
-  - kind: hat
-    frame: 2117
+    frame: 2125
   - kind: kick
-    frame: 2121
+    frame: 2150
   - kind: kick
-    frame: 2126
-  - kind: hat
-    frame: 2126
-  - kind: hat
-    frame: 2134
+    frame: 2156
   - kind: kick
-    frame: 2143
+    frame: 2175
   - kind: snare
-    frame: 2143
-  - kind: hat
-    frame: 2143
-  - kind: hat
-    frame: 2151
-  - kind: kick
-    frame: 2160
-  - kind: hat
-    frame: 2160
-  - kind: kick
-    frame: 2164
-  - kind: hat
-    frame: 2169
-  - kind: kick
-    frame: 2177
-  - kind: snare
-    frame: 2177
-  - kind: hat
-    frame: 2177
-  - kind: hat
-    frame: 2186
-  - kind: kick
-    frame: 2190
+    frame: 2175
   - kind: kick
     frame: 2194
-  - kind: hat
-    frame: 2194
-  - kind: hat
-    frame: 2203
   - kind: kick
-    frame: 2211
+    frame: 2200
+  - kind: kick
+    frame: 2225
   - kind: snare
-    frame: 2211
-  - kind: hat
-    frame: 2211
-  - kind: hat
-    frame: 2220
+    frame: 2225
   - kind: kick
-    frame: 2229
-  - kind: hat
-    frame: 2229
+    frame: 2250
   - kind: kick
-    frame: 2233
-  - kind: hat
-    frame: 2237
+    frame: 2256
   - kind: kick
-    frame: 2246
+    frame: 2275
   - kind: snare
-    frame: 2246
-  - kind: hat
-    frame: 2246
-  - kind: hat
-    frame: 2254
+    frame: 2275
   - kind: kick
-    frame: 2259
+    frame: 2294
   - kind: kick
-    frame: 2263
-  - kind: hat
-    frame: 2263
-  - kind: hat
-    frame: 2271
+    frame: 2300
   - kind: kick
-    frame: 2280
+    frame: 2325
   - kind: snare
-    frame: 2280
-  - kind: hat
-    frame: 2280
-  - kind: hat
-    frame: 2289
+    frame: 2325
   - kind: kick
-    frame: 2297
-  - kind: hat
-    frame: 2297
-  - kind: kick
-    frame: 2301
-  - kind: hat
-    frame: 2306
-  - kind: kick
-    frame: 2314
+    frame: 2350
   - kind: snare
-    frame: 2314
-  - kind: hat
-    frame: 2314
-  - kind: hat
-    frame: 2323
+    frame: 2350
   - kind: kick
-    frame: 2327
-  - kind: kick
-    frame: 2331
-  - kind: hat
-    frame: 2331
-  - kind: hat
-    frame: 2340
-  - kind: kick
-    frame: 2349
+    frame: 2356
   - kind: snare
-    frame: 2349
-  - kind: hat
-    frame: 2349
-  - kind: hat
-    frame: 2357
-  - kind: kick
-    frame: 2366
-  - kind: hat
-    frame: 2366
-  - kind: kick
-    frame: 2370
-  - kind: hat
-    frame: 2374
-  - kind: kick
-    frame: 2383
+    frame: 2356
   - kind: snare
-    frame: 2383
-  - kind: hat
-    frame: 2383
-  - kind: hat
-    frame: 2391
+    frame: 2362
+  - kind: snare
+    frame: 2369
   - kind: kick
-    frame: 2396
+    frame: 2375
+  - kind: snare
+    frame: 2375
+  - kind: snare
+    frame: 2375
+  - kind: snare
+    frame: 2381
+  - kind: snare
+    frame: 2388
+  - kind: kick
+    frame: 2394
+  - kind: snare
+    frame: 2394
   - kind: kick
     frame: 2400
-  - kind: hat
+  - kind: crash
     frame: 2400
-  - kind: hat
-    frame: 2409
   - kind: kick
-    frame: 2417
+    frame: 2425
   - kind: snare
-    frame: 2417
-  - kind: hat
-    frame: 2417
-  - kind: hat
-    frame: 2426
+    frame: 2425
   - kind: kick
-    frame: 2434
-  - kind: hat
-    frame: 2434
+    frame: 2450
   - kind: kick
-    frame: 2439
-  - kind: hat
-    frame: 2443
+    frame: 2456
   - kind: kick
-    frame: 2451
+    frame: 2475
   - kind: snare
-    frame: 2451
-  - kind: hat
-    frame: 2451
-  - kind: hat
-    frame: 2460
+    frame: 2475
   - kind: kick
-    frame: 2464
+    frame: 2494
+  - kind: kick
+    frame: 2500
+  - kind: kick
+    frame: 2525
+  - kind: snare
+    frame: 2525
+  - kind: kick
+    frame: 2550
+  - kind: kick
+    frame: 2556
+  - kind: kick
+    frame: 2575
+  - kind: snare
+    frame: 2575
+  - kind: kick
+    frame: 2594
+  - kind: kick
+    frame: 2600
+  - kind: kick
+    frame: 2625
+  - kind: snare
+    frame: 2625
+  - kind: kick
+    frame: 2650
+  - kind: kick
+    frame: 2656
+  - kind: kick
+    frame: 2675
+  - kind: snare
+    frame: 2675
+  - kind: kick
+    frame: 2694
+  - kind: kick
+    frame: 2700
+  - kind: kick
+    frame: 2725
+  - kind: snare
+    frame: 2725
+  - kind: kick
+    frame: 2750
+  - kind: kick
+    frame: 2756
+  - kind: kick
+    frame: 2775
+  - kind: snare
+    frame: 2775
+  - kind: kick
+    frame: 2794
+  - kind: kick
+    frame: 2800
+  - kind: kick
+    frame: 2825
+  - kind: snare
+    frame: 2825
+  - kind: kick
+    frame: 2850
+  - kind: kick
+    frame: 2856
+  - kind: kick
+    frame: 2875
+  - kind: snare
+    frame: 2875
+  - kind: kick
+    frame: 2894
+  - kind: kick
+    frame: 2900
+  - kind: kick
+    frame: 2925
+  - kind: snare
+    frame: 2925
+  - kind: kick
+    frame: 2950
+  - kind: kick
+    frame: 2956
+  - kind: kick
+    frame: 2975
+  - kind: snare
+    frame: 2975
+  - kind: kick
+    frame: 2994
+  - kind: kick
+    frame: 3000
+  - kind: kick
+    frame: 3025
+  - kind: snare
+    frame: 3025
+  - kind: kick
+    frame: 3050
+  - kind: kick
+    frame: 3056
+  - kind: kick
+    frame: 3075
+  - kind: snare
+    frame: 3075
+  - kind: kick
+    frame: 3094
+  - kind: kick
+    frame: 3100
+  - kind: kick
+    frame: 3125
+  - kind: snare
+    frame: 3125
+  - kind: kick
+    frame: 3150
+  - kind: kick
+    frame: 3156
+  - kind: kick
+    frame: 3175
+  - kind: snare
+    frame: 3175
+  - kind: kick
+    frame: 3194
+  - kind: kick
+    frame: 3200
+  - kind: kick
+    frame: 3225
+  - kind: snare
+    frame: 3225
+  - kind: kick
+    frame: 3250
+  - kind: kick
+    frame: 3256
+  - kind: kick
+    frame: 3275
+  - kind: snare
+    frame: 3275
+  - kind: kick
+    frame: 3294
+  - kind: kick
+    frame: 3300
+  - kind: kick
+    frame: 3325
+  - kind: snare
+    frame: 3325
+  - kind: kick
+    frame: 3350
+  - kind: kick
+    frame: 3356
+  - kind: kick
+    frame: 3375
+  - kind: snare
+    frame: 3375
+  - kind: kick
+    frame: 3394
+  - kind: kick
+    frame: 3400
+  - kind: kick
+    frame: 3425
+  - kind: snare
+    frame: 3425
+  - kind: kick
+    frame: 3450
+  - kind: kick
+    frame: 3456
+  - kind: kick
+    frame: 3475
+  - kind: snare
+    frame: 3475
+  - kind: kick
+    frame: 3494
+  - kind: kick
+    frame: 3500
+  - kind: kick
+    frame: 3525
+  - kind: snare
+    frame: 3525
+  - kind: kick
+    frame: 3550
+  - kind: kick
+    frame: 3556
+  - kind: kick
+    frame: 3575
+  - kind: snare
+    frame: 3575
+  - kind: kick
+    frame: 3594
+  - kind: kick
+    frame: 3600
+  - kind: kick
+    frame: 3625
+  - kind: snare
+    frame: 3625
+  - kind: kick
+    frame: 3650
+  - kind: kick
+    frame: 3656
+  - kind: kick
+    frame: 3675
+  - kind: snare
+    frame: 3675
+  - kind: kick
+    frame: 3694
+  - kind: kick
+    frame: 3700
+  - kind: kick
+    frame: 3725
+  - kind: snare
+    frame: 3725
+  - kind: kick
+    frame: 3750
+  - kind: kick
+    frame: 3756
+  - kind: kick
+    frame: 3775
+  - kind: snare
+    frame: 3775
+  - kind: kick
+    frame: 3794
+  - kind: kick
+    frame: 3800
+  - kind: kick
+    frame: 3825
+  - kind: snare
+    frame: 3825
+  - kind: kick
+    frame: 3850
+  - kind: kick
+    frame: 3856
+  - kind: kick
+    frame: 3875
+  - kind: snare
+    frame: 3875
+  - kind: kick
+    frame: 3894
+  - kind: kick
+    frame: 3900
+  - kind: kick
+    frame: 3925
+  - kind: snare
+    frame: 3925
+  - kind: kick
+    frame: 3950
+  - kind: kick
+    frame: 3956
+  - kind: kick
+    frame: 3975
+  - kind: snare
+    frame: 3975
+  - kind: kick
+    frame: 3994
+  - kind: kick
+    frame: 4000
+  - kind: kick
+    frame: 4025
+  - kind: snare
+    frame: 4025
+  - kind: kick
+    frame: 4050
+  - kind: kick
+    frame: 4056
+  - kind: kick
+    frame: 4075
+  - kind: snare
+    frame: 4075
+  - kind: kick
+    frame: 4094
+  - kind: kick
+    frame: 4100
+  - kind: kick
+    frame: 4125
+  - kind: snare
+    frame: 4125
+  - kind: kick
+    frame: 4150
+  - kind: kick
+    frame: 4156
+  - kind: kick
+    frame: 4175
+  - kind: snare
+    frame: 4175
+  - kind: kick
+    frame: 4194
+  - kind: kick
+    frame: 4200
+  - kind: kick
+    frame: 4225
+  - kind: snare
+    frame: 4225
+  - kind: kick
+    frame: 4250
+  - kind: kick
+    frame: 4256
+  - kind: kick
+    frame: 4275
+  - kind: snare
+    frame: 4275
+  - kind: kick
+    frame: 4294
+  - kind: kick
+    frame: 4300
+  - kind: kick
+    frame: 4325
+  - kind: snare
+    frame: 4325
+  - kind: kick
+    frame: 4350
+  - kind: kick
+    frame: 4356
+  - kind: kick
+    frame: 4375
+  - kind: snare
+    frame: 4375
+  - kind: kick
+    frame: 4394
+  - kind: kick
+    frame: 4400
+  - kind: kick
+    frame: 4425
+  - kind: snare
+    frame: 4425
+  - kind: kick
+    frame: 4450
+  - kind: kick
+    frame: 4456
+  - kind: kick
+    frame: 4475
+  - kind: snare
+    frame: 4475
+  - kind: kick
+    frame: 4494
+  - kind: kick
+    frame: 4500
+  - kind: kick
+    frame: 4525
+  - kind: snare
+    frame: 4525
+  - kind: kick
+    frame: 4550
+  - kind: kick
+    frame: 4556
+  - kind: kick
+    frame: 4575
+  - kind: snare
+    frame: 4575
+  - kind: kick
+    frame: 4594
+  - kind: kick
+    frame: 4600
+  - kind: kick
+    frame: 4625
+  - kind: snare
+    frame: 4625
+  - kind: kick
+    frame: 4650
+  - kind: kick
+    frame: 4656
+  - kind: kick
+    frame: 4675
+  - kind: snare
+    frame: 4675
+  - kind: kick
+    frame: 4694
+  - kind: kick
+    frame: 4700
+  - kind: kick
+    frame: 4725
+  - kind: snare
+    frame: 4725
+  - kind: kick
+    frame: 4750
+  - kind: kick
+    frame: 4756
+  - kind: kick
+    frame: 4775
+  - kind: snare
+    frame: 4775
+  - kind: kick
+    frame: 4794
+  - kind: kick
+    frame: 4800
+  - kind: kick
+    frame: 4825
+  - kind: snare
+    frame: 4825
+  - kind: kick
+    frame: 4850
+  - kind: kick
+    frame: 4856
+  - kind: kick
+    frame: 4875
+  - kind: snare
+    frame: 4875
+  - kind: kick
+    frame: 4894
+  - kind: kick
+    frame: 4900
+  - kind: kick
+    frame: 4925
+  - kind: snare
+    frame: 4925
+  - kind: kick
+    frame: 4950
+  - kind: kick
+    frame: 4956
+  - kind: kick
+    frame: 4975
+  - kind: snare
+    frame: 4975
+  - kind: kick
+    frame: 4994
+  - kind: kick
+    frame: 5000
+  - kind: kick
+    frame: 5025
+  - kind: snare
+    frame: 5025
+  - kind: kick
+    frame: 5050
+  - kind: kick
+    frame: 5056
+  - kind: kick
+    frame: 5075
+  - kind: snare
+    frame: 5075
+  - kind: kick
+    frame: 5094
+  - kind: kick
+    frame: 5100
+  - kind: kick
+    frame: 5125
+  - kind: snare
+    frame: 5125
+  - kind: kick
+    frame: 5150
+  - kind: kick
+    frame: 5156
+  - kind: kick
+    frame: 5175
+  - kind: snare
+    frame: 5175
+  - kind: kick
+    frame: 5194
+  - kind: kick
+    frame: 5200
+  - kind: kick
+    frame: 5225
+  - kind: snare
+    frame: 5225
+  - kind: kick
+    frame: 5250
+  - kind: kick
+    frame: 5256
+  - kind: kick
+    frame: 5275
+  - kind: snare
+    frame: 5275
+  - kind: kick
+    frame: 5294
+  - kind: kick
+    frame: 5300
+  - kind: kick
+    frame: 5325
+  - kind: snare
+    frame: 5325
+  - kind: kick
+    frame: 5350
+  - kind: kick
+    frame: 5356
+  - kind: kick
+    frame: 5375
+  - kind: snare
+    frame: 5375
+  - kind: kick
+    frame: 5394
+  - kind: kick
+    frame: 5400
+  - kind: kick
+    frame: 5425
+  - kind: snare
+    frame: 5425
+  - kind: kick
+    frame: 5450
+  - kind: kick
+    frame: 5456
+  - kind: kick
+    frame: 5475
+  - kind: snare
+    frame: 5475
+  - kind: kick
+    frame: 5494
+  - kind: kick
+    frame: 5500
+  - kind: kick
+    frame: 5525
+  - kind: snare
+    frame: 5525
+  - kind: kick
+    frame: 5550
+  - kind: kick
+    frame: 5556
+  - kind: kick
+    frame: 5575
+  - kind: snare
+    frame: 5575
+  - kind: kick
+    frame: 5594
+  - kind: kick
+    frame: 5600
+  - kind: crash
+    frame: 5600
+  - kind: kick
+    frame: 5625
+  - kind: snare
+    frame: 5625
+  - kind: kick
+    frame: 5650
+  - kind: kick
+    frame: 5656
+  - kind: kick
+    frame: 5675
+  - kind: snare
+    frame: 5675
+  - kind: kick
+    frame: 5694
+  - kind: kick
+    frame: 5700
+  - kind: kick
+    frame: 5725
+  - kind: snare
+    frame: 5725
+  - kind: kick
+    frame: 5750
+  - kind: kick
+    frame: 5756
+  - kind: kick
+    frame: 5775
+  - kind: snare
+    frame: 5775
+  - kind: kick
+    frame: 5794
+  - kind: kick
+    frame: 5800
+  - kind: kick
+    frame: 5825
+  - kind: snare
+    frame: 5825
+  - kind: kick
+    frame: 5850
+  - kind: kick
+    frame: 5856
+  - kind: kick
+    frame: 5875
+  - kind: snare
+    frame: 5875
+  - kind: kick
+    frame: 5894
+  - kind: kick
+    frame: 5900
+  - kind: kick
+    frame: 5925
+  - kind: snare
+    frame: 5925
+  - kind: kick
+    frame: 5950
+  - kind: kick
+    frame: 5956
+  - kind: kick
+    frame: 5975
+  - kind: snare
+    frame: 5975
+  - kind: kick
+    frame: 5994
+  - kind: kick
+    frame: 6000
+  - kind: kick
+    frame: 6025
+  - kind: snare
+    frame: 6025
+  - kind: kick
+    frame: 6050
+  - kind: kick
+    frame: 6056
+  - kind: kick
+    frame: 6075
+  - kind: snare
+    frame: 6075
+  - kind: kick
+    frame: 6094
+  - kind: kick
+    frame: 6100
+  - kind: kick
+    frame: 6125
+  - kind: snare
+    frame: 6125
+  - kind: kick
+    frame: 6150
+  - kind: kick
+    frame: 6156
+  - kind: kick
+    frame: 6175
+  - kind: snare
+    frame: 6175
+  - kind: kick
+    frame: 6194
+  - kind: kick
+    frame: 6200
+  - kind: kick
+    frame: 6225
+  - kind: snare
+    frame: 6225
+  - kind: kick
+    frame: 6250
+  - kind: kick
+    frame: 6256
+  - kind: kick
+    frame: 6275
+  - kind: snare
+    frame: 6275
+  - kind: kick
+    frame: 6294
+  - kind: kick
+    frame: 6300
+  - kind: kick
+    frame: 6325
+  - kind: snare
+    frame: 6325
+  - kind: kick
+    frame: 6350
+  - kind: kick
+    frame: 6356
+  - kind: kick
+    frame: 6375
+  - kind: snare
+    frame: 6375
+  - kind: kick
+    frame: 6394
+  - kind: kick
+    frame: 6400
+  - kind: kick
+    frame: 6425
+  - kind: snare
+    frame: 6425
+  - kind: kick
+    frame: 6450
+  - kind: kick
+    frame: 6456
+  - kind: kick
+    frame: 6475
+  - kind: snare
+    frame: 6475
+  - kind: kick
+    frame: 6494
+  - kind: kick
+    frame: 6500
+  - kind: kick
+    frame: 6525
+  - kind: snare
+    frame: 6525
+  - kind: kick
+    frame: 6550
+  - kind: kick
+    frame: 6556
+  - kind: kick
+    frame: 6575
+  - kind: snare
+    frame: 6575
+  - kind: kick
+    frame: 6594
+  - kind: kick
+    frame: 6600
+  - kind: kick
+    frame: 6625
+  - kind: snare
+    frame: 6625
+  - kind: kick
+    frame: 6650
+  - kind: kick
+    frame: 6656
+  - kind: kick
+    frame: 6675
+  - kind: snare
+    frame: 6675
+  - kind: kick
+    frame: 6694
+  - kind: kick
+    frame: 6700
+  - kind: kick
+    frame: 6725
+  - kind: snare
+    frame: 6725
+  - kind: kick
+    frame: 6750
+  - kind: snare
+    frame: 6750
+  - kind: kick
+    frame: 6756
+  - kind: snare
+    frame: 6756
+  - kind: snare
+    frame: 6762
+  - kind: snare
+    frame: 6769
+  - kind: kick
+    frame: 6775
+  - kind: snare
+    frame: 6775
+  - kind: snare
+    frame: 6775
+  - kind: snare
+    frame: 6781
+  - kind: snare
+    frame: 6788
+  - kind: kick
+    frame: 6794
+  - kind: snare
+    frame: 6794
+  - kind: kick
+    frame: 6800
+  - kind: crash
+    frame: 6800
+  - kind: kick
+    frame: 6825
+  - kind: snare
+    frame: 6825
+  - kind: kick
+    frame: 6850
+  - kind: kick
+    frame: 6856
+  - kind: kick
+    frame: 6875
+  - kind: snare
+    frame: 6875
+  - kind: kick
+    frame: 6894
+  - kind: kick
+    frame: 6900
+  - kind: kick
+    frame: 6925
+  - kind: snare
+    frame: 6925
+  - kind: kick
+    frame: 6950
+  - kind: kick
+    frame: 6956
+  - kind: kick
+    frame: 6975
+  - kind: snare
+    frame: 6975
+  - kind: kick
+    frame: 6994
+  - kind: kick
+    frame: 7000
+  - kind: kick
+    frame: 7025
+  - kind: snare
+    frame: 7025
+  - kind: kick
+    frame: 7050
+  - kind: kick
+    frame: 7056
+  - kind: kick
+    frame: 7075
+  - kind: snare
+    frame: 7075
+  - kind: kick
+    frame: 7094
+  - kind: kick
+    frame: 7100
+  - kind: kick
+    frame: 7125
+  - kind: snare
+    frame: 7125
+  - kind: kick
+    frame: 7150
+  - kind: kick
+    frame: 7156
+  - kind: kick
+    frame: 7175
+  - kind: snare
+    frame: 7175
+  - kind: kick
+    frame: 7194
+  - kind: kick
+    frame: 7200
+  - kind: kick
+    frame: 7225
+  - kind: snare
+    frame: 7225
+  - kind: kick
+    frame: 7250
+  - kind: kick
+    frame: 7256
+  - kind: kick
+    frame: 7275
+  - kind: snare
+    frame: 7275
+  - kind: kick
+    frame: 7294
+  - kind: kick
+    frame: 7300
+  - kind: kick
+    frame: 7325
+  - kind: snare
+    frame: 7325
+  - kind: kick
+    frame: 7350
+  - kind: kick
+    frame: 7356
+  - kind: kick
+    frame: 7375
+  - kind: snare
+    frame: 7375
+  - kind: kick
+    frame: 7394
+  - kind: kick
+    frame: 7400
+  - kind: kick
+    frame: 7425
+  - kind: snare
+    frame: 7425
+  - kind: kick
+    frame: 7450
+  - kind: kick
+    frame: 7456
+  - kind: kick
+    frame: 7475
+  - kind: snare
+    frame: 7475
+  - kind: kick
+    frame: 7494
+  - kind: kick
+    frame: 7500
+  - kind: kick
+    frame: 7525
+  - kind: snare
+    frame: 7525
+  - kind: kick
+    frame: 7550
+  - kind: kick
+    frame: 7556
+  - kind: kick
+    frame: 7575
+  - kind: snare
+    frame: 7575
+  - kind: kick
+    frame: 7594
+  - kind: kick
+    frame: 7600
+  - kind: kick
+    frame: 7625
+  - kind: snare
+    frame: 7625
+  - kind: kick
+    frame: 7650
+  - kind: kick
+    frame: 7656
+  - kind: kick
+    frame: 7675
+  - kind: snare
+    frame: 7675
+  - kind: kick
+    frame: 7694
+  - kind: kick
+    frame: 7700
+  - kind: kick
+    frame: 7725
+  - kind: snare
+    frame: 7725
+  - kind: kick
+    frame: 7750
+  - kind: kick
+    frame: 7756
+  - kind: kick
+    frame: 7775
+  - kind: snare
+    frame: 7775
+  - kind: kick
+    frame: 7794
+  - kind: kick
+    frame: 7800
+  - kind: kick
+    frame: 7825
+  - kind: snare
+    frame: 7825
+  - kind: kick
+    frame: 7850
+  - kind: kick
+    frame: 7856
+  - kind: kick
+    frame: 7875
+  - kind: snare
+    frame: 7875
+  - kind: kick
+    frame: 7894
+  - kind: kick
+    frame: 7900
+  - kind: kick
+    frame: 7925
+  - kind: snare
+    frame: 7925
+  - kind: kick
+    frame: 7950
+  - kind: kick
+    frame: 7956
+  - kind: kick
+    frame: 7975
+  - kind: snare
+    frame: 7975
+  - kind: kick
+    frame: 7994
+  - kind: kick
+    frame: 8000
+  - kind: kick
+    frame: 8025
+  - kind: snare
+    frame: 8025
+  - kind: kick
+    frame: 8050
+  - kind: kick
+    frame: 8056
+  - kind: kick
+    frame: 8075
+  - kind: snare
+    frame: 8075
+  - kind: kick
+    frame: 8094
+  - kind: kick
+    frame: 8100
+  - kind: kick
+    frame: 8125
+  - kind: snare
+    frame: 8125
+  - kind: kick
+    frame: 8150
+  - kind: kick
+    frame: 8156
+  - kind: kick
+    frame: 8175
+  - kind: snare
+    frame: 8175
+  - kind: kick
+    frame: 8194
+  - kind: kick
+    frame: 8200
+  - kind: kick
+    frame: 8225
+  - kind: snare
+    frame: 8225
+  - kind: kick
+    frame: 8250
+  - kind: kick
+    frame: 8256
+  - kind: kick
+    frame: 8275
+  - kind: snare
+    frame: 8275
+  - kind: kick
+    frame: 8294
+  - kind: kick
+    frame: 8300
+  - kind: kick
+    frame: 8325
+  - kind: snare
+    frame: 8325
+  - kind: kick
+    frame: 8350
+  - kind: kick
+    frame: 8356
+  - kind: kick
+    frame: 8375
+  - kind: snare
+    frame: 8375
+  - kind: kick
+    frame: 8394
+  - kind: kick
+    frame: 8400
+  - kind: kick
+    frame: 8425
+  - kind: snare
+    frame: 8425
+  - kind: kick
+    frame: 8450
+  - kind: kick
+    frame: 8456
+  - kind: kick
+    frame: 8475
+  - kind: snare
+    frame: 8475
+  - kind: kick
+    frame: 8494
+  - kind: kick
+    frame: 8500
+  - kind: kick
+    frame: 8525
+  - kind: snare
+    frame: 8525
+  - kind: kick
+    frame: 8550
+  - kind: kick
+    frame: 8556
+  - kind: kick
+    frame: 8575
+  - kind: snare
+    frame: 8575
+  - kind: kick
+    frame: 8594
+  - kind: kick
+    frame: 8600
+  - kind: kick
+    frame: 8625
+  - kind: snare
+    frame: 8625
+  - kind: kick
+    frame: 8650
+  - kind: kick
+    frame: 8656
+  - kind: kick
+    frame: 8675
+  - kind: snare
+    frame: 8675
+  - kind: kick
+    frame: 8694
+  - kind: kick
+    frame: 8700
+  - kind: kick
+    frame: 8725
+  - kind: snare
+    frame: 8725
+  - kind: kick
+    frame: 8750
+  - kind: kick
+    frame: 8756
+  - kind: kick
+    frame: 8775
+  - kind: snare
+    frame: 8775
+  - kind: kick
+    frame: 8794
+  - kind: kick
+    frame: 8800
+  - kind: kick
+    frame: 8825
+  - kind: snare
+    frame: 8825
+  - kind: kick
+    frame: 8850
+  - kind: kick
+    frame: 8856
+  - kind: kick
+    frame: 8875
+  - kind: snare
+    frame: 8875
+  - kind: kick
+    frame: 8894
+  - kind: kick
+    frame: 8900
+  - kind: kick
+    frame: 8925
+  - kind: snare
+    frame: 8925
+  - kind: kick
+    frame: 8950
+  - kind: kick
+    frame: 8956
+  - kind: kick
+    frame: 8975
+  - kind: snare
+    frame: 8975
+  - kind: kick
+    frame: 8994
+  - kind: kick
+    frame: 9000
+  - kind: kick
+    frame: 9025
+  - kind: snare
+    frame: 9025
+  - kind: kick
+    frame: 9050
+  - kind: kick
+    frame: 9056
+  - kind: kick
+    frame: 9075
+  - kind: snare
+    frame: 9075
+  - kind: kick
+    frame: 9094
+  - kind: kick
+    frame: 9100
+  - kind: kick
+    frame: 9125
+  - kind: snare
+    frame: 9125
+  - kind: kick
+    frame: 9150
+  - kind: kick
+    frame: 9156
+  - kind: kick
+    frame: 9175
+  - kind: snare
+    frame: 9175
+  - kind: kick
+    frame: 9194

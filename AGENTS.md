@@ -32,16 +32,25 @@ flags(2B), startPage, pageLength, secondSIDAddr, thirdSIDAddr.
 If `loadAddr` in header is 0, the first 2 bytes of data are interpreted as the
 PRG-style load address — which is the more reliably-supported variant.
 
-## Voice assignment
+## Voice assignment (current working build)
 
-The two scripts use different strategies:
+The clean pipeline (`extract_patterns` → `compose` → `synth`) uses:
 
-- **`src/midi2sid.py`** — port-ish: V1 = T5 bassline, V2 = T7 vocal melody
-  (with T11 chorus hook overriding 92–124s), V3 = drums.
-- **`src/midi2sid_hh.py`** — happy-hardcore remix: V1 = generated off-beat
-  pulse bass tracking the melody octave-down, V2 = T5 melody on saw with
-  per-note filter cutoff envelope (hoover-wow), V3 = programmatic 4-on-floor
-  drums.
+| Voice | Source                 | Tone                                     |
+|-------|------------------------|------------------------------------------|
+| V1    | T5 verbatim (5ths Bass)| Pulse, PW=$0800, sustained envelope      |
+| V2    | T7 verbatim (Oboe)     | Triangle, gentle attack, full sustain    |
+| V3    | drums + T12 swell      | Noise per-hit ADSR; reverse-cymbal at intro |
+
+Plus the verified ground truth in `docs/song_layers.yaml`:
+syllable markers from T2 align note-for-note to T7's pitches — that's how
+we know T7 is genuinely the vocal melody and not a counter-line.
+
+### Legacy scripts (kept for reference)
+
+- **`src/midi2sid.py`** — early direct port.
+- **`src/midi2sid_hh.py`** — early happy-hardcore pass with generated drums.
+  Useful for comparison; not on the maintained pipeline.
 
 ## Source-MIDI roles (from `analyze_midi.py`)
 
@@ -57,6 +66,11 @@ The two scripts use different strategies:
 
 ## Common pitfalls — please *do not* re-discover
 
+0. **The karaoke MIDI's T7 IS the sung melody** — it's the Oboe (prog 68)
+   substitute, not an obligato. We verified this by aligning T2's
+   Soft-Karaoke `\My love` syllable markers to T7 note positions: every
+   syllable hits the right T7 pitch. Don't second-guess the track choice;
+   use `docs/song_layers.yaml` which is the verified ground truth.
 1. **Vibrato on V2 with base freq = 0 produces a constant ~3850 Hz beep.** Guard
    `apply_vibrato` with a `ora ZP_V2BASE_HI ; bne` check.
 2. **V2 PW init**: write to `SID+9` (PW LO) and `SID+10` (PW HI), *not* `+10`
@@ -75,6 +89,15 @@ The two scripts use different strategies:
 6. **Drum filter set**: tambourine (54) and maracas (70) are dense and noisy;
    keep only kick (36) + snare (38,40,39) + hats (42,44,46) for the
    foundational pattern.
+7. **Don't try to play different layers at different tempos** ("half-time
+   vocal over double-time drums"). The bar lengths diverge and section
+   timings stop aligning. Pick ONE BPM and render everything to it. We
+   currently use source 130 BPM globally; a `friet_hh.sid` variant at 170
+   BPM is on the polish plan.
+8. **The vocal melody in T7 doesn't enter until beat 21.5** and the
+   bassline in T5 doesn't enter until beat 120 (~60s). For short
+   previews this means early seconds are sparse. That's the actual song
+   structure — don't paper over it with synthetic backing.
 
 ## Where to start
 

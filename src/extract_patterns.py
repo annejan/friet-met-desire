@@ -218,6 +218,37 @@ def main():
             'rhythm_1bar_16ths': pattern_to_string(rhythm_grid(on_ticks, ticks_per_bar, 16)),
             'contour_first32': melodic_contour(events, 32),
         }
+        # For the lead-melody tracks (vocal substitute and chorus hook), record
+        # the exact note events so the composer can reproduce the recognizable
+        # tune. Each note is (start_beat, dur_beats, midi_pitch).
+        if role in ('melody', 'hook'):
+            # Resolve note durations from the on/off pairs
+            held = {}
+            note_list = []  # (start_tick, dur_ticks, pitch)
+            for t, kind, n in events:
+                if kind == 'on':
+                    held[n] = t
+                else:
+                    if n in held:
+                        note_list.append((held.pop(n), t - held.get(n, t), n))
+                        # Fix: held already popped above; just compute duration from saved value
+            # Re-do more carefully
+            held = {}
+            note_list = []
+            for t, kind, n in events:
+                if kind == 'on':
+                    held[n] = t
+                else:
+                    if n in held:
+                        start = held.pop(n)
+                        note_list.append((start, max(1, t - start), n))
+            # Sort by start time; record as beats for tempo-independence
+            ticks_per_beat = tpb
+            note_list.sort()
+            info['notes_as_beats'] = [
+                [round(s / ticks_per_beat, 4), round(d / ticks_per_beat, 4), int(n)]
+                for s, d, n in note_list
+            ]
         # Chord roots if this is the chord track
         if role == 'chord':
             roots = chord_roots_per_bar(events, ticks_per_bar, n_bars)
@@ -231,6 +262,57 @@ def main():
         f.write("# Abstract song specification (Phase 1 of cleanroom remix pipeline).\n")
         f.write("# The composer and synthesiser MUST read ONLY this file, never the MIDI.\n\n")
         yaml.safe_dump(spec, f, sort_keys=False, default_flow_style=False)
+
+    # ALSO write a verified ground-truth file pairing lyric markers (T2)
+    # with the vocal-substitute (T7) and dumping verbatim notes from T5
+    # (bassline) and T12 (intro SFX). The composer can choose to use these
+    # verbatim or just take patterns from the spec.
+    layers_path = os.path.join(os.path.dirname(SPEC_PATH), 'song_layers.yaml')
+    layers = {
+        'source': os.path.basename(MIDI_PATH),
+        'source_bpm': bpm,
+        'layers': {},
+    }
+    # Lyrics from T2 (Soft Karaoke "Words" track)
+    if len(mid.tracks) > 2:
+        lyr_evs = []
+        t = 0
+        for m in mid.tracks[2]:
+            t += m.time
+            if m.type == 'text' and hasattr(m, 'text') and m.text and not m.text.startswith('@'):
+                lyr_evs.append({'beat': round(t/tpb, 3),
+                                'syllable': m.text.lstrip('\\/').strip()})
+        layers['lyrics'] = lyr_evs
+
+    def dump_track_notes(ti):
+        if ti >= len(mid.tracks):
+            return []
+        held = {}
+        out = []
+        t = 0
+        for m in mid.tracks[ti]:
+            t += m.time
+            if m.type == 'note_on' and m.velocity > 0:
+                held.setdefault(m.note, []).append(t)
+            elif m.type in ('note_off',) or (m.type=='note_on' and m.velocity==0):
+                if m.note in held and held[m.note]:
+                    s = held[m.note].pop(0)
+                    out.append([round(s/tpb, 3), round((t-s)/tpb, 3), int(m.note)])
+        out.sort()
+        return out
+
+    layers['layers']['bass']  = dump_track_notes(5)
+    layers['layers']['vocal'] = dump_track_notes(7)
+    layers['layers']['hook']  = dump_track_notes(11)
+    layers['layers']['sfx']   = dump_track_notes(12)
+    with open(layers_path, 'w') as f:
+        f.write("# Verified ground-truth note lists for each named layer.\n")
+        f.write("# Each entry: [start_beat, duration_beats, midi_pitch].\n\n")
+        yaml.safe_dump(layers, f, sort_keys=False)
+    print(f"Wrote {layers_path} (bass={len(layers['layers']['bass'])}, "
+          f"vocal={len(layers['layers']['vocal'])}, "
+          f"hook={len(layers['layers']['hook'])}, "
+          f"sfx={len(layers['layers']['sfx'])})")
     print(f"Wrote {SPEC_PATH}")
     print(f"  {bpm} BPM, key {spec['key']['root']} {spec['key']['mode']}, {n_bars} bars")
     for k, v in elements.items():

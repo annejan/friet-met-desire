@@ -6,3 +6,4 @@ __pycache__/
 *.o65
 /tmp/
 .claude/
+tmp_midi/
