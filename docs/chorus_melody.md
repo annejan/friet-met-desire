@@ -1,11 +1,15 @@
 # Hand-transcribed chorus melody — "Freed from Desire"
 
-Source: [pianoletternotes.blogspot.com](https://pianoletternotes.blogspot.com/2019/02/freed-from-desire-by-gala.html)
-(letter-notes transcription, cross-checked against song memory).
+> **Superseded.** This document was written when we thought MIDI track T7
+> was *not* the sung melody. We later proved otherwise by aligning T2's
+> syllable markers to T7 notes (see `docs/melody_analysis.md` and
+> `docs/melody_lyrics.yaml`). The synth now plays T7 verbatim and gets
+> the real song. This file is kept as a record of the detour.
 
-The MIDI in `midi/` has a misleading "vocal" track (T7) — it's actually an
-instrumental obligato, not the sung melody. This document captures the
-**actual sung chorus** so we can play *that* as the lead.
+Original source: [pianoletternotes.blogspot.com](https://pianoletternotes.blogspot.com/2019/02/freed-from-desire-by-gala.html)
+(letter-notes transcription, cross-checked against song memory). The
+hand-coded version sounded close-but-not-quite — the user called it
+"Nokia Snake".
 
 ## Notes used
 

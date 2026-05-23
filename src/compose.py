@@ -184,25 +184,129 @@ def main():
                 'dur_frames': max(4, int(round(d * fbeat_lead))),
             })
 
-        # ---- Bass (V1) — use T5 verbatim ----
+        # ---- Bass (V1) — three layers in time order:
+        #   beats 5–119  : T11 hook (Saw Lead, D3/F3) transposed -12 to bass
+        #                  register, looped to fill the verse.
+        #   beats 120–183: T5 verbatim bassline (the iconic synth bass).
+        #   beats 184–end: T11 verbatim at original octave (its natural
+        #                  slot during the instrumental break / post-chorus),
+        #                  falling back to T5 if T11 isn't sounding.
         if not MELODY_ONLY:
-            for s_b, d_b, pitch in layers['layers'].get('bass', []):
+            t5 = layers['layers'].get('bass', [])
+            t11 = layers['layers'].get('hook', [])
+            t5_start = t5[0][0] if t5 else 1e9
+            t11_start = t11[0][0] if t11 else 1e9
+            t11_end = (t11[-1][0] + t11[-1][1]) if t11 else 0
+
+            def push_bass(s_b, d_b, pitch):
                 b = s_b - offset_b
-                d = max(0.1, d_b)
+                if b < 0: return
                 bass_events.append({
                     'frame': int(round(b * fbeat_groove)),
                     'note':  int(pitch),
-                    'dur_frames': max(3, int(round(d * fbeat_groove))),
+                    'dur_frames': max(3, int(round(max(0.1, d_b) * fbeat_groove))),
                 })
 
-        # ---- Intro reverse-cymbal swell (V3 drum stream) ----
-        # T12 reverse cymbal at beat 2.5 (3 beats long) — pre-roll into the
-        # drum kick at beat 5. Render as a "crash" hit that rings.
+            # Build a looped T11 hook pattern (transposed -12) for the verse.
+            if t11:
+                # take the first full bar (~4 beats) of T11 as the loop unit
+                period_beats = 4.0
+                first_b = t11[0][0]
+                unit = [(n[0] - first_b, n[1], int(n[2]) - 12)
+                        for n in t11 if (n[0] - first_b) < period_beats]
+                if unit:
+                    # Loop from beat 5 (after intro swell starts) up to where T5
+                    # takes over.
+                    loop_start = 5.0
+                    while loop_start < min(t5_start, offset_b + 999):
+                        for s_off, d_off, p_off in unit:
+                            b = loop_start + s_off
+                            if b >= t5_start: break
+                            push_bass(b, d_off, p_off)
+                        loop_start += period_beats
+
+            # T5 verbatim from its first note until T11's natural section starts
+            # (or end of T5 if T11 doesn't come back).
+            t11_takes_over = max(t5_start, t11_start)
+            for s_b, d_b, pitch in t5:
+                if s_b >= t11_takes_over and t11_start > t5_start:
+                    break
+                push_bass(s_b, d_b, pitch)
+
+            # T11 verbatim at original octave during its natural section.
+            if t11_start < 1e9:
+                for s_b, d_b, pitch in t11:
+                    push_bass(s_b, d_b, int(pitch))
+
+            # After T11 ends, resume T5 if there's more (for the outro).
+            for s_b, d_b, pitch in t5:
+                if s_b > t11_end:
+                    push_bass(s_b, d_b, pitch)
+
+        # ---- Drums (V3) verbatim from T13, filtered for dynamics ----
+        # Section boundaries (source beats) from the lyric markers in T2:
+        #   each '\' prefix marks a new section.
+        SECTIONS = [
+            #  start_beat, name
+            (0.0,    'intro'),       # noise swell only
+            (21.5,   'verse1'),      # kick-only, sparse
+            (54.5,   'prechorus1'),  # add snare for build
+            (88.0,   'chorus1'),     # full kit (kick+snare+hat)
+            (117.5,  'postchorus1'), # full kit
+            (149.5,  'break'),       # back to kick+snare for the dip
+            (184.0,  'instrumental'),# kick+snare (T11 hook is the focus)
+            (213.5,  'verse2'),      # like verse1 — light again, dynamic dip
+            (246.5,  'prechorus2'),  # build
+            (280.0,  'chorus2'),     # full kit, reprise
+            (309.5,  'outro_na'),    # full kit through the na-na outro
+        ]
+        # Per-section drum-kit filter (which kinds survive)
+        SECTION_KIT = {
+            'intro':       set(),
+            'verse1':      {'kick'},
+            'prechorus1':  {'kick', 'snare'},
+            'chorus1':     {'kick', 'snare', 'hat'},
+            'postchorus1': {'kick', 'snare', 'hat'},
+            'break':       {'kick', 'snare'},
+            'instrumental':{'kick', 'snare'},
+            'verse2':      {'kick', 'snare'},     # one notch up from verse1
+            'prechorus2':  {'kick', 'snare', 'hat'},
+            'chorus2':     {'kick', 'snare', 'hat'},
+            'outro_na':    {'kick', 'snare', 'hat'},
+        }
+        # Map GM drum codes to our kit
+        GM_DRUMS = {
+            35: 'kick', 36: 'kick', 28: 'kick',
+            38: 'snare', 40: 'snare',
+            39: 'snare',          # clap mapped onto snare
+            46: 'hat',            # open hat -> hat
+        }
+        def section_at(beat):
+            cur = SECTIONS[0][1]
+            for sb, name in SECTIONS:
+                if beat >= sb:
+                    cur = name
+                else:
+                    break
+            return cur
+        if not MELODY_ONLY:
+            for s_b, _d_b, pitch in layers['layers'].get('drums', []):
+                kind = GM_DRUMS.get(int(pitch))
+                if not kind: continue
+                sec_name = section_at(s_b)
+                if kind not in SECTION_KIT.get(sec_name, set()): continue
+                b = s_b - offset_b
+                if b < 0: continue
+                drum_events.append({
+                    'kind':  kind,
+                    'frame': int(round(b * fbeat_groove)),
+                })
+
+        # ---- T12 reverse-cymbal swells (intro AND section transitions) ----
         if not MELODY_ONLY:
             for s_b, d_b, _pitch in layers['layers'].get('sfx', []):
                 b = s_b - offset_b
-                if b < 0 or b > 16:  # only the intro swell, not late ones
-                    continue
+                if b < 0: continue
                 fx_events.append({
                     'kind': 'crash',
                     'frame': int(round(b * fbeat_groove)),
@@ -252,11 +356,9 @@ def main():
 
     cur_bar = 0
     fill_intro_to = {'build', 'build2'}
-    # With verbatim T5 bass + T13-style drums we don't need the synthetic
-    # section loop. Keep only the drum side (kick + clap on the source
-    # tempo) and skip the synthetic bass.
-    GENERATE_DRUMS_FROM_SECTIONS = not MELODY_ONLY
-    section_iter = list(enumerate(sections)) if GENERATE_DRUMS_FROM_SECTIONS else []
+    # Bass + drums + SFX are all verbatim from song_layers now; the
+    # synthetic section loop has nothing left to do. Skip it entirely.
+    section_iter = []
     # Drums tempo = source tempo (frames-per-bar recomputed)
     fpbar  = beats_to_frames(4, source_bpm) if skip_synthetic_melody else fpbar
     fp16   = fpbar / 16

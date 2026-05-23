@@ -1,9 +1,15 @@
 # Friet van Desire
 
-A Commodore 64 SID remix project inspired by Gala's "Freed from Desire" (1996).
+A Commodore 64 SID remix of Gala's "Freed from Desire" (1996), released by
+**deFEEST** at the **X2026** demoparty. Composed by
+**Kloot/deFEEST** (Claude AI pair-programmer) and **Anus/deFEEST**
+([annejan](https://github.com/annejan)). Companion demo:
+[`outline26-claude-c64`](https://github.com/annejan/outline26-claude-c64)
+("Kloten met de broodtrommel").
 
-**Friet** is Dutch for fries — the name is a playful misreading of "Freed".
-This project is a happy-hardcore SID remix, not a faithful port.
+**Friet** is Dutch for fries — the title is a playful misreading of
+"Freed". See [`docs/RELEASE.md`](docs/RELEASE.md) for the scene-release
+metadata.
 
 ## Concept
 
@@ -48,15 +54,32 @@ kept for comparison.
 ```
 friet/
 ├── README.md               this file
-├── midi/                   source MIDIs (Karaoke transcriptions of FFD)
+├── LICENSE.md              MIT for our code; fair-use note for the song
+├── CHANGELOG.md            day-by-day record of major changes
+├── AGENTS.md               notes for future AI sessions: pitfalls, gotchas
+├── Makefile                make analyze | extract | compose | synth | preview-* | clean
+├── midi/                   source MIDIs (karaoke transcriptions of FFD)
 ├── stems/                  per-track MIDI stems for inspecting individual parts
-├── src/                    tools
-│   ├── analyze_midi.py     dump structure + extract per-track stems
-│   ├── midi2sid.py         straight-ish port (V1 bass + V2 vocal + V3 drums)
-│   └── midi2sid_hh.py      happy-hardcore remix (sped up, hoover lead, programmatic drums)
-├── out/                    generated .sid + .mp3 preview
-├── docs/                   notes on the SID chip, the song structure, etc.
-└── .venv/                  Python venv (mido)
+├── src/
+│   ├── analyze_midi.py     dump per-track stems + textual analysis
+│   ├── extract_patterns.py phase 1: MIDI -> docs/song_spec.yaml + song_layers.yaml
+│   ├── compose.py          phase 2: spec + layers -> docs/composition.yaml
+│   ├── synth.py            phase 3: composition -> out/friet_clean.sid
+│   ├── midi2sid.py         (legacy) early direct port
+│   └── midi2sid_hh.py      (legacy) early HH pass with generated drums
+├── docs/
+│   ├── song_analysis.md    music theory: key/chords/structure (with sources)
+│   ├── melody_analysis.md  phrase-by-phrase analysis of the T7 vocal
+│   ├── chorus_melody.md    notation of the iconic chorus hook
+│   ├── song_spec.yaml      patterns: BPM, key, 1-bar rhythm grids, contour
+│   ├── song_layers.yaml    verbatim T5 / T7 / T11 / T12 / T13 note lists
+│   ├── melody_lyrics.yaml  every syllable aligned to its T7 pitch
+│   ├── composition.yaml    phase-2 output (event lists per voice)
+│   └── polish_plan.md      remaining work, priority-ordered
+├── tools/
+│   └── render-preview.sh   headless vsid -> WAV -> MP3
+├── out/                    generated .sid + .mp3 (gitignored .wav)
+└── .venv/                  Python venv (mido, numpy, pyyaml) — gitignored
 ```
 
 ## Source-MIDI map (verified against lyrics — see `docs/melody_analysis.md`)
@@ -111,18 +134,11 @@ memory" for every SID regardless of file). `vsid` works fine.
 
 ## Copyright / Fair use
 
-"Freed from Desire" is © 1996 written by Gala Rizzatto, Maurizio Molella,
-Filippo Carmeni, published by Do It Yourself Music Records (and others). The
-MIDIs in `midi/` are karaoke transcriptions whose own copyright belongs to
-their (unnamed) creators.
-
-This project is a **transformative remix** for personal / educational / fan
-use. The generated SIDs are not byte-for-byte ports — they take rhythmic and
-melodic *patterns* from the research MIDIs and re-arrange them in a
-happy-hardcore style for the SID chip. No commercial distribution is intended.
-
-If a rights-holder objects, please open an issue and the offending material
-will be removed.
+See [LICENSE.md](LICENSE.md). In short: MIT for our code; the underlying
+composition is © 1996 Gala Rizzatto / Maurizio Molella / Filippo Carmeni;
+the karaoke MIDIs are someone else's transcriptions; this repo is a
+transformative fan/educational remix with no commercial intent. If you
+are a rights-holder and object, open an issue and we'll remove it.
 
 ## Status
 

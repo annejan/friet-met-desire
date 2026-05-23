@@ -1,6 +1,11 @@
-# Friet From Desire — build SID remixes from MIDI research material
-.PHONY: all clean analyze hh port preview preview-hh preview-port \
-        extract compose synth clean-pipeline preview-clean
+# Friet van Desire — build SID remixes from MIDI research material
+#
+# Primary target:  make preview-clean   (the maintained song-faithful build)
+# Verification:    make preview-melody  (vocal alone, no bass/drums)
+# Legacy:          make hh / port       (early direct-conversion experiments)
+.PHONY: all clean analyze preview \
+        extract compose synth clean-pipeline preview-clean preview-melody \
+        hh port preview-hh preview-port melody-only
 
 SHELL      := /bin/bash
 .ONESHELL:
@@ -19,10 +24,13 @@ SPEC      := docs/song_spec.yaml
 COMP      := docs/composition.yaml
 CLEAN_SID := $(OUT_DIR)/friet_clean.sid
 CLEAN_MP3 := $(OUT_DIR)/friet_clean.mp3
+MELODY_SID := $(OUT_DIR)/friet_melody_only.sid
+MELODY_MP3 := $(OUT_DIR)/friet_melody_only.mp3
+LAYERS    := docs/song_layers.yaml
 
 PREVIEW_SECONDS ?= 90
 
-all: hh port clean-pipeline preview
+all: clean-pipeline melody-only preview-clean preview-melody
 
 # --- research ----
 analyze:
@@ -37,18 +45,19 @@ port: $(PORT_SID)
 $(PORT_SID): $(SRC_DIR)/midi2sid.py $(MIDI_DIR)/Gala_Freed_From_Desire.mid
 	$(PYTHON) $<
 
-# --- cleanroom pipeline (extract -> compose -> synth) ----
-# Phase 1: read MIDIs, write abstract spec. The MIDIs are never read again.
-extract: $(SPEC)
-$(SPEC): $(SRC_DIR)/extract_patterns.py $(MIDI_DIR)/Gala_Freed_From_Desire.mid
+# --- maintained pipeline (extract -> compose -> synth) ----
+# Phase 1: MIDI -> docs/song_spec.yaml (patterns) + docs/song_layers.yaml
+#          (verbatim T5/T7/T11/T12/T13 note lists). The MIDI isn't read again.
+extract: $(SPEC) $(LAYERS)
+$(SPEC) $(LAYERS): $(SRC_DIR)/extract_patterns.py $(MIDI_DIR)/Gala_Freed_From_Desire.mid
 	$(PYTHON) $<
 
-# Phase 2: read spec, write concrete arrangement. No MIDI access allowed.
+# Phase 2: spec + layers -> docs/composition.yaml. No MIDI access.
 compose: $(COMP)
-$(COMP): $(SRC_DIR)/compose.py $(SPEC)
+$(COMP): $(SRC_DIR)/compose.py $(SPEC) $(LAYERS)
 	$(PYTHON) $<
 
-# Phase 3: read composition, write PSID. No MIDI, no spec — only the arrangement.
+# Phase 3: composition -> PSID. Reads only composition.yaml.
 synth: $(CLEAN_SID)
 $(CLEAN_SID): $(SRC_DIR)/synth.py $(COMP)
 	$(PYTHON) $<
@@ -59,8 +68,22 @@ preview-clean: $(CLEAN_MP3)
 $(CLEAN_MP3): $(CLEAN_SID)
 	$(TOOLS_DIR)/render-preview.sh $< $@ $(PREVIEW_SECONDS)
 
-# --- preview MP3s ----
-preview: preview-hh preview-port preview-clean
+# Vocal-only verification build — useful when the surrounding mix obscures
+# the melody and you need to confirm the notes themselves.
+melody-only: $(MELODY_SID)
+$(MELODY_SID): $(SRC_DIR)/compose.py $(SRC_DIR)/synth.py $(SPEC) $(LAYERS)
+	MELODY_ONLY=1 $(PYTHON) $(SRC_DIR)/compose.py
+	$(PYTHON) $(SRC_DIR)/synth.py
+	cp $(CLEAN_SID) $@
+	$(PYTHON) $(SRC_DIR)/compose.py
+	$(PYTHON) $(SRC_DIR)/synth.py
+
+preview-melody: $(MELODY_MP3)
+$(MELODY_MP3): $(MELODY_SID)
+	$(TOOLS_DIR)/render-preview.sh $< $@ $(PREVIEW_SECONDS)
+
+# --- previews ----
+preview: preview-clean preview-melody
 
 preview-hh: $(HH_MP3)
 $(HH_MP3): $(HH_SID)

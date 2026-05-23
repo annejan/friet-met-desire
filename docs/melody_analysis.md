@@ -1,7 +1,10 @@
 # How the "Freed from Desire" lead actually works
 
-Transcribed from MIDI track T7 (the vocal-substitute "shakuhachi" line) and
-cross-checked against the song memory. All pitch names are in D minor.
+Transcribed from MIDI track T7 — the **Oboe** (GM program 68) line that
+the karaoke arrangement uses as its vocal substitute. Verified against
+T2's `\My`, `\Freed`, `\Na` lyric markers: every syllable in T2 falls
+exactly on the corresponding T7 note. The data lives in
+`docs/melody_lyrics.yaml`. All pitch names are in D minor.
 
 ## Scale-degree palette
 

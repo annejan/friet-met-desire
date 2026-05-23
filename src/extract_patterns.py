@@ -305,6 +305,7 @@ def main():
     layers['layers']['vocal'] = dump_track_notes(7)
     layers['layers']['hook']  = dump_track_notes(11)
     layers['layers']['sfx']   = dump_track_notes(12)
+    layers['layers']['drums'] = dump_track_notes(13)
     with open(layers_path, 'w') as f:
         f.write("# Verified ground-truth note lists for each named layer.\n")
         f.write("# Each entry: [start_beat, duration_beats, midi_pitch].\n\n")

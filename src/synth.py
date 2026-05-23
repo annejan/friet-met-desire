@@ -35,7 +35,10 @@ DRUM_KIT = {
     'kick':  (2,  6, 0x09, 0x00),   # decay 720 ms — full "boom" body
     'snare': (36, 5, 0x07, 0x00),   # decay 168 ms — sharp snap
     'hat':   (78, 2, 0x02, 0x00),   # decay  24 ms — tick
-    'crash': (60, 20, 0x0A, 0x09),  # decay 1500 ms + release tail
+    'crash': (60, 70, 0x0B, 0xC4),  # ~800 ms slow attack -> sustained at $C
+                                     # -> short release. Proper SWELL: you hear
+                                     # the noise *rise* into the next section
+                                     # instead of a quick tick.
 }
 
 NOTE_LO, NOTE_HI = 12, 119
@@ -516,9 +519,12 @@ f2done:
     header += struct.pack('>H', 1)
     header += struct.pack('>H', 1)
     header += struct.pack('>I', 0)
-    header += pad32(title)
-    header += pad32('friet-van-desire cleanroom')
-    header += pad32('2026')
+    # PSID metadata for the deFEEST / X2026 release.
+    # Title is the song title (≤31 chars); Author = scene handles; Released
+    # is "YYYY <PARTY>". Truncated automatically by pad32.
+    header += pad32('Friet van Desire')
+    header += pad32('Kloot & Anus / deFEEST')
+    header += pad32('2026 X / deFEEST')
     header += struct.pack('>H', 0x0000)
     header += bytes([0, 0, 0, 0])
     assert len(header) == 0x7C

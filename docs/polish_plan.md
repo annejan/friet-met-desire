@@ -72,9 +72,27 @@ straight through. We can:
 
 ## Suggested order
 
-1. **Drums verbatim from T13** (axis 3a) — the karaoke MIDI already has the
-   actual drum pattern; using it should improve the groove and authenticity.
-2. **Add T11 saw-lead hook on V3 during instrumental break** (axis 5).
-3. **Vibrato on V2** (axis 1) so the vocal feels human.
-4. **Two-build tempo split** (axis 4) — produce both versions.
-5. Iterate on balance & structure based on listening.
+1. ✅ **Drums verbatim from T13** (axis 3a) — done. `compose.py` now reads
+   T13 events from `song_layers.yaml`, maps GM drum codes to our kit
+   (kick/snare/hat — snare 38/40 and clap 39 both map onto our "snare"),
+   and filters per section.
+2. ✅ **T11 4-note hook as bass before T5 enters** (axis 5 variant) —
+   done. V1 plays T11 (−12) looped from beat 5 until T5 takes over at
+   beat 120, then T11 again at its natural octave during the instrumental
+   break.
+3. ✅ **Audible noise swell** — done. Crash envelope rewritten as a slow
+   800 ms attack with held sustain so the rise is heard.
+4. ✅ **Section-based drum dynamics** — done. Verses are kick-only,
+   pre-choruses add snare, choruses go full kit (kick + snare + hat).
+   The section boundaries come from T2's `\` markers, so the dynamics
+   align to the song's actual structure.
+5. 🟡 **Vibrato on V2 vocal** — TODO. The triangle vocal is dead-pan.
+   Re-enable apply_vibrato with subtle depth (±$06 on freq) so syllables
+   feel sung. Was disabled when we ripped out the filter; bring it back
+   safely with the "skip when V2BASE = 0" guard.
+6. 🟡 **HH tempo variant** — TODO. Render the same data at 170 BPM
+   (sped up 1.3×) as `out/friet_hh.sid` while keeping `friet_clean.sid`
+   at the song-faithful 130 BPM.
+7. 🟡 **Reprise / dynamics push** — TODO. Once verses are light and
+   choruses heavy, see if Chorus 2 should hit even harder than Chorus 1
+   (e.g. crash swell preceding it, hat density up).

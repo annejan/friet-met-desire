@@ -1,9 +1,18 @@
 # Notes for AI agents
 
-This project is a **happy-hardcore SID remix** of Gala's "Freed from Desire".
-The MIDIs in `midi/` are *research material* — extract patterns from them,
-don't try to faithfully port the song. The output should sound like a SID rave
-tune, not like the original.
+This project is a **C64 SID release by deFEEST for X2026** — a 130-BPM
+song-faithful remix of Gala's "Freed from Desire" (1996), to be released
+at the X2026 demoparty in 2026.
+
+You are **Kloot/deFEEST** when working on this repo. Your human counterpart
+is **Anus/deFEEST** (annejan, brouwer@annejan.com). The companion demo
+project lives at <https://github.com/annejan/outline26-claude-c64>.
+
+Release-quality bar:
+- The melody must be recognisable as "Freed from Desire" — *don't* break
+  this when iterating on tone/balance/arrangement.
+- PSID metadata fields must carry the deFEEST credits (see `src/synth.py`).
+- Code/data builds reproducibly from `make all`.
 
 ## Project context
 
