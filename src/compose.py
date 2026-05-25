@@ -310,6 +310,9 @@ def main():
                     unit = hh_unit
 
                 if unit:
+                    # Segments where bass should NOT play (intro = just
+                    # crash swell, breathes = drums-out tension gaps).
+                    BASS_SKIP = {'intro', 'breathe1', 'breathe2'}
                     max_src_end = max(src_e for _, src_e, _ in SEGMENTS)
                     src_loop = 0.0
                     while src_loop < max_src_end + period_beats:
@@ -318,6 +321,8 @@ def main():
                             chord = chord_at(src_b)
                             pitch = CHORDS[chord][role]
                             for out_b, label in remap(src_b):
+                                if label in BASS_SKIP:
+                                    continue
                                 bass_events.append({
                                     'frame': int(round(out_b * fbeat_groove)),
                                     'note':  pitch,
