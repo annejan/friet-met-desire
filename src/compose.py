@@ -219,7 +219,20 @@ def main():
             'breathe2':        0x20,
             'chorus3':         0x40,  # pulse -- different timbre for final reprise
         }
-        # Vocal (V2): T7 verbatim, source timing preserved.
+        # Vocal (V2): T7 verbatim + per-section waveform for timbre
+        # variation. Triangle in verse (soft vocal feel), sawtooth in
+        # chorus (hoover with filter sweep), pulse in final reprise.
+        SECTION_LEAD_CTRL = {
+            'intro':           0x10,  # triangle
+            'verse1':          0x10,
+            'prechorus1':      0x10,
+            'chorus1':         0x20,  # saw → hoover with filter env
+            'postchorus_nana': 0x20,
+            'breathe1':        0x20,
+            'chorus2':         0x20,
+            'breathe2':        0x20,
+            'chorus3':         0x40,  # pulse — climactic final reprise
+        }
         for s_b, d_b, pitch in layers['layers'].get('vocal', []):
             d = max(0.2, d_b)
             for out_b, label in remap(s_b):
@@ -227,6 +240,7 @@ def main():
                     'frame': int(round(out_b * fbeat_lead)),
                     'note':  int(pitch),
                     'dur_frames': max(4, int(round(d * fbeat_lead))),
+                    'ctrl':  SECTION_LEAD_CTRL.get(label, 0x10),
                 })
 
         # ---- Bass (V1) — T11 hook pattern LOOPED through all segments.
