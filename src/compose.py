@@ -219,9 +219,7 @@ def main():
             'breathe2':        0x20,
             'chorus3':         0x40,  # pulse -- different timbre for final reprise
         }
-        # Vocal: source timing preserved. The chorus Phrase A tresillo
-        # (0, 0.75, 1.5, 2, 2.75) IS the song's signature — quantising
-        # it to 8ths flattens the anthem. Per docs/melody_understanding.md.
+        # Vocal (V2): T7 verbatim, source timing preserved.
         for s_b, d_b, pitch in layers['layers'].get('vocal', []):
             d = max(0.2, d_b)
             for out_b, label in remap(s_b):
@@ -229,97 +227,38 @@ def main():
                     'frame': int(round(out_b * fbeat_lead)),
                     'note':  int(pitch),
                     'dur_frames': max(4, int(round(d * fbeat_lead))),
-                    'ctrl':  SECTION_LEAD_CTRL.get(label, 0x10),
                 })
 
-        # ---- Bass (V1) — per-section pattern from voice_essence.md.
-        # Two rhythmic engines drive the song:
-        #   Pattern A (4-3-3-4): positions 0, 1, 1.75, 2.5, 3.5
-        #     → organ stab feel, used in intro/verse/prechorus/chorus1
-        #   Pattern B (3-3-2 tresillo): positions 0, 0.75, 1.5, 2, 2.75, 3.5
-        #     → driving bass, used in post-chorus/chorus2/chorus3
+        # ---- Bass (V1) — T11 hook pattern LOOPED through all segments.
+        # Extract the 4-bar rhythmic unit from T11, transpose -12 for
+        # bass register, and repeat it across the full output timeline.
+        # When T5's real bassline enters (beat 120+), it takes over.
+        # This is the approach from the original "working" version.
         if not MELODY_ONLY:
-            PATTERN_A = [  # 4-3-3-4 organ stab — 5 hits/bar
-                (0.0,  0.4, 'root'),
-                (1.0,  0.4, 'root'),
-                (1.75, 0.4, 'root'),
-                (2.5,  0.4, 'root'),
-                (3.5,  0.4, 'root'),
-            ]
-            PATTERN_B = [  # 3-3-2 tresillo — 6 hits/bar, root→fifth per half
-                (0.0,  0.3, 'root'),
-                (0.75, 0.3, 'root'),
-                (1.5,  0.3, 'root'),
-                (2.0,  0.3, 'fifth'),
-                (2.75, 0.3, 'fifth'),
-                (3.5,  0.3, 'fifth'),
-            ]
-            CHORDS = {
-                'Dm': {'root': 38, 'third': 41, 'fifth': 45},
-                'F':  {'root': 41, 'third': 45, 'fifth': 48},
-                'Bb': {'root': 34, 'third': 38, 'fifth': 41},
-                'C':  {'root': 36, 'third': 40, 'fifth': 43},
-            }
-            CYCLE = ['Dm', 'F', 'Bb', 'C']
-            CHORUS_ANCHOR = 88.0
-            def chord_at(src_beat):
-                if src_beat < CHORUS_ANCHOR:
-                    return 'Dm'
-                return CYCLE[int((src_beat - CHORUS_ANCHOR) // 4) % 4]
-
-            # Per-segment bass behaviour (from voice_essence.md):
-            #   intro:     Pattern A, D-pedal, all bars
-            #   verse:     Pattern A, D-pedal, EVEN bars only (call-and-response)
-            #   prechorus: Pattern A, chord-following, all bars
-            #   chorus1:   Pattern A, chord-following, all bars
-            #   nana:      Pattern B tresillo, chord-following
-            #   breathe:   silent (tension gap)
-            #   chorus2/3: Pattern B tresillo, chord-following
-            BASS_CFG = {
-                'intro':           ('A', 'pedal',  False),
-                'verse1':          ('A', 'pedal',  True),   # even bars only!
-                'prechorus1':      ('A', 'follow', False),
-                'chorus1':         ('A', 'follow', False),
-                'postchorus_nana': ('B', 'follow', False),
-                'breathe1':        (None, None,    False),  # silent
-                'chorus2':         ('B', 'follow', False),
-                'breathe2':        (None, None,    False),
-                'chorus3':         ('B', 'follow', False),
-            }
-            SECTION_BASS_CTRL = {
-                'intro':           0x10,  # triangle — soft intro pedal
-                'verse1':          0x40,  # pulse — punchy stab
-                'prechorus1':      0x40,
-                'chorus1':         0x40,
-                'postchorus_nana': 0x40,
-                'chorus2':         0x40,
-                'chorus3':         0x20,  # sawtooth — climactic final
-            }
-
-            for (src_s, src_e, label), out_s in zip(SEGMENTS, out_offsets):
-                cfg = BASS_CFG.get(label)
-                if not cfg or cfg[0] is None:
-                    continue
-                pat_name, chord_mode, even_only = cfg
-                pattern = PATTERN_A if pat_name == 'A' else PATTERN_B
-                seg_dur = src_e - src_s
-                n_bars = int(seg_dur // 4)
-                ctrl = SECTION_BASS_CTRL.get(label, 0x40)
-
-                for bar in range(n_bars):
-                    if even_only and bar % 2 == 0:
-                        continue  # odd bars = vocal solo (call-and-response)
-                    bar_out = out_s + bar * 4
-                    bar_src = src_s + bar * 4
-                    for off, dur, role in pattern:
-                        chord = 'Dm' if chord_mode == 'pedal' else chord_at(bar_src + off)
-                        pitch = CHORDS[chord][role]
-                        bass_events.append({
-                            'frame': int(round((bar_out + off) * fbeat_groove)),
-                            'note':  pitch,
-                            'dur_frames': max(3, int(round(dur * fbeat_groove))),
-                            'ctrl':  ctrl,
-                        })
+            t11 = layers['layers'].get('hook', [])
+            if t11:
+                period_beats = 4.0
+                first_b = t11[0][0]
+                unit = []
+                for n in t11:
+                    rel_b = n[0] - first_b
+                    if rel_b >= period_beats: break
+                    unit.append((rel_b, n[1], int(n[2]) - 12))
+                max_src_end = max(src_e for _, src_e, _ in SEGMENTS)
+                src_loop = 0.0
+                while src_loop < max_src_end + period_beats:
+                    for s_off, d_off, pitch in unit:
+                        src_b = src_loop + s_off
+                        d = max(0.1, d_off)
+                        for out_b, label in remap(src_b):
+                            if label in ('intro', 'breathe1', 'breathe2'):
+                                continue
+                            bass_events.append({
+                                'frame': int(round(out_b * fbeat_groove)),
+                                'note':  pitch,
+                                'dur_frames': max(3, int(round(d * fbeat_groove))),
+                            })
+                    src_loop += period_beats
 
         # ---- Drums (V3) verbatim from T13, filtered for dynamics ----
         # Section boundaries (source beats) from the lyric markers in T2:
@@ -383,10 +322,10 @@ def main():
                 else:
                     break
             return cur
-        if not MELODY_ONLY and not FAST:
-            # Workstage: T13 verbatim, filtered per source-section. The
-            # original drummer's pattern carries the song-faithful
-            # 130-BPM build.
+        if not MELODY_ONLY:
+            # Drums (V3): T13 verbatim, section-filtered. The source
+            # drummer's pattern is coherent with the vocal/bass timing
+            # because they were composed together. No synthetic overlay.
             for s_b, _d_b, pitch in layers['layers'].get('drums', []):
                 kind = GM_DRUMS.get(int(pitch))
                 if not kind: continue
@@ -397,38 +336,6 @@ def main():
                         'kind':  kind,
                         'frame': int(round(out_b * fbeat_groove)),
                     })
-        if not MELODY_ONLY and FAST:
-            # FAST: synthetic HH kit, lab-verified per section.
-            # T13 is dropped — its half-time feel fights the vocal
-            # syncope at 175 BPM.
-            #
-            # Per-bar foundation:
-            #   kick:  4-on-the-floor       [0, 1, 2, 3]
-            #   hat:   off-beat 8ths        [0.5, 1.5, 2.5, 3.5]
-            #   snare: backbeat [1, 3] — chorus / na-na only
-            #
-            # Verse has no snare (the T6 bass stab owns the rhythmic
-            # accent). Chorus adds snare for "drop" energy.
-            KICK_SEGMENTS  = {'verse1', 'prechorus1', 'chorus1',
-                              'postchorus_nana', 'chorus2', 'chorus3'}
-            SNARE_SEGMENTS = {'chorus1', 'postchorus_nana',
-                              'chorus2', 'chorus3'}
-            for (src_s, src_e, label), out_s in zip(SEGMENTS, out_offsets):
-                if label not in KICK_SEGMENTS: continue
-                seg_dur_beats = src_e - src_s
-                n_bars = int(seg_dur_beats // 4)
-                for bar in range(n_bars):
-                    bar_start = out_s + bar * 4.0
-                    for off in (0, 1, 2, 3):
-                        drum_events.append({'kind': 'kick',
-                            'frame': int(round((bar_start + off) * fbeat_groove))})
-                    for off in (0.5, 1.5, 2.5, 3.5):
-                        drum_events.append({'kind': 'hat',
-                            'frame': int(round((bar_start + off) * fbeat_groove))})
-                    if label in SNARE_SEGMENTS:
-                        for off in (1, 3):
-                            drum_events.append({'kind': 'snare',
-                                'frame': int(round((bar_start + off) * fbeat_groove))})
 
         # ---- T12 reverse-cymbal swells (intro AND section transitions) ----
         if not MELODY_ONLY:
