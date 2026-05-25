@@ -6,10 +6,10 @@
 # The ticker replaces whatever's on screen row 12 at each beat.
 
 lyrics:
-  # Intro text (fills the 7s musical intro so the screen isn't blank)
+  # Intro title cards — quick cycle before the crash swell gets loud
   - {beat: 0.0,  text: "--- FRIET VAN DESIRE ---"}
-  - {beat: 7.0,  text: "TL-Buis / deFEEST"}
-  - {beat: 14.0, text: "X2026 / deFEEST"}
+  - {beat: 4.0,  text: "TL-Buis / deFEEST"}
+  - {beat: 8.0,  text: "X2026 / deFEEST"}
 
   # Verse 1 — starts at beat 21.5 (when vocal enters)
   - {beat: 21.5, text: "Mijn crew die heeft geen centen"}
