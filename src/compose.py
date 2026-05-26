@@ -279,11 +279,16 @@ def main():
             STAB_POSITIONS = [0, 1, 1.75, 2.5, 3.5]
             D2 = 38
 
-            # Collision detection in beat-domain (16th indices).
-            vocal_16ths = set()
+            # Accent reinforcement: bass HITS on accent notes (F5, A#4)
+            # and INTERLEAVES around staccato notes. Per sheet_music.md:
+            # the melody is percussive staccato 16ths except F5 (piek)
+            # and A#4 (dip) which are held 8ths. Those accents need
+            # rhythmic support, not avoidance.
+            ACCENT_PITCHES = {77, 70}  # F5 (piek), A#4/Bb4 (dip)
+            vocal_map = {}  # 16th index → midi pitch
             for s_b, d_b, pitch in layers['layers'].get('vocal', []):
                 for out_b, label in remap(s_b):
-                    vocal_16ths.add(round(out_b * 4))
+                    vocal_map[round(out_b * 4)] = int(pitch)
 
             for (src_s, src_e, label), out_s in zip(SEGMENTS, out_offsets):
                 if label in ('intro', 'breathe1', 'breathe2'):
@@ -295,10 +300,13 @@ def main():
                     for off in STAB_POSITIONS:
                         beat = bar_out + off
                         beat_16th = round(beat * 4)
-                        if beat_16th in vocal_16ths:
-                            continue
                         f = grid_frame(beat) - BASS_ANTICIPATION_FRAMES
                         if f < 0: f = 0
+
+                        vocal_pitch = vocal_map.get(beat_16th)
+                        if vocal_pitch is not None and vocal_pitch not in ACCENT_PITCHES:
+                            continue  # staccato tick → skip (interleave)
+                        # accent note OR empty → bass plays (reinforce or fill)
                         bass_events.append({
                             'frame': f,
                             'note':  D2,
