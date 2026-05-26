@@ -71,10 +71,32 @@ def remap(src_beat):
 # ---- Lyrics source: TL-Buis Dutch parody (if available), else karaoke ----
 TL_BUIS_PATH = os.path.join(BASE, 'docs', 'tl_buis_lyrics.yaml')
 
-# The standalone .prg embeds the FAST release SID; lyric frames must match
-# that tempo. Keep in sync with FAST_BPM in src/compose.py.
+# The standalone .prg embeds the FAST release SID; lyric frames must use
+# the SAME Bresenham grid as compose.py to avoid rounding drift.
 FAST_BPM = 175
-FRAMES_PER_BEAT = 50.0 * 60 / FAST_BPM   # ≈ 17.14 fr/beat at 175 BPM
+FRAMES_PER_BEAT = 50.0 * 60 / FAST_BPM   # ≈ 17.14 (fallback only)
+
+# Bresenham grid — identical to compose.py's master grid.
+# 50*60 / (175*4) = 3000/700 = 30/7 frames per 16th-note.
+from math import gcd
+_num = int(round(50.0 * 60))        # 3000
+_den = int(round(FAST_BPM * 4))     # 700
+_g = gcd(_num, _den); _num //= _g; _den //= _g  # 30/7
+_GRID_SIZE = 4096
+_grid = [0] * _GRID_SIZE
+_f = 0; _r = 0
+for _i in range(_GRID_SIZE):
+    _grid[_i] = _f
+    _r += _num; _f += _r // _den; _r %= _den
+
+def grid_frame(beat):
+    idx = round(beat * 4)
+    return _grid[idx] if 0 <= idx < _GRID_SIZE else int(round(beat * FRAMES_PER_BEAT))
+
+# Lyric pre-roll: display text ~60ms BEFORE the musical beat.
+# Karaoke machines universally lead visuals to compensate for human
+# visual processing latency. 3 frames at 50Hz = 60ms.
+LYRIC_PRE_ROLL_FRAMES = 3
 
 if os.path.exists(TL_BUIS_PATH):
     # TL-Buis lyrics: pre-mapped to OUTPUT beats, one text per entry.
@@ -142,11 +164,10 @@ events = []   # (frame, text)
 for line_beat, text in lines:
     chunks = wrap_text(text, MAX_LINE_COLS)
     for i, chunk in enumerate(chunks):
-        lead_beat = max(line_beat - LYRIC_LEAD_BEATS, 0.0)
-        events.append((
-            int(round((lead_beat + i * WRAP_BEAT_STEP) * FRAMES_PER_BEAT)),
-            chunk,
-        ))
+        beat = line_beat + i * WRAP_BEAT_STEP
+        f = grid_frame(beat) - LYRIC_PRE_ROLL_FRAMES
+        if f < 0: f = 0
+        events.append((f, chunk))
 events.sort()
 print(f"{len(lines)} lyric lines -> {len(events)} on-screen updates @ {FAST_BPM} BPM")
 

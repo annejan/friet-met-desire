@@ -137,11 +137,15 @@ irq:
     lda #$FF
     sta $D019
     jsr SID_PLAY
+    jsr maybe_show_lyric
+    // Increment frame counter AFTER both SID_PLAY and lyric check so
+    // both see the same frame number. Previously the increment sat
+    // between them, making lyrics check frame N+1 while audio played
+    // frame N — a systematic 1-frame-early bias. (ADHD competitor frame)
     inc frame_lo
     bne !nh+
     inc frame_hi
 !nh:
-    jsr maybe_show_lyric
     // Exit via the simple IRQ-return ($EA81 = pull registers + RTI). Do NOT
     // chain to $EA31 — that runs the full KERNAL IRQ which scans keyboard
     // and updates the cursor, both of which clobber our screen RAM writes.
