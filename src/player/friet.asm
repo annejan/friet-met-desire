@@ -34,7 +34,18 @@
 *=$0810
 entry:
     sei
+    // Zero SID player's ZP work area ($02-$0F). SID_INIT doesn't
+    // touch these — they're expected at $00 on first SID_PLAY call.
+    // Clean BASIC boot has them zeroed by CLR, but when loaded as an
+    // easter egg from inside a demo (copier at $0200), residue from
+    // the demo's ZP causes the SID player's counters to start at
+    // wrong values → lyrics desync.
     lda #0
+    ldx #$0d
+!zpclr:
+    sta $02,x
+    dex
+    bpl !zpclr-
     sta frame_lo
     sta frame_hi
     lda #<lyric_table
@@ -148,15 +159,20 @@ maybe_show_lyric:
     bne !nx+
     rts
 !nx:
-    // Compare ly_lo/ly_hi to (frame_lo, frame_hi)
-    ldy #0
-    lda (ly_lo),y
-    cmp frame_lo
-    bne !not_yet+
-    iny
-    lda (ly_lo),y
-    cmp frame_hi
-    bne !not_yet+
+    // Compare frame_hi:frame_lo >= lyric timestamp (hi:lo).
+    // Using >= instead of == so a 1-frame timing drift from the
+    // demo's easter-egg copier doesn't skip lyrics permanently.
+    ldy #1
+    lda frame_hi
+    cmp (ly_lo),y
+    bcc !not_yet+            // frame_hi < lyric_hi → not yet
+    bne !show+               // frame_hi > lyric_hi → past due (y=1 ✓)
+    dey
+    lda frame_lo
+    cmp (ly_lo),y
+    bcc !not_yet+            // frame_hi equal, frame_lo < lyric_lo → not yet
+    ldy #1                   // restore y=1 (was 0 from dey) so iny→2 reads length
+!show:
 
     // Read length, compute centred starting column
     iny
