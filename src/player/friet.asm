@@ -166,11 +166,12 @@ maybe_show_lyric:
     lda frame_hi
     cmp (ly_lo),y
     bcc !not_yet+            // frame_hi < lyric_hi → not yet
-    bne !show+               // frame_hi > lyric_hi → past due, show
+    bne !show+               // frame_hi > lyric_hi → past due (y=1 ✓)
     dey
     lda frame_lo
     cmp (ly_lo),y
     bcc !not_yet+            // frame_hi equal, frame_lo < lyric_lo → not yet
+    ldy #1                   // restore y=1 (was 0 from dey) so iny→2 reads length
 !show:
 
     // Read length, compute centred starting column
