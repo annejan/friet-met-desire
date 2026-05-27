@@ -1,66 +1,67 @@
-# Demo credits + greetings mapped to the OUTPUT timeline.
-# Timed to the musical sections so text changes feel natural.
+# Gabber-sporthal-poezie voor Friet met Desire
+# Woorden als percussie. Niet slim, wel echt.
+# deFEEST at X2026
 
 lyrics:
-  # Intro — title + credits
+  # Intro
   - {beat: 0.0,  text: "Friet met Desire"}
-  - {beat: 4.0,  text: "deFEEST at X2026"}
-  - {beat: 8.0,  text: "code: Kloot  gfx: Anus"}
-  - {beat: 14.0, text: "lyrics: TL-Buis  ai: Augurk"}
+  - {beat: 4.0,  text: "deFEEST - X2026"}
+  - {beat: 8.0,  text: "Kloot / Anus / Augurk / TL-Buis"}
+  - {beat: 14.0, text: "dertig uur wakker dertig uur"}
 
-  # Couplet 1 — the song
-  - {beat: 21.5, text: "Mijn crew die heeft geen centen"}
-  - {beat: 25.5, text: "maar wel een zieke scroll"}
-  - {beat: 29.5, text: "Mijn crew die heeft geen shaders"}
-  - {beat: 33.5, text: "maar wel een rasterrol"}
-  - {beat: 37.5, text: "Mijn crew die heeft geen sponsors"}
-  - {beat: 41.5, text: "maar wel respect in de zaal"}
-  - {beat: 45.5, text: "Mijn crew die heeft geen centen"}
-  - {beat: 49.5, text: "maar wel kabaal totaal"}
+  # Couplet 1 — fysiek, sporthal, lichaam
+  - {beat: 21.5, text: "Hart gaat harder dan de bas"}
+  - {beat: 25.5, text: "zweet in je nek"}
+  - {beat: 29.5, text: "Ogen dicht maar ik sta recht"}
+  - {beat: 33.5, text: "vet op de vloer"}
+  - {beat: 37.5, text: "Adem brandt de lucht is op"}
+  - {beat: 41.5, text: "bass door je kop"}
+  - {beat: 45.5, text: "Benen trillen hand op stack"}
+  - {beat: 49.5, text: "stroom valt uit"}
 
-  # Pre-refrein 1
+  # Pre-refrein — opbouw
   - {beat: 54.5,  text: "Meer en meer"}
-  - {beat: 58.5,  text: "iedereen wil meer en meer"}
-  - {beat: 62.5,  text: "frames en effect"}
-  - {beat: 66.5,  text: "tot de deadline implodeert"}
+  - {beat: 58.5,  text: "de speakers staan op rood"}
+  - {beat: 62.5,  text: "meer en meer"}
+  - {beat: 66.5,  text: "de demo knalt de zaal kapot"}
   - {beat: 70.5,  text: "Meer en meer"}
-  - {beat: 74.5,  text: "iedereen wil meer en meer"}
-  - {beat: 78.5,  text: "bier en geweld"}
-  - {beat: 82.5,  text: "uit een speaker veel te schel"}
+  - {beat: 74.5,  text: "de vloer plakt aan je schoen"}
+  - {beat: 78.5,  text: "meer en meer"}
+  - {beat: 82.5,  text: "het TL-licht doet pijn"}
 
   # Refrein 1
   - {beat: 88.0,  text: "Friet met Desire"}
   - {beat: 92.0,  text: "SID en VIC slaan door"}
   - {beat: 96.0,  text: "Friet met Desire"}
-  - {beat: 100.0, text: "alle sprites zwaar ontspoord"}
+  - {beat: 100.0, text: "de hele zaal staat stijf"}
   - {beat: 104.0, text: "Friet met Desire"}
-  - {beat: 108.0, text: "scanlines vol met storing"}
+  - {beat: 108.0, text: "iemand trekt de stekker los"}
   - {beat: 112.0, text: "Friet met Desire"}
 
-  # Na-na — greetings
-  - {beat: 117.5, text: "Na-na-na-na-na-na-na"}
-  - {beat: 121.5, text: "greetings to Revision"}
-  - {beat: 125.5, text: "Na-na-na-na-na-na-na"}
-  - {beat: 129.5, text: "greetings to Outline"}
-  - {beat: 133.5, text: "Na-na-na-na-na-na-na"}
-  - {beat: 137.5, text: "greetings to Evoke"}
-  - {beat: 141.5, text: "Na-na-na-na-na-na-na"}
-  - {beat: 145.5, text: "met MAYO natuurlijk"}
+  # Na-na — chant + greetings
+  - {beat: 117.5, text: "Nog een keer"}
+  - {beat: 121.5, text: "nog een keer"}
+  - {beat: 125.5, text: "Nog een keer"}
+  - {beat: 129.5, text: "friet met mayo"}
+  - {beat: 133.5, text: "Nog een keer"}
+  - {beat: 137.5, text: "nog een keer"}
+  - {beat: 141.5, text: "Nog een keer"}
+  - {beat: 145.5, text: "vet op de vloer"}
 
-  # Refrein 2 — tech credits
+  # Refrein 2
   - {beat: 153.5, text: "Friet met Desire"}
-  - {beat: 157.5, text: "MOS 6581 SID chip"}
+  - {beat: 157.5, text: "de frituur ruikt naar flux"}
   - {beat: 161.5, text: "Friet met Desire"}
-  - {beat: 165.5, text: "3 voices  1 filter  0 regrets"}
+  - {beat: 165.5, text: "ik voel niks maar alles klopt"}
   - {beat: 169.5, text: "Friet met Desire"}
-  - {beat: 173.5, text: "xa + KickAssembler + Python"}
+  - {beat: 173.5, text: "de monitors staan wit"}
   - {beat: 177.5, text: "Friet met Desire"}
 
   # Refrein 3 — outro
   - {beat: 187.0, text: "Friet met Desire"}
-  - {beat: 191.0, text: "Claude + OpenCode + annejan"}
+  - {beat: 191.0, text: "vet zweet plakt aan m'n rug"}
   - {beat: 195.0, text: "Friet met Desire"}
-  - {beat: 199.0, text: "source: github.com/annejan"}
+  - {beat: 199.0, text: "de demo draait nog door"}
   - {beat: 203.0, text: "Friet met Desire"}
-  - {beat: 207.0, text: "met MAYO - deFEEST 2026"}
-  - {beat: 211.0, text: "groetjes van TL-Buis"}
+  - {beat: 207.0, text: "met mayo - deFEEST 2026"}
+  - {beat: 211.0, text: "stroom valt uit"}
