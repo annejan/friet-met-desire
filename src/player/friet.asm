@@ -146,10 +146,10 @@ irq:
     bne !nh+
     inc frame_hi
 !nh:
-    // After ~15 min (frame_hi >= 176 = 45056 frames = 901s),
+    // After one full play-through (frame_hi >= 21 = ~107s),
     // silence SID and cold-reset to clean BASIC.
     lda frame_hi
-    cmp #176
+    cmp #21
     bcc !continue+
     sei
     ldx #$18
