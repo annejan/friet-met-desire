@@ -268,50 +268,33 @@ def main():
                     'ctrl':  SECTION_LEAD_CTRL.get(label, 0x10),
                 })
 
-        # ---- Bass (V1) — interleaving organ stab with ANTICIPATION.
-        # T6 grid (0, 1, 1.75, 2.5, 3.5 beats/bar) interleaves with
-        # vocal. Collision detection in BEAT domain (16th indices) not
-        # frame domain — eliminates false collisions from rounding.
-        # Bass shifted 2 frames EARLY (anacrusis) so it leads into
-        # vocal entries instead of just avoiding them.
-        BASS_ANTICIPATION_FRAMES = 2
+        # ---- Bass (V1) — VERBATIM from source, section-authentic.
+        # Per the score analysis: the original has NO bass in verse or
+        # prechorus. T11 hook enters at beat 184, T5 bass at beat 120.
+        # We were forcing a T11 loop across the whole song — that was
+        # the persistent melody/rhythm disconnect.
+        # Now: bass only in segments where the source actually has it.
         if not MELODY_ONLY:
-            STAB_POSITIONS = [0, 1, 1.75, 2.5, 3.5]
-            D2 = 38
-
-            # Accent reinforcement: bass HITS on accent notes (F5, A#4)
-            # and INTERLEAVES around staccato notes. Per sheet_music.md:
-            # the melody is percussive staccato 16ths except F5 (piek)
-            # and A#4 (dip) which are held 8ths. Those accents need
-            # rhythmic support, not avoidance.
-            ACCENT_PITCHES = {77, 70}  # F5 (piek), A#4/Bb4 (dip)
-            vocal_map = {}  # 16th index → midi pitch
-            for s_b, d_b, pitch in layers['layers'].get('vocal', []):
+            # T11 hook: verbatim where it exists (beat 184+)
+            t11 = layers['layers'].get('hook', [])
+            for s_b, d_b, pitch in t11:
+                d = max(0.1, d_b)
                 for out_b, label in remap(s_b):
-                    vocal_map[round(out_b * 4)] = int(pitch)
-
-            for (src_s, src_e, label), out_s in zip(SEGMENTS, out_offsets):
-                if label in ('intro', 'breathe1', 'breathe2'):
-                    continue
-                seg_dur = src_e - src_s
-                n_bars = int(seg_dur // 4)
-                for bar in range(n_bars):
-                    bar_out = out_s + bar * 4
-                    for off in STAB_POSITIONS:
-                        beat = bar_out + off
-                        beat_16th = round(beat * 4)
-                        f = grid_frame(beat) - BASS_ANTICIPATION_FRAMES
-                        if f < 0: f = 0
-
-                        vocal_pitch = vocal_map.get(beat_16th)
-                        if vocal_pitch is not None and vocal_pitch not in ACCENT_PITCHES:
-                            continue  # staccato tick → skip (interleave)
-                        # accent note OR empty → bass plays (reinforce or fill)
-                        bass_events.append({
-                            'frame': f,
-                            'note':  D2,
-                            'dur_frames': max(3, grid_frame(0.4) - grid_frame(0)),
-                        })
+                    bass_events.append({
+                        'frame': grid_frame(out_b),
+                        'note':  int(pitch) - 12,
+                        'dur_frames': max(3, int(round(d * fbeat_groove))),
+                    })
+            # T5 bass: verbatim where it exists (beat 120+)
+            t5 = layers['layers'].get('bass', [])
+            for s_b, d_b, pitch in t5:
+                d = max(0.1, d_b)
+                for out_b, label in remap(s_b):
+                    bass_events.append({
+                        'frame': grid_frame(out_b),
+                        'note':  int(pitch),
+                        'dur_frames': max(3, int(round(d * fbeat_groove))),
+                    })
 
         # ---- Drums (V3) verbatim from T13, filtered for dynamics ----
         # Section boundaries (source beats) from the lyric markers in T2:
