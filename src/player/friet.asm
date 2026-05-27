@@ -146,9 +146,20 @@ irq:
     bne !nh+
     inc frame_hi
 !nh:
-    // Exit via the simple IRQ-return ($EA81 = pull registers + RTI). Do NOT
-    // chain to $EA31 — that runs the full KERNAL IRQ which scans keyboard
-    // and updates the cursor, both of which clobber our screen RAM writes.
+    // After ~15 min (frame_hi >= 176 = 45056 frames = 901s),
+    // silence SID and cold-reset to clean BASIC.
+    lda frame_hi
+    cmp #176
+    bcc !continue+
+    sei
+    ldx #$18
+!sidclr:
+    lda #0
+    sta $D400,x
+    dex
+    bpl !sidclr-
+    jmp $FCE2          // KERNAL cold start
+!continue:
     jmp $EA81
 
 maybe_show_lyric:
