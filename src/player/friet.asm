@@ -23,6 +23,7 @@
 .var tmp_len  = $94
 .var tmp_col  = $95
 .var end_col  = $96
+.var beat_flash = $97
 
 // ---- BASIC stub: 10 SYS 2064 ------------------------------------------
 *=$0801
@@ -48,6 +49,7 @@ entry:
     bpl !zpclr-
     sta frame_lo
     sta frame_hi
+    sta beat_flash
     lda #<lyric_table
     sta ly_lo
     lda #>lyric_table
@@ -104,6 +106,9 @@ entry:
     jmp !loop-
 !done:
 
+    lda #$00
+    sta $d015                 // no sprites
+
     // Initialise the SID (subtune 0)
     lda #0
     tax
@@ -132,21 +137,56 @@ entry:
 !forever:
     jmp !forever-
 
-// ---- 50 Hz IRQ: SID play + lyric ticker -------------------------------
+// ---- 50 Hz IRQ: SID play + lyric ticker + fries animation ------------
 irq:
     lda #$FF
     sta $D019
     jsr SID_PLAY
     jsr maybe_show_lyric
-    // Increment frame counter AFTER both SID_PLAY and lyric check so
-    // both see the same frame number. Previously the increment sat
-    // between them, making lyrics check frame N+1 while audio played
-    // frame N — a systematic 1-frame-early bias. (ADHD competitor frame)
+    jsr animate_beat
     inc frame_lo
     bne !nh+
     inc frame_hi
 !nh:
     jmp $EA81
+
+// ---- Beat-reactive lyric colour + border pulse -------------------------
+// V3 gate edge → 5-frame flash: white→yellow→orange→light-red→settle.
+// Border pulses brown for 2 frames. No sprites. Text is the show.
+
+animate_beat:
+    lda $d412
+    and #$01
+    tax
+    cmp gate_prev
+    stx gate_prev
+    beq !no_beat+
+    txa
+    beq !no_beat+
+    lda #5
+    sta beat_flash
+!no_beat:
+    lda beat_flash
+    beq !idle+
+    tax
+    lda border_tab-1,x
+    sta $d020
+    lda flash_tab-1,x
+    ldx #39
+!col:
+    sta $d800 + 40*12,x
+    dex
+    bpl !col-
+    dec beat_flash
+!idle:
+    rts
+
+flash_tab:
+    .byte $07, $0a, $08, $07, $01
+border_tab:
+    .byte $00, $00, $00, $09, $09
+gate_prev:
+    .byte 0
 
 maybe_show_lyric:
     // Sentinel: ($FFFF, *, ...) = end-of-table, stop ticking.
@@ -249,3 +289,4 @@ lyric_table:
 *=$1000
 sid_body:
     .import binary "sid_body.bin"
+
