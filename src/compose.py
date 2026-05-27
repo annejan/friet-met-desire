@@ -268,24 +268,26 @@ def main():
                     'ctrl':  SECTION_LEAD_CTRL.get(label, 0x10),
                 })
 
-        # ---- Bass (V1) — VERBATIM from source, section-authentic.
-        # Per the score analysis: the original has NO bass in verse or
-        # prechorus. T11 hook enters at beat 184, T5 bass at beat 120.
-        # We were forcing a T11 loop across the whole song — that was
-        # the persistent melody/rhythm disconnect.
-        # Now: bass only in segments where the source actually has it.
+        # ---- V1: section-authentic, verbatim per source layer.
+        # Per the score analysis + voice_essence.md:
+        #   Intro/Verse/Prechorus: organ stab (T6, 345 events, D-pedal)
+        #   Chorus 1: sparse (T5 only 12 events) → organ continues
+        #   Na-na: T5 bass tresillo (43 events, the groove engine)
+        #   Chorus 2/3 reprises: T5 bass from na-na range
+        # Each layer plays ONLY where it exists in the source.
         if not MELODY_ONLY:
-            # T11 hook: verbatim where it exists (beat 184+)
-            t11 = layers['layers'].get('hook', [])
-            for s_b, d_b, pitch in t11:
+            # T6 organ stab: verbatim. The original verse rhythmic engine.
+            # Plays D4+D5+D6 unison — we drop to D2 for bass register.
+            organ = layers['layers'].get('organ', [])
+            for s_b, d_b, pitch in organ:
                 d = max(0.1, d_b)
                 for out_b, label in remap(s_b):
                     bass_events.append({
                         'frame': grid_frame(out_b),
-                        'note':  int(pitch) - 12,
+                        'note':  38,  # D2 always (organ is D-pedal)
                         'dur_frames': max(3, int(round(d * fbeat_groove))),
                     })
-            # T5 bass: verbatim where it exists (beat 120+)
+            # T5 bass: verbatim (enters at beat 120, tresillo).
             t5 = layers['layers'].get('bass', [])
             for s_b, d_b, pitch in t5:
                 d = max(0.1, d_b)
@@ -293,6 +295,16 @@ def main():
                     bass_events.append({
                         'frame': grid_frame(out_b),
                         'note':  int(pitch),
+                        'dur_frames': max(3, int(round(d * fbeat_groove))),
+                    })
+            # T11 hook: verbatim (na-na counter-melody, beat 184+).
+            t11 = layers['layers'].get('hook', [])
+            for s_b, d_b, pitch in t11:
+                d = max(0.1, d_b)
+                for out_b, label in remap(s_b):
+                    bass_events.append({
+                        'frame': grid_frame(out_b),
+                        'note':  int(pitch) - 12,
                         'dur_frames': max(3, int(round(d * fbeat_groove))),
                     })
 
