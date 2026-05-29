@@ -539,11 +539,12 @@ f1go:
     lda #$E0
     sta ZP_FILT_CUR
 
-    cpx ZP_V2_LAST
-    beq f1retrig
-    lda ZP_V2_LAST
-    beq f1retrig
-    jmp f1stash
+    ; Retrigger the envelope on EVERY note onset. The old code skipped
+    ; the gate cycle on pitch changes (legato glide) which left most
+    ; syllables with no attack transient — the lead floated, with no
+    ; audible onset to lock against the kick. Re-articulating every note
+    ; (8 ms attack = soft, not clicky) puts a transient on every grid
+    ; position the melody hits. (cpx ZP_V2_LAST kept only for parity.)
 f1retrig:
     lda ZP_V1_CTRL        ; gate off (waveform alone)
     sta SID+11
