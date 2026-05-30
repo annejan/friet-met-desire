@@ -251,14 +251,17 @@ maybe_show_lyric:
 // raster chain, rock-solid:
 //   1. ALWAYS-ALIVE: the top/bottom banners glide through an 8-colour
 //      rave palette every few frames, so the screen never sits dead.
-//   2. STROBE PUNCH: on every kick (V2 gate rising edge) AND on every
-//      lyric onset (set from maybe_show_lyric), a 6-frame strobe fires:
-//      the BORDER punches white->yellow->red->black and the LYRIC row
-//      flashes white then settles to yellow. Background stays black so
+//   2. STROBE PUNCH: on every KICK (V3 triangle-waveform onset) AND on
+//      every lyric onset (set from maybe_show_lyric), a 6-frame strobe
+//      fires: the BORDER punches white->yellow->red->black and the LYRIC
+//      row flashes white then settles to yellow. Background stays black so
 //      the words never wash out.
-// V2 ($D40B) is the busiest voice in the new-standard arrangement (V1
-// holds its gate as the bass drone, V3 is sparse) -> driving the punch
-// off V2's gate gives the tightest visible pump.
+// Why the kick and not V2: the new-standard lead RETRIGGERS on every note,
+// so V2's gate rises per-syllable -> a constant flutter, not a beat pump.
+// The kick is the 4-on-the-floor. Our drum engine writes a TRIANGLE
+// waveform ($1x) to V3 for the kick's 2-frame thump while snares/hats are
+// noise ($81), so the triangle bit on $D412 is set ONLY at a kick onset ->
+// its rising edge is a clean, beat-locked pump.
 animate_rave:
     // --- layer 1: continuous banner colour glide ---
     lda frame_lo
@@ -277,17 +280,20 @@ animate_rave:
     dex
     bpl !br-
 
-    // --- beat detect: V2 gate rising edge ---
-    lda $d40b
-    and #$01
+    // --- beat detect: V3 KICK rising edge ---
+    // The kick onset writes a triangle waveform to $D412 for 2 frames;
+    // snares/hats are noise ($81), so the triangle bit ($10) is set ONLY at
+    // a kick -> a true 4-on-the-floor pump (not per-note like V2's gate).
+    lda $d412
+    and #$10                    // triangle bit = kick thump in progress
     tax
     cmp gate_prev
     stx gate_prev
     beq !no_beat+
     txa
-    beq !no_beat+               // gate fell -> ignore
+    beq !no_beat+               // kick ended (triangle cleared) -> ignore
     lda #6
-    sta beat_flash              // (re)arm the strobe
+    sta beat_flash              // (re)arm the strobe on the kick
     inc beat_count
 !no_beat:
 
