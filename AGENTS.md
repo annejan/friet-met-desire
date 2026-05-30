@@ -155,6 +155,9 @@ pipeline. Its composition is written to `docs/lab_composition.yaml`.
 - `docs/rhythm_research.md` — analysis of FFD's rhythmic identity (tresillo etc.)
 - `docs/score_transcription.md` — beat-by-beat 16th-grid transcription from the ossh MIDI
 - `docs/voice_essence.md` — DNA of each instrument layer (Pattern A / Pattern B engines)
+- `docs/sound_engine.md` — **the playback/synthesis engine** (the "new standard"):
+  frame-grid sync, legato-fill + hard-restart, per-section timbre, flange,
+  length/loop, render fade. Read this before touching `compose.py`/`synth.py`.
 
 These inform arrangement decisions. Key takeaway: bass interleaves
 with vocal (call-and-response) — zero collisions per bar. The chorus
